@@ -25,9 +25,9 @@ function LinkArrowIcon() {
 export function AboutStorySection({ services, story }: AboutStorySectionProps) {
   return (
     <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] py-[74px]">
-      <div className="mx-auto mb-8 flex max-w-content items-start justify-between gap-8 max-lg:flex-col max-lg:gap-4">
+      <div className="mx-auto mb-12 flex max-w-content items-start gap-8 max-lg:flex-col max-lg:gap-4 lg:gap-[208px]">
         <p className="shrink-0 text-lg font-semibold text-white">// {story.eyebrow} //</p>
-        <h2 className="max-w-[820px] flex-1 text-[clamp(30px,4vw,48px)] font-semibold leading-[1.25] text-white [&_span]:text-novatek-primary">
+        <h2 className="flex-1 text-[clamp(32px,4vw,48px)] font-semibold leading-[1.25] text-white [&_span]:text-novatek-primary">
           <HighlightedTitle {...story.title} />
         </h2>
       </div>

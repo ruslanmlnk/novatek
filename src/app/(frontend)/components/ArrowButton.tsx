@@ -16,7 +16,7 @@ export function ArrowButton({ href, label, variant = 'primary' }: ArrowButtonPro
 
   return (
     <a
-      className={`inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap border py-2 pl-4 pr-2 text-base font-semibold text-white max-md:min-h-[83px] max-md:w-full max-md:justify-between max-md:text-lg ${variantClass}`}
+      className={`inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap border py-2 pl-4 pr-2 text-base font-semibold text-white max-md:w-full max-md:justify-between max-md:font-medium ${variantClass}`}
       href={href}
     >
       <span>{label}</span>

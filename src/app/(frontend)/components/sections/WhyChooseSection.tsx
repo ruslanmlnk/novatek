@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react'
 import type { siteData } from '../../data'
+import { ArrowButton } from '../ArrowButton'
 import { StarRating } from '../IconSet'
 import { SectionHeading } from '../SectionHeading'
 
@@ -22,10 +23,10 @@ export function WhyChooseSection({ cards, heading }: WhyChooseSectionProps) {
 
           return (
             <article
-              className={`flex min-h-[466px] flex-col items-center justify-between p-8 text-center max-lg:min-h-[360px] ${
+              className={`flex min-h-[466px] flex-col items-center p-8 text-center max-lg:min-h-[360px] max-md:min-h-[349px] max-md:p-6 ${
                 isImageCard
-                  ? 'justify-end bg-cover bg-center text-white'
-                  : 'bg-novatek-soft text-novatek-bg'
+                  ? 'justify-end gap-2 bg-cover bg-center text-white'
+                  : 'justify-between bg-novatek-soft text-novatek-bg'
               }`}
               key={key}
               style={
@@ -39,7 +40,11 @@ export function WhyChooseSection({ cards, heading }: WhyChooseSectionProps) {
               {'eyebrow' in card && card.eyebrow && (
                 <p className="text-lg font-semibold text-novatek-primary">// {card.eyebrow} //</p>
               )}
-              {'title' in card && card.title && <h3>{card.title}</h3>}
+              {'title' in card && card.title && (
+                <h3 className="text-[26px] font-semibold leading-[38px] text-white">
+                  {card.title}
+                </h3>
+              )}
               {'metric' in card && card.metric && (
                 <strong className="block text-5xl font-semibold leading-none text-novatek-bg">
                   {card.metric}
@@ -54,7 +59,7 @@ export function WhyChooseSection({ cards, heading }: WhyChooseSectionProps) {
                 <div className="flex flex-wrap items-center justify-center gap-2">
                   <b className="text-[32px] text-novatek-bg">{card.rating}</b>
                   <span className="font-bold text-novatek-muted">/5.0</span>
-                  <StarRating className="text-novatek-primary" />
+                  <StarRating className="text-novatek-primary max-md:text-novatek-bg" />
                 </div>
               )}
               {'image' in card && card.image && !isImageCard && (
@@ -64,6 +69,11 @@ export function WhyChooseSection({ cards, heading }: WhyChooseSectionProps) {
           )
         })}
       </div>
+      {heading.button && (
+        <div className="mx-auto mt-6 max-w-content md:hidden">
+          <ArrowButton {...heading.button} />
+        </div>
+      )}
     </section>
   )
 }

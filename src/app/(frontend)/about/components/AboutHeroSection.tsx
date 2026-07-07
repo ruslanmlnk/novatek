@@ -24,13 +24,17 @@ export function AboutHeroSection({ brand, hero, nav }: AboutHeroSectionProps) {
       <div className="relative z-10 mx-auto flex max-w-content flex-col items-center gap-12">
         <div className="flex flex-col items-center gap-4 text-center">
           <p className="text-lg font-semibold text-white">// {hero.eyebrow} //</p>
-          <h1 className="max-w-[681px] text-[clamp(34px,4vw,48px)] font-semibold leading-[1.25] text-white [&_span]:text-novatek-primary">
+          <h1 className="max-w-[681px] text-[clamp(32px,4vw,48px)] font-semibold leading-[1.25] text-white [&_span]:text-novatek-primary">
             <HighlightedTitle {...hero.title} />
           </h1>
         </div>
         <div className="flex h-[560px] w-full items-stretch max-lg:h-auto max-lg:flex-col">
-          <img className="h-full min-w-0 flex-1 object-cover max-lg:h-[320px]" src={hero.image} alt="" />
-          <div className="relative flex h-full w-[593px] max-w-full shrink-0 flex-col justify-between gap-8 overflow-hidden bg-novatek-primary p-8 max-lg:h-auto max-lg:w-full">
+          <img
+            className="h-full min-w-0 flex-1 object-cover max-lg:h-[320px] max-md:h-[347px]"
+            src={hero.image}
+            alt=""
+          />
+          <div className="relative flex h-full w-[593px] max-w-full shrink-0 flex-col gap-[30px] overflow-hidden bg-novatek-primary p-8 max-lg:h-auto max-lg:w-full max-md:p-6 max-md:pb-28">
             <p className="relative z-10 text-lg font-medium leading-[1.45] text-white">{hero.description}</p>
             <ArrowButton {...hero.button} variant="onPrimary" />
             <NovatekWordmark className="pointer-events-none absolute -left-[350px] bottom-0 h-auto w-[1292px] opacity-10" />

@@ -30,9 +30,11 @@ export const aboutData = {
       accent: 'engineering technologies',
     } satisfies HighlightedText,
     partners: [
+      { name: 'Revopoint', image: '/assets/novatek/revopoint.svg' },
+      { name: 'Bambu Store', image: '/assets/novatek/figma-03f3037f7f-400.png' },
       { name: 'Haas Automation', image: '/assets/novatek/figma-9c02c0c372-154.png' },
-      { name: 'Partner', image: '/assets/novatek/figma-03f3037f7f-400.png' },
-      { name: 'Partner', image: '/assets/novatek/figma-68655a2d2a-296.png' },
+      { name: 'Bodor Laser', image: '/assets/novatek/figma-68655a2d2a-296.png' },
+      { name: 'INSIZE', image: '/assets/novatek/insize.png' },
     ],
   },
 }

@@ -1,3 +1,4 @@
+import { ContactFormSection } from './components/sections/ContactFormSection'
 import { FaqSection } from './components/sections/FaqSection'
 import { HeroSection } from './components/sections/HeroSection'
 import { ProcessSection } from './components/sections/ProcessSection'
@@ -20,6 +21,12 @@ export default function HomePage() {
       <TestimonialsSection {...siteData.testimonials} />
       <QuoteSection {...siteData.quote} />
       <FaqSection {...siteData.faq} />
+      <ContactFormSection
+        address={siteData.footer.contact[2]}
+        backgroundImage={siteData.hero.backgroundImage}
+        email={siteData.footer.contact[1]}
+        phone={siteData.footer.contact[0]}
+      />
       <SiteFooter
         brand={siteData.brand}
         footer={siteData.footer}

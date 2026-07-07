@@ -1,3 +1,4 @@
+import { ContactFormSection } from '../components/sections/ContactFormSection'
 import { SiteFooter } from '../components/sections/SiteFooter'
 import { siteData } from '../data'
 import { AboutHeroSection } from './components/AboutHeroSection'
@@ -17,6 +18,12 @@ export default function AboutPage() {
       <AboutHeroSection brand={siteData.brand} hero={aboutData.hero} nav={siteData.nav} />
       <AboutStorySection services={siteData.services.items} story={aboutData.story} />
       <TechPartnersSection {...aboutData.techPartners} />
+      <ContactFormSection
+        address={siteData.footer.contact[2]}
+        backgroundImage={siteData.hero.backgroundImage}
+        email={siteData.footer.contact[1]}
+        phone={siteData.footer.contact[0]}
+      />
       <SiteFooter
         brand={siteData.brand}
         footer={siteData.footer}

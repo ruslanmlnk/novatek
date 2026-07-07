@@ -17,7 +17,7 @@ function ProjectButton({
 }) {
   return (
     <a
-      className={`inline-flex min-h-14 w-fit items-center ${gap} whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 font-medium leading-[23px] text-white transition-colors hover:bg-white hover:text-novatek-bg max-md:min-h-[83px] max-md:w-full max-md:justify-between max-md:text-lg`}
+      className={`inline-flex min-h-14 w-fit items-center ${gap} whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 font-medium leading-[23px] text-white transition-colors hover:bg-white hover:text-novatek-bg max-md:w-full max-md:justify-between`}
       href={href}
     >
       <span className={textClass}>{label}</span>
@@ -37,14 +37,14 @@ export function ProjectsSection({ cta, eyebrow, featured, title }: ProjectsSecti
       className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] py-[74px] max-md:px-6"
       id="portfolio"
     >
-      <div className="mx-auto mb-12 flex max-w-content items-center justify-between gap-8 max-md:flex-col max-md:items-start">
-        <div>
+      <div className="mx-auto mb-12 flex max-w-content items-center justify-between gap-8 max-md:mb-8 max-md:flex-col max-md:items-center max-md:gap-6">
+        <div className="max-md:text-center">
           <p className="mb-4 text-lg font-medium leading-[26px] text-white">// {eyebrow} //</p>
-          <h2 className="max-w-[900px] text-[48px] font-semibold leading-[60px] tracking-normal text-white max-md:max-w-[681px] max-md:text-[34px] max-md:leading-10 [&_span]:text-novatek-primary">
+          <h2 className="max-w-[900px] text-[48px] font-semibold leading-[60px] tracking-normal text-white max-md:max-w-[681px] max-md:text-[32px] max-md:leading-[1.25] [&_span]:text-novatek-primary">
             <HighlightedTitle {...title} />
           </h2>
         </div>
-        <div className="flex shrink-0 items-center gap-3 max-md:hidden">
+        <div className="flex shrink-0 items-center gap-3 max-md:self-end">
           <button
             aria-label="Previous project"
             className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg"

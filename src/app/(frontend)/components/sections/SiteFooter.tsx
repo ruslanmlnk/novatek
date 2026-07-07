@@ -143,7 +143,7 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
 
   return (
     <footer
-      className="relative overflow-hidden border-t border-white/15 bg-novatek-bg px-[clamp(24px,5.14vw,74px)] pb-[34px] pt-[clamp(180px,18.5vw,266px)] max-md:pb-6 max-md:pt-[clamp(260px,123vw,480px)]"
+      className="relative overflow-hidden border-t border-white/15 bg-novatek-bg px-[clamp(24px,5.14vw,74px)] pb-[34px] pt-[clamp(180px,18.5vw,266px)] max-md:pb-6 max-md:pt-12"
       id="contacts"
     >
       <GridLines height={973} opacity={0.05} />

@@ -185,15 +185,15 @@ export function TestimonialsSection({
       id="testimonials"
     >
       <div className="mx-auto grid max-w-content gap-12 max-md:gap-8">
-        <div>
+        <div className="max-md:text-center">
           <p className="mb-4 text-lg font-medium leading-[26px] text-white">// {eyebrow} //</p>
-          <h2 className="max-w-[681px] text-[48px] font-semibold leading-[60px] tracking-normal text-white max-md:text-[32px] max-md:leading-10 [&_span]:text-novatek-primary">
+          <h2 className="max-w-[681px] text-[48px] font-semibold leading-[60px] tracking-normal text-white max-md:mx-auto max-md:text-[32px] max-md:leading-10 [&_span]:text-novatek-primary">
             <HighlightedTitle {...title} />
           </h2>
         </div>
         <div className="grid grid-cols-[450px_minmax(0,1fr)] gap-[30px] max-lg:grid-cols-1">
-          <aside className="relative flex min-h-[516px] overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_76%_32%,rgba(126,132,102,0.24),rgba(21,21,21,0.78)_42%,#151515_78%)] p-8 max-md:min-h-[1135px] max-md:p-7">
-            <div className="relative flex w-full max-w-[330px] flex-col justify-between">
+          <aside className="relative flex min-h-[516px] overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_76%_32%,rgba(126,132,102,0.24),rgba(21,21,21,0.78)_42%,#151515_78%)] p-8 max-md:min-h-0 max-md:p-6">
+            <div className="relative flex w-full max-w-[330px] flex-col justify-between max-md:justify-start max-md:gap-[98px]">
               <div className="grid gap-[3px]">
                 <TestimonialLogo />
               </div>
@@ -206,16 +206,17 @@ export function TestimonialsSection({
                     /5.0
                   </span>
                 </div>
-                <div className="flex items-center gap-4 max-sm:flex-col max-sm:items-start">
-                  <div className="relative h-[54px] w-[159px] shrink-0">
+                <div className="flex items-center gap-4">
+                  <div className="flex shrink-0">
                     {avatars.map((avatar, index) => (
                       <span
-                        className="absolute top-0 grid size-[54px] place-items-center rounded-[5px] bg-white"
+                        className={`grid size-[54px] place-items-center rounded-[5px] bg-white max-md:size-9 ${
+                          index > 0 ? '-ml-[19px] max-md:-ml-[13px]' : ''
+                        }`}
                         key={avatar}
-                        style={{ left: `${index * 35}px` }}
                       >
                         <img
-                          className="size-[50px] rounded-[5px] object-cover"
+                          className="size-[50px] rounded-[5px] object-cover max-md:size-[33px]"
                           src={avatar}
                           alt=""
                         />
@@ -237,7 +238,7 @@ export function TestimonialsSection({
               </div>
             </div>
           </aside>
-          <div className="grid min-h-[491px] grid-rows-[1fr_auto] gap-[29px] max-md:min-h-[386px] max-md:grid-rows-1">
+          <div className="grid min-h-[491px] grid-rows-[1fr_auto] gap-[29px] max-md:min-h-0 max-md:gap-6">
             <article className="relative flex min-h-[441px] flex-col justify-between overflow-hidden bg-novatek-soft p-[30px] text-novatek-bg max-md:min-h-[386px]">
               <div className="pointer-events-none absolute inset-y-0 left-0 w-28 bg-[linear-gradient(90deg,rgba(126,132,102,0.18),rgba(246,246,246,0))]" />
               <div className="relative max-w-[720px]">
@@ -259,7 +260,7 @@ export function TestimonialsSection({
                 </p>
               </footer>
             </article>
-            <div className="flex items-center gap-8 max-md:hidden">
+            <div className="flex items-center gap-8">
               <div className="h-px flex-1 bg-[#D1D1D1]" />
               <TestimonialNav />
             </div>
