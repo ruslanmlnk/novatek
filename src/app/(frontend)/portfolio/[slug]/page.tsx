@@ -1,13 +1,63 @@
 import { notFound } from 'next/navigation'
 
 import { ArrowButton } from '../../components/ArrowButton'
+import { PageHero } from '../../components/PageHero'
 import { SiteFooter } from '../../components/sections/SiteFooter'
-import { SiteHeader } from '../../components/SiteHeader'
 import { portfolioProjects } from '../../content'
 import { siteData } from '../../data'
 
 type PageProps = {
   params: Promise<{ slug: string }>
+}
+
+type CaseDetails = {
+  approach: string
+  gallery: string[]
+  heroImage: string
+  overview: string
+  results: string
+  specs: string[]
+}
+
+const caseDetailsMap: Record<string, Partial<CaseDetails>> = {
+  'custom-metal-components': {
+    heroImage: '/assets/novatek/figma-5107c2d1a7-2024.png',
+    gallery: [
+      '/assets/novatek/figma-62c65108ad-632.png',
+      '/assets/novatek/figma-10f924eaeb-632.png',
+      '/assets/novatek/figma-02ed1d64bc-632.png',
+    ],
+    overview:
+      'Our laser cutting services provide accurate and efficient manufacturing for custom and industrial applications. Using CNC-controlled equipment, we produce complex parts with clean edges, tight tolerances and consistent quality across every production run.',
+    approach:
+      'The project involved producing a range of custom steel components using CNC laser cutting technology. Special attention was given to dimensional accuracy, material utilization and edge quality to ensure every part met production requirements. By optimizing cutting parameters and workflow efficiency, we achieved consistent results across all manufactured components.',
+    specs: [
+      'Machine components',
+      'Equipment parts',
+      'Mounting brackets',
+      'Structural metal elements',
+    ],
+    results:
+      'The completed components were delivered with high dimensional accuracy, clean edge quality and consistent repeatability across the production run. The project demonstrated the efficiency of CNC laser cutting for manufacturing durable industrial parts while maintaining fast turnaround times and reliable production standards.',
+  },
+}
+
+function getCaseDetails(
+  project: (typeof portfolioProjects)[number],
+  related: typeof portfolioProjects,
+): CaseDetails {
+  return {
+    heroImage: project.image,
+    gallery: [project.image, ...related.map((item) => item.image)].slice(0, 3),
+    overview:
+      "This project combined Novatek Engineering's manufacturing review, production planning and quality-focused delivery for a practical industrial application.",
+    approach:
+      'The team reviewed project files, confirmed technical requirements and selected the process path that best matched the target geometry, material and timeline.',
+    specs: ['Machine components', 'Equipment parts', 'Mounting brackets', 'Structural metal elements'],
+    results:
+      'The completed work delivered reliable production quality, clear communication and a repeatable process that can be scaled or adapted for similar manufacturing needs.',
+    ...caseDetailsMap[project.slug],
+  }
 }
 
 export function generateStaticParams() {
@@ -24,6 +74,15 @@ export async function generateMetadata({ params }: PageProps) {
   }
 }
 
+function TextBlock({ body, title }: { body: string; title: string }) {
+  return (
+    <section className="grid gap-4">
+      <h2 className="text-[26px] font-semibold leading-[1.45] text-white">{title}</h2>
+      <p className="text-lg font-medium leading-[1.45] text-novatek-muted">{body}</p>
+    </section>
+  )
+}
+
 export default async function PortfolioCasePage({ params }: PageProps) {
   const { slug } = await params
   const project = portfolioProjects.find((item) => item.slug === slug)
@@ -31,81 +90,76 @@ export default async function PortfolioCasePage({ params }: PageProps) {
   if (!project) notFound()
 
   const related = portfolioProjects.filter((item) => item.slug !== project.slug).slice(0, 2)
+  const details = getCaseDetails(project, related)
 
   return (
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
-      <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)]">
-        <div className="absolute inset-x-0 top-0 h-[801px] bg-[linear-gradient(180deg,rgba(67,70,49,0.5)_0%,rgba(25,25,25,0)_27.81%)]" />
-        <SiteHeader activeHref="/portfolio" brand={siteData.brand} nav={siteData.nav} />
-        <div className="relative mx-auto grid max-w-content gap-10 pb-[74px] pt-12 text-center">
-          <div className="mx-auto grid max-w-[742px] gap-4">
-            <p className="text-lg font-medium leading-[1.45] text-white">
-              // {project.category} //
-            </p>
-            <h1 className="text-[clamp(42px,6vw,72px)] font-semibold leading-[1.05] text-white">
-              {project.title}
-            </h1>
-            <p className="text-xl font-medium leading-[1.45] text-novatek-muted max-md:text-lg">
-              {project.description}
-            </p>
-          </div>
+      <PageHero
+        activeHref="/portfolio"
+        brand={siteData.brand}
+        nav={siteData.nav}
+        eyebrow={project.category}
+        title={project.title}
+        description={project.description}
+        gridLines
+      />
+      <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-[42px]">
+        <div className="mx-auto grid max-w-content justify-items-center gap-12">
           <img
-            className="mx-auto h-[clamp(280px,42vw,506px)] w-full max-w-[1012px] object-cover"
-            src={project.image}
+            className="aspect-[2/1] w-full max-w-[1012px] object-cover max-md:aspect-[3/2]"
+            src={details.heroImage}
             alt=""
           />
+          <div className="grid w-full max-w-[1012px] gap-8">
+            <div className="grid gap-6">
+              <TextBlock body={details.overview} title="Project Overview:" />
+              <TextBlock body={details.approach} title="Approach:" />
+            </div>
+            <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
+              {details.gallery.map((image) => (
+                <img
+                  className="aspect-square w-full object-cover max-md:aspect-auto max-md:h-[316px]"
+                  src={image}
+                  alt=""
+                  key={image}
+                />
+              ))}
+            </div>
+            <div className="grid gap-6">
+              <div className="grid gap-6">
+                <p className="text-lg font-medium leading-[1.45] text-novatek-muted">
+                  Technical Specifications:
+                </p>
+                <ul className="grid gap-4 text-lg font-medium leading-[1.45] text-novatek-muted">
+                  {details.specs.map((spec) => (
+                    <li key={spec}>{spec}</li>
+                  ))}
+                </ul>
+              </div>
+              <TextBlock body={details.results} title="Results:" />
+            </div>
+          </div>
         </div>
       </section>
-      <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
-        <div className="mx-auto grid max-w-[1012px] gap-12">
-          <div className="grid gap-8 px-[clamp(0px,8vw,120px)]">
-            <article className="grid gap-4">
-              <h2 className="text-[26px] font-semibold leading-[1.45] text-white">
-                Project Overview:
+      <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-12">
+        <div className="mx-auto grid max-w-content gap-12">
+          <div className="grid gap-4">
+            <p className="text-lg font-medium leading-[1.45] text-white">// Related Projects //</p>
+            <div className="flex items-center justify-between gap-8 max-md:flex-col max-md:items-start">
+              <h2 className="text-[clamp(40px,5vw,48px)] font-semibold leading-[1.25] text-white">
+                More<span className="text-novatek-primary"> case studies</span>
               </h2>
-              <p className="text-lg font-medium leading-[1.45] text-novatek-muted">
-                This project combined Novatek Engineering&apos;s manufacturing review, production
-                planning and quality-focused delivery for a practical industrial application.
-              </p>
-            </article>
-            <article className="grid gap-4">
-              <h2 className="text-[26px] font-semibold leading-[1.45] text-white">Approach:</h2>
-              <p className="text-lg font-medium leading-[1.45] text-novatek-muted">
-                The team reviewed project files, confirmed technical requirements and selected the
-                process path that best matched the target geometry, material and timeline.
-              </p>
-            </article>
-          </div>
-          <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
-            {[project.image, ...related.map((item) => item.image)].map((image) => (
-              <img className="h-[316px] w-full object-cover" src={image} alt="" key={image} />
-            ))}
-          </div>
-          <div className="grid gap-4 px-[clamp(0px,8vw,120px)]">
-            <h2 className="text-[26px] font-semibold leading-[1.45] text-white">Results:</h2>
-            <p className="text-lg font-medium leading-[1.45] text-novatek-muted">
-              The completed work delivered reliable production quality, clear communication and a
-              repeatable process that can be scaled or adapted for similar manufacturing needs.
-            </p>
-          </div>
-        </div>
-      </section>
-      <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
-        <div className="mx-auto grid max-w-content gap-10">
-          <div className="flex items-center justify-between gap-8 max-md:flex-col max-md:items-start">
-            <h2 className="text-[clamp(34px,4vw,48px)] font-semibold leading-[1.12] text-white">
-              More <span className="text-novatek-primary">case studies</span>
-            </h2>
-            <ArrowButton href="/portfolio" label="View All Cases" />
+              <ArrowButton href="/portfolio" label="View All Cases" />
+            </div>
           </div>
           <div className="grid grid-cols-2 gap-12 max-lg:grid-cols-1">
             {related.map((item) => (
               <a
-                className="grid min-h-[229px] grid-cols-[minmax(0,1fr)_280px] bg-novatek-soft transition-opacity hover:opacity-90 max-md:grid-cols-1"
+                className="grid min-h-[372px] grid-cols-[minmax(0,1fr)_280px] bg-novatek-soft transition-opacity hover:opacity-90 max-md:grid-cols-1"
                 href={`/portfolio/${item.slug}`}
                 key={item.slug}
               >
-                <div className="flex flex-col justify-between gap-10 p-8 text-novatek-bg">
+                <div className="flex flex-col justify-between gap-10 p-8 text-novatek-bg max-md:order-2 max-md:gap-8 max-md:p-6">
                   <p className="text-lg font-medium leading-[1.45] text-novatek-primary">
                     // {item.category} //
                   </p>
@@ -116,7 +170,11 @@ export default async function PortfolioCasePage({ params }: PageProps) {
                     </p>
                   </div>
                 </div>
-                <img className="h-full min-h-[229px] w-full object-cover" src={item.image} alt="" />
+                <img
+                  className="h-full min-h-[372px] w-full object-cover max-md:order-1 max-md:h-[245px] max-md:min-h-0"
+                  src={item.image}
+                  alt=""
+                />
               </a>
             ))}
           </div>

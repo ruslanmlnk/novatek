@@ -1,6 +1,6 @@
 import { ArrowGlyph } from '../components/IconSet'
+import { PageHero } from '../components/PageHero'
 import { SiteFooter } from '../components/sections/SiteFooter'
-import { SiteHeader } from '../components/SiteHeader'
 import { portfolioProjects } from '../content'
 import { siteData } from '../data'
 
@@ -19,41 +19,6 @@ const filters = [
   'Engineering & Design',
   'Custom Solutions',
 ]
-
-function PortfolioHero() {
-  return (
-    <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)]">
-      <div className="absolute inset-x-0 top-0 h-[801px] bg-[linear-gradient(180deg,rgba(67,70,49,0.5)_0%,rgba(25,25,25,0)_27.81%)]" />
-      <SiteHeader activeHref="/portfolio" brand={siteData.brand} nav={siteData.nav} />
-      <div className="relative mx-auto flex max-w-content flex-col items-center gap-8 pb-[74px] pt-[42px] text-center">
-        <div className="grid justify-items-center gap-4">
-          <p className="text-lg font-medium leading-[1.45] text-white">// Portfolio //</p>
-          <h1 className="max-w-[742px] text-[clamp(32px,5vw,48px)] font-semibold leading-[1.25] text-white">
-            Our <span className="text-novatek-primary">Case</span>{' '}
-            <span className="text-novatek-primary">studies</span>
-          </h1>
-        </div>
-        <nav
-          className="flex max-w-full flex-wrap items-center justify-center gap-x-6 gap-y-3 text-lg font-medium leading-[1.45] text-white"
-          aria-label="Portfolio filters"
-        >
-          {filters.map((filter, index) => (
-            <a className="inline-flex items-center gap-4" href="#portfolio-grid" key={filter}>
-              <span className="text-white/20">/</span>
-              <span
-                className={
-                  index === 0 ? 'border-b border-novatek-primary text-novatek-primary' : undefined
-                }
-              >
-                {filter}
-              </span>
-            </a>
-          ))}
-        </nav>
-      </div>
-    </section>
-  )
-}
 
 function ProjectCard({ project }: { project: (typeof portfolioProjects)[number] }) {
   return (
@@ -119,7 +84,21 @@ function PortfolioGrid() {
 export default function PortfolioPage() {
   return (
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
-      <PortfolioHero />
+      <PageHero
+        activeHref="/portfolio"
+        brand={siteData.brand}
+        nav={siteData.nav}
+        eyebrow="Portfolio"
+        title={
+          <>
+            Our <span className="text-novatek-primary">Case studies</span>
+          </>
+        }
+        filters={filters}
+        filtersHref="#portfolio-grid"
+        filtersLabel="Portfolio filters"
+        contentClassName="pb-[74px] pt-[42px]"
+      />
       <PortfolioGrid />
       <SiteFooter
         brand={siteData.brand}

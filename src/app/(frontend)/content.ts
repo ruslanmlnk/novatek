@@ -183,11 +183,23 @@ export const blogPosts = [
     description: 'Practical insights for improving production efficiency and part quality',
     image:
       '/assets/novatek/figma-a1ccef41a1-723.png',
-    body: [
-      'Successful laser cutting starts with clean drawings, clear tolerances and material choices that match the final application.',
-      'Nesting strategy, edge requirements and downstream operations can affect turnaround time and cost. Sharing critical dimensions early helps the engineering team choose the right cutting parameters.',
-      'When parts will be bent, welded or assembled, include those requirements with the request so the cutting plan supports the complete manufacturing workflow.',
-    ],
+    heroImage: '/assets/novatek/figma-b98e1714f3-2024.png',
+    article: {
+      overview:
+        'Laser cutting performance depends on proper machine setup, material selection and optimized production workflows. By applying best practices throughout the cutting process, manufacturers can achieve cleaner edges, tighter tolerances and greater production efficiency while reducing material waste.',
+      keyPoints: [
+        'Cutting parameter optimization',
+        'Material selection',
+        'Edge quality improvement',
+        'Production efficiency',
+      ],
+      details:
+        'Consistent laser cutting results require proper machine calibration, optimized cutting parameters and suitable material selection. Following these practices helps improve part quality, reduce production errors and maintain reliable manufacturing performance.',
+      quote:
+        'True efficiency in manufacturing is not measured by speed alone, but by the ability to create reliable, repeatable and scalable processes. Companies that continuously improve their workflows, embrace innovation and invest in operational excellence are better positioned to meet changing market demands and maintain a competitive advantage.',
+      conclusion:
+        'As manufacturing technologies continue to evolve, businesses that prioritize process improvement and production efficiency can achieve higher quality standards, faster turnaround times and stronger long-term performance. Modern manufacturing success is built on the combination of skilled expertise, advanced technology and optimized workflows.',
+    },
   },
   {
     slug: 'reverse-engineering',
@@ -197,11 +209,23 @@ export const blogPosts = [
     description: 'Modern techniques for recreating and optimizing existing components',
     image:
       '/assets/novatek/figma-69735fffde-723.png',
-    body: [
-      'Reverse engineering is useful when original drawings are missing, parts have changed over time, or a component needs to be improved before reproduction.',
-      'A strong workflow combines measurement, 3D scanning, CAD reconstruction and engineering review so the final model is practical to manufacture.',
-      'The best results come from understanding what the part does, not only what it looks like. Function, fit and material choice all guide the redesign.',
-    ],
+    heroImage: '/assets/novatek/figma-56a5847ee2-740.png',
+    article: {
+      overview:
+        'Reverse engineering is useful when original drawings are missing, parts have changed over time, or a component needs to be improved before reproduction. A structured digital workflow turns an existing physical part into a reliable manufacturing model.',
+      keyPoints: [
+        '3D scanning and measurement',
+        'CAD reconstruction',
+        'Design review and optimization',
+        'Manufacturing preparation',
+      ],
+      details:
+        'A strong workflow combines measurement, 3D scanning, CAD reconstruction and engineering review so the final model is practical to manufacture and matches how the part is actually used.',
+      quote:
+        'The best results come from understanding what the part does, not only what it looks like. Function, fit and material choice all guide the redesign toward a component that performs better than the original.',
+      conclusion:
+        'With a complete digital model in hand, teams can reproduce discontinued components, correct known weak points and prepare parts for modern manufacturing methods with confidence.',
+    },
   },
   {
     slug: 'manufacturing-trends',
@@ -211,10 +235,22 @@ export const blogPosts = [
     description: 'Latest developments in engineering and industrial production technologies',
     image:
       '/assets/novatek/figma-3e5cadbd87-723.png',
-    body: [
-      'Modern manufacturing is moving toward faster iteration, flexible production and better digital preparation before parts reach the shop floor.',
-      'CAD, 3D scanning, additive manufacturing and CNC processes now work together more often, making it easier to validate parts before full production.',
-      'For small and mid-sized projects, this means clearer estimates, fewer reworks and a smoother path from concept to finished component.',
-    ],
+    heroImage: '/assets/novatek/figma-b29e3ab540-740.png',
+    article: {
+      overview:
+        'Modern manufacturing is moving toward faster iteration, flexible production and better digital preparation before parts reach the shop floor. Companies that adapt their processes early benefit from shorter lead times and more predictable results.',
+      keyPoints: [
+        'Digital process preparation',
+        'Additive manufacturing growth',
+        'Flexible small-batch production',
+        'Integrated CAD-to-CNC workflows',
+      ],
+      details:
+        'CAD, 3D scanning, additive manufacturing and CNC processes now work together more often, making it easier to validate parts before full production and to switch between prototyping and serial manufacturing.',
+      quote:
+        'For small and mid-sized projects, clearer estimates, fewer reworks and a smoother path from concept to finished component are the real measures of manufacturing progress.',
+      conclusion:
+        'Manufacturers that embrace these tools gain shorter lead times, more consistent quality and a stronger position in a rapidly changing industry.',
+    },
   },
 ]

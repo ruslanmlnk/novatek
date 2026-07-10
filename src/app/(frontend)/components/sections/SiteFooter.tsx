@@ -143,7 +143,7 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
 
   return (
     <footer
-      className="relative overflow-hidden border-t border-white/15 bg-novatek-bg px-[clamp(24px,5.14vw,74px)] pb-[34px] pt-[clamp(180px,18.5vw,266px)] max-md:pb-6 max-md:pt-12"
+      className="relative overflow-hidden border-t border-white/15 bg-novatek-bg px-[clamp(24px,5.14vw,74px)] pt-[74px] max-md:pt-12"
       id="contacts"
     >
       <GridLines height={973} opacity={0.05} />
@@ -201,7 +201,7 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
             <div className="flex flex-col items-start gap-6">
               <h3 className="text-[26px] font-semibold leading-[1.45] text-white">Contact info</h3>
               <div className="flex flex-col items-start gap-4 self-stretch">
-                {footer.contact.map((line) => (
+                {[footer.contact[2], footer.contact[0], footer.contact[1]].map((line) => (
                   <span
                     className="text-lg font-medium leading-[1.45] text-novatek-muted"
                     key={line}
@@ -234,7 +234,7 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
           <SocialLinks className="justify-end max-md:hidden" socials={footer.socials} />
         </div>
 
-        <NovatekWordmark className="mt-16 h-auto w-full opacity-[0.04] max-md:mt-8" />
+        <NovatekWordmark className="-mb-[8.75%] mt-16 h-auto w-full opacity-[0.04] max-md:mt-8" />
       </div>
     </footer>
   )
