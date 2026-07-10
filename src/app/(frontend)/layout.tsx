@@ -2,6 +2,8 @@ import React from 'react'
 import { Inter_Tight } from 'next/font/google'
 import './styles.css'
 
+import { ScrollReveal } from './components/ScrollReveal'
+
 const interTight = Inter_Tight({
   subsets: ['latin'],
   variable: '--font-inter-tight',
@@ -18,6 +20,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={`${interTight.className} bg-novatek-bg text-white antialiased`}>
+        <ScrollReveal />
         <main>{children}</main>
       </body>
     </html>

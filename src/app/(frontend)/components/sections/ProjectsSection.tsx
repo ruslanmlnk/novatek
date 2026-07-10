@@ -37,7 +37,10 @@ export function ProjectsSection({ cta, eyebrow, featured, title }: ProjectsSecti
       className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] py-[74px] max-md:px-6"
       id="portfolio"
     >
-      <div className="mx-auto mb-12 flex max-w-content items-center justify-between gap-8 max-md:mb-8 max-md:flex-col max-md:items-center max-md:gap-6">
+      <div
+        className="mx-auto mb-12 flex max-w-content items-center justify-between gap-8 max-md:mb-8 max-md:flex-col max-md:items-center max-md:gap-6"
+        data-reveal
+      >
         <div className="max-md:text-center">
           <p className="mb-4 text-lg font-medium leading-[26px] text-white">// {eyebrow} //</p>
           <h2 className="max-w-[900px] text-[48px] font-semibold leading-[60px] tracking-normal text-white max-md:max-w-[681px] max-md:text-[32px] max-md:leading-[1.25] [&_span]:text-novatek-primary">
@@ -61,7 +64,10 @@ export function ProjectsSection({ cta, eyebrow, featured, title }: ProjectsSecti
           </button>
         </div>
       </div>
-      <article className="mx-auto mb-8 grid max-w-content grid-cols-2 items-stretch max-lg:grid-cols-1">
+      <article
+        className="mx-auto mb-8 grid max-w-content grid-cols-2 items-stretch max-lg:grid-cols-1"
+        data-reveal
+      >
         <div className="flex min-h-[305px] flex-col justify-between bg-novatek-soft p-8 text-novatek-bg max-md:min-h-[383px] max-md:gap-16 max-md:p-7">
           <p className="text-lg font-medium leading-[26px] text-novatek-primary">
             // {featured.category} //
@@ -91,7 +97,10 @@ export function ProjectsSection({ cta, eyebrow, featured, title }: ProjectsSecti
           alt=""
         />
       </article>
-      <aside className="mx-auto flex max-w-content items-center justify-between gap-8 border-t border-white/20 pt-8 max-md:flex-col max-md:items-start">
+      <aside
+        className="mx-auto flex max-w-content items-center justify-between gap-8 border-t border-white/20 pt-8 max-md:flex-col max-md:items-start"
+        data-reveal
+      >
         <div>
           <h3 className="text-[26px] font-semibold leading-[38px] text-white">{cta.title}</h3>
           <p className="mt-2 text-lg font-medium leading-[26px] text-novatek-muted">

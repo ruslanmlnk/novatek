@@ -61,7 +61,7 @@ function ServiceHero({
       <div className="absolute inset-x-0 top-0 h-[801px] bg-[linear-gradient(180deg,rgba(67,70,49,0.5)_0%,rgba(25,25,25,0)_27.81%)]" />
       <SiteHeader activeHref="/services" brand={siteData.brand} nav={siteData.nav} />
       <div className="relative mx-auto grid max-w-content gap-12 pb-[74px] pt-12">
-        <div className="grid max-w-[742px] gap-4">
+        <div className="grid max-w-[742px] gap-4" data-reveal>
           <p className="text-lg font-medium leading-[1.45] text-white">// Service //</p>
           <h1 className="text-[clamp(42px,6vw,72px)] font-semibold leading-[1.05] text-white">
             {service.title}
@@ -74,6 +74,7 @@ function ServiceHero({
           className="h-[clamp(280px,45vw,560px)] w-full object-cover"
           src={service.image}
           alt=""
+          data-reveal
         />
       </div>
     </section>
@@ -86,7 +87,7 @@ function ServiceContent({ service }: { service: (typeof serviceDetails)[number] 
       <GridLines height={920} opacity={0.05} />
       <div className="relative mx-auto grid max-w-content gap-12">
         <div className="grid grid-cols-[0.8fr_1.2fr] gap-12 max-lg:grid-cols-1">
-          <div className="grid content-start gap-6">
+          <div className="grid content-start gap-6" data-reveal>
             <p className="text-lg font-medium leading-[1.45] text-white">// {service.title} //</p>
             <h2 className="text-[clamp(34px,4vw,48px)] font-semibold leading-[1.12] text-white">
               Built for <span className="text-novatek-primary">accurate production</span>
@@ -97,7 +98,7 @@ function ServiceContent({ service }: { service: (typeof serviceDetails)[number] 
             </p>
             <ArrowButton href="/#quote" label="Request A Quote" />
           </div>
-          <div className="grid grid-cols-2 gap-8 max-md:grid-cols-1">
+          <div className="grid grid-cols-2 gap-8 max-md:grid-cols-1" data-reveal>
             <article className="bg-novatek-panel p-8">
               <h3 className="mb-6 text-[26px] font-semibold leading-[1.25] text-white">
                 Capabilities
@@ -112,7 +113,7 @@ function ServiceContent({ service }: { service: (typeof serviceDetails)[number] 
             </article>
           </div>
         </div>
-        <div className="grid gap-8 border-t border-white/15 pt-12">
+        <div className="grid gap-8 border-t border-white/15 pt-12" data-reveal>
           <h2 className="text-[clamp(34px,4vw,48px)] font-semibold leading-[1.12] text-white">
             Process <span className="text-novatek-primary">overview</span>
           </h2>

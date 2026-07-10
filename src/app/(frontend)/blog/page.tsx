@@ -2,6 +2,7 @@ import { getBlogPosts, getSiteData, type BlogPost } from '../cms'
 import { BlogCard } from '../components/BlogCard'
 import { ArrowGlyph } from '../components/IconSet'
 import { PageHero } from '../components/PageHero'
+import { revealDelay } from '../components/reveal'
 import { SiteFooter } from '../components/sections/SiteFooter'
 
 export const metadata = {
@@ -51,7 +52,9 @@ function BlogGrid({ posts }: { posts: Posts }) {
       <div className="mx-auto grid max-w-content gap-12">
         <div className="grid grid-cols-3 gap-8 max-lg:grid-cols-2 max-md:grid-cols-1">
           {gridCards.map(({ post, image }, index) => (
-            <BlogCard post={post} image={image} key={`${post.slug}-${index}`} />
+            <div data-reveal style={revealDelay(index % 3)} key={`${post.slug}-${index}`}>
+              <BlogCard post={post} image={image} />
+            </div>
           ))}
         </div>
         <div className="flex items-center justify-between gap-8 pl-[calc(50%-24px)] max-md:pl-0">

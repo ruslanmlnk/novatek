@@ -1,6 +1,7 @@
 import { getSiteData } from '../cms'
 import { ArrowButton } from '../components/ArrowButton'
 import { GridLines } from '../components/GridLines'
+import { revealDelay } from '../components/reveal'
 import { SiteFooter } from '../components/sections/SiteFooter'
 import { SiteHeader } from '../components/SiteHeader'
 
@@ -62,7 +63,7 @@ export default async function ContactPage() {
         </div>
         <SiteHeader activeHref="/contact" brand={siteData.brand} nav={siteData.nav} />
         <div className="relative mx-auto grid max-w-content grid-cols-2 gap-8 pb-[74px] pt-12 max-lg:grid-cols-1">
-          <div className="flex flex-col justify-between gap-12">
+          <div className="flex flex-col justify-between gap-12" data-reveal>
             <div className="grid gap-2">
               <p className="text-lg font-medium leading-[1.45] text-white">// Contact Us //</p>
               <h1 className="text-[clamp(36px,4vw,56px)] font-semibold leading-[1.25] text-white">
@@ -87,7 +88,11 @@ export default async function ContactPage() {
               </div>
             </div>
           </div>
-          <form className="grid content-start gap-6 bg-white p-8 max-md:p-6">
+          <form
+            className="grid content-start gap-6 bg-white p-8 max-md:p-6"
+            data-reveal
+            style={revealDelay(1, 150)}
+          >
             <div className="grid gap-4">
               <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
                 <Field label="First name" required />

@@ -26,7 +26,10 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
       id="services"
     >
       {heading && (
-        <div className="mx-auto mb-[69px] grid max-w-content gap-4 max-md:mb-8 max-md:justify-items-center max-md:text-center">
+        <div
+          className="mx-auto mb-[69px] grid max-w-content gap-4 max-md:mb-8 max-md:justify-items-center max-md:text-center"
+          data-reveal
+        >
           <p className="text-lg font-medium leading-[26px] text-white">// {heading.eyebrow} //</p>
           <div className="flex items-center justify-between gap-8 max-md:flex-col max-md:items-center">
             <h2 className="max-w-[681px] text-[48px] font-semibold leading-[60px] tracking-normal text-white max-md:text-[32px] max-md:leading-[1.25] [&_span]:text-novatek-primary">

@@ -26,7 +26,7 @@ export default async function PrivacyPolicyPage() {
       <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-[42px]">
         <div className="mx-auto grid w-full max-w-[1012px] gap-6">
           {sections.map((section) => (
-            <article className="grid gap-4" key={section.title}>
+            <article className="grid gap-4" data-reveal key={section.title}>
               <h2 className="text-[26px] font-semibold leading-[1.45] text-white">
                 {section.title}
               </h2>

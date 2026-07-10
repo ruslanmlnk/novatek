@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react'
 import { ArrowGlyph } from '../IconSet'
+import { revealDelay } from '../reveal'
 
 function Eyebrow({ children }: { children: string }) {
   return <p className="text-lg font-medium leading-[1.45] text-white">// {children} //</p>
@@ -71,7 +72,7 @@ export function ContactFormSection({
       }
     >
       <div className="mx-auto flex max-w-content items-stretch gap-8 max-lg:flex-col">
-        <div className="flex flex-1 flex-col justify-between gap-12">
+        <div className="flex flex-1 flex-col justify-between gap-12" data-reveal>
           <div className="grid gap-2">
             <Eyebrow>Contact Us</Eyebrow>
             <h2 className="max-w-[456px] text-[56px] font-semibold leading-[1.25] text-white max-md:text-[32px]">
@@ -102,7 +103,11 @@ export function ContactFormSection({
             </div>
           </div>
         </div>
-        <form className="flex flex-1 flex-col gap-6 bg-novatek-bg p-8 max-md:p-6">
+        <form
+          className="flex flex-1 flex-col gap-6 bg-novatek-bg p-8 max-md:p-6"
+          data-reveal
+          style={revealDelay(1, 150)}
+        >
           <div className="grid gap-4">
             <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
               <Field label="First name *" placeholder="Your first name" />

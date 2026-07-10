@@ -5,6 +5,7 @@ import { ArrowButton } from '../../components/ArrowButton'
 import { BlogCard } from '../../components/BlogCard'
 import { CmsRichText } from '../../components/CmsRichText'
 import { PageHero } from '../../components/PageHero'
+import { revealDelay } from '../../components/reveal'
 import { SiteFooter } from '../../components/sections/SiteFooter'
 
 type PageProps = {
@@ -102,8 +103,9 @@ export default async function ArticlePage({ params }: PageProps) {
             className="aspect-[2/1] w-full max-w-[1012px] object-cover max-md:aspect-[3/2]"
             src={post.heroImage}
             alt=""
+            data-reveal
           />
-          <div className="grid w-full max-w-[1012px] gap-8">
+          <div className="grid w-full max-w-[1012px] gap-8" data-reveal>
             <CmsRichText data={post.content} />
             <div className="flex items-center justify-between gap-8 border-t border-white/20 pt-8 max-md:flex-col max-md:items-start">
               <h2 className="text-[26px] font-semibold leading-[1.45] text-white">
@@ -134,7 +136,7 @@ export default async function ArticlePage({ params }: PageProps) {
       </section>
       <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-12">
         <div className="mx-auto grid max-w-content gap-12">
-          <div className="grid gap-4">
+          <div className="grid gap-4" data-reveal>
             <p className="text-lg font-medium leading-[1.45] text-white">// Related Articles //</p>
             <div className="flex items-center justify-between gap-8 max-md:flex-col max-md:items-start">
               <h2 className="text-[clamp(34px,4vw,48px)] font-semibold leading-[1.25] text-white">
@@ -144,8 +146,10 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
           </div>
           <div className="grid grid-cols-3 gap-8 max-lg:grid-cols-2 max-md:grid-cols-1">
-            {relatedPosts.map((item) => (
-              <BlogCard post={item} key={item.slug} />
+            {relatedPosts.map((item, index) => (
+              <div data-reveal style={revealDelay(index)} key={item.slug}>
+                <BlogCard post={item} />
+              </div>
             ))}
           </div>
         </div>

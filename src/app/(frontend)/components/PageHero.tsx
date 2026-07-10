@@ -43,6 +43,7 @@ export function PageHero({
       <SiteHeader activeHref={activeHref} brand={brand} nav={nav} />
       <div
         className={`relative mx-auto flex max-w-content flex-col items-center gap-8 text-center ${contentClassName}`}
+        data-reveal
       >
         <div className="grid justify-items-center gap-4">
           {meta}

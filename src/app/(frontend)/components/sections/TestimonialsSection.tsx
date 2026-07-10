@@ -185,13 +185,13 @@ export function TestimonialsSection({
       id="testimonials"
     >
       <div className="mx-auto grid max-w-content gap-12 max-md:gap-8">
-        <div className="max-md:text-center">
+        <div className="max-md:text-center" data-reveal>
           <p className="mb-4 text-lg font-medium leading-[26px] text-white">// {eyebrow} //</p>
           <h2 className="max-w-[681px] text-[48px] font-semibold leading-[60px] tracking-normal text-white max-md:mx-auto max-md:text-[32px] max-md:leading-10 [&_span]:text-novatek-primary">
             <HighlightedTitle {...title} />
           </h2>
         </div>
-        <div className="grid grid-cols-[450px_minmax(0,1fr)] gap-[30px] max-lg:grid-cols-1">
+        <div className="grid grid-cols-[450px_minmax(0,1fr)] gap-[30px] max-lg:grid-cols-1" data-reveal>
           <aside className="relative flex min-h-[516px] overflow-hidden border border-white/10 bg-[radial-gradient(circle_at_76%_32%,rgba(126,132,102,0.24),rgba(21,21,21,0.78)_42%,#151515_78%)] p-8 max-md:min-h-0 max-md:p-6">
             <div className="relative flex w-full max-w-[330px] flex-col justify-between max-md:justify-start max-md:gap-[98px]">
               <div className="grid gap-[3px]">

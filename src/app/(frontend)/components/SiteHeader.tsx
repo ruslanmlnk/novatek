@@ -22,7 +22,7 @@ type SiteHeaderProps = {
 
 export function SiteHeader({ activeHref, brand, nav }: SiteHeaderProps) {
   return (
-    <header className="relative z-50 mx-auto flex h-[120px] w-full max-w-[1292px] items-center justify-between gap-8 py-8 max-lg:-mx-6 max-lg:h-20 max-lg:w-[calc(100%+48px)] max-lg:gap-4 max-lg:bg-novatek-bg max-lg:px-6 max-lg:py-6">
+    <header className="relative z-50 mx-auto flex h-[120px] w-full max-w-[1292px] items-center justify-between gap-8 py-8 max-lg:-mx-6 max-lg:h-20 max-lg:w-[calc(100%+48px)] max-lg:gap-4 max-lg:px-6 max-lg:py-6">
       <BrandLogo name={brand.name} tagline={brand.tagline} />
       <nav
         className="flex items-center gap-6 text-lg font-medium leading-[1.45] text-white max-lg:hidden"
@@ -52,7 +52,7 @@ export function SiteHeader({ activeHref, brand, nav }: SiteHeaderProps) {
         <summary className="grid size-10 cursor-pointer list-none place-items-center text-white [&::-webkit-details-marker]:hidden">
           <span className="relative block h-3.5 w-6" aria-hidden="true">
             <span className="absolute left-0 top-0 block h-0.5 w-6 bg-current transition-transform group-open:top-1.5 group-open:rotate-45" />
-            <span className="absolute left-0 top-1.5 block h-0.5 w-6 bg-current transition-opacity group-open:opacity-0" />
+            <span className="absolute right-0 top-1.5 block h-0.5 w-[18px] bg-current transition-opacity group-open:opacity-0" />
             <span className="absolute left-0 top-3 block h-0.5 w-6 bg-current transition-transform group-open:top-1.5 group-open:-rotate-45" />
           </span>
           <span className="sr-only">Open navigation</span>

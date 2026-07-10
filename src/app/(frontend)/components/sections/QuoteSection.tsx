@@ -9,7 +9,10 @@ export function QuoteSection({ button, title }: QuoteSectionProps) {
       className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-0 pt-[74px] max-md:px-6"
       id="quote"
     >
-      <div className="relative mx-auto flex max-w-[990px] items-center justify-between gap-8 overflow-hidden border border-white/10 bg-novatek-bg px-[45px] py-9 max-md:flex-col max-md:items-stretch max-md:gap-6 max-md:p-6">
+      <div
+        className="relative mx-auto flex max-w-[990px] items-center justify-between gap-8 overflow-hidden border border-white/10 bg-novatek-bg px-[45px] py-9 max-md:flex-col max-md:items-stretch max-md:gap-6 max-md:p-6"
+        data-reveal
+      >
         <div
           className="pointer-events-none absolute -left-[180px] -top-[185px] size-[384px] rounded-full bg-novatek-primary opacity-70 blur-[150px] max-md:opacity-30"
           aria-hidden="true"

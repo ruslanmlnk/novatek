@@ -6,7 +6,10 @@ type TechPartnersSectionProps = typeof aboutData.techPartners
 export function TechPartnersSection({ partners, title, eyebrow }: TechPartnersSectionProps) {
   return (
     <section className="bg-novatek-bg py-[74px]">
-      <div className="mx-auto mb-12 flex max-w-content flex-col items-center gap-4 px-[clamp(20px,5.1vw,74px)] text-center">
+      <div
+        className="mx-auto mb-12 flex max-w-content flex-col items-center gap-4 px-[clamp(20px,5.1vw,74px)] text-center"
+        data-reveal
+      >
         <p className="text-lg font-semibold text-white">// {eyebrow} //</p>
         <h2 className="max-w-[681px] text-[clamp(32px,4vw,48px)] font-semibold leading-[1.25] text-white [&_span]:text-novatek-primary">
           <HighlightedTitle {...title} />

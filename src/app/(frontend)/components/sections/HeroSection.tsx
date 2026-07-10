@@ -41,7 +41,10 @@ export function HeroSection({ brand, hero, nav }: HeroSectionProps) {
       <SiteHeader brand={brand} nav={nav} />
       <div className="relative z-10 mx-auto flex min-h-[575px] w-full max-w-[1295px] shrink-0 flex-col items-end gap-[140px] max-md:min-h-[531px] max-md:items-start max-md:justify-end max-md:gap-[82px]">
         <NovatekWordmark className="h-auto w-full shrink-0" />
-        <div className="grid w-full grid-cols-[488px_428px] items-start justify-between gap-8 max-lg:grid-cols-1">
+        <div
+          className="grid w-full grid-cols-[488px_428px] items-start justify-between gap-8 max-lg:grid-cols-1"
+          data-reveal
+        >
           <h1 className="w-full max-w-[488px] text-[56px] font-semibold uppercase leading-[70px] tracking-normal text-white max-md:max-w-none max-md:text-[36px] max-md:leading-10 max-md:[&_span]:block [&_span]:text-novatek-primary">
             <HighlightedTitle {...hero.title} />
           </h1>

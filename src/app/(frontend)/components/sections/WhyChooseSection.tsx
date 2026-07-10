@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react'
 import type { siteData } from '../../data'
 import { ArrowButton } from '../ArrowButton'
 import { StarRating } from '../IconSet'
+import { revealDelay } from '../reveal'
 import { SectionHeading } from '../SectionHeading'
 
 type WhyChooseSectionProps = typeof siteData.whyChoose
@@ -11,7 +12,7 @@ export function WhyChooseSection({ cards, heading }: WhyChooseSectionProps) {
     <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] py-[74px] max-md:px-6" id="about">
       <SectionHeading {...heading} />
       <div className="mx-auto grid max-w-content grid-cols-3 gap-8 max-lg:grid-cols-1">
-        {cards.map((card) => {
+        {cards.map((card, index) => {
           const isImageCard =
             'title' in card && Boolean(card.title) && 'image' in card && Boolean(card.image)
           const key =
@@ -29,12 +30,16 @@ export function WhyChooseSection({ cards, heading }: WhyChooseSectionProps) {
                   : 'justify-between bg-novatek-soft text-novatek-bg'
               }`}
               key={key}
+              data-reveal
               style={
-                isImageCard
-                  ? ({
-                      backgroundImage: `linear-gradient(180deg, rgba(21, 21, 21, 0), #151515), url(${card.image})`,
-                    } as CSSProperties)
-                  : undefined
+                {
+                  ...revealDelay(index),
+                  ...(isImageCard
+                    ? {
+                        backgroundImage: `linear-gradient(180deg, rgba(21, 21, 21, 0), #151515), url(${card.image})`,
+                      }
+                    : {}),
+                } as CSSProperties
               }
             >
               {'eyebrow' in card && card.eyebrow && (

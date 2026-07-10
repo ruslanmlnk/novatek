@@ -1,6 +1,7 @@
 import { getPortfolioProjects, getSiteData, type PortfolioItem } from '../cms'
 import { ArrowGlyph } from '../components/IconSet'
 import { PageHero } from '../components/PageHero'
+import { revealDelay } from '../components/reveal'
 import { SiteFooter } from '../components/sections/SiteFooter'
 
 export const metadata = {
@@ -22,7 +23,7 @@ const filters = [
 function ProjectCard({ project }: { project: PortfolioItem }) {
   return (
     <a
-      className="grid min-h-[229px] grid-cols-[minmax(0,1fr)_280px] bg-novatek-soft transition-opacity hover:opacity-90 max-md:grid-cols-1"
+      className="grid h-full min-h-[229px] grid-cols-[minmax(0,1fr)_280px] bg-novatek-soft transition-opacity hover:opacity-90 max-md:grid-cols-1"
       href={`/portfolio/${project.slug}`}
     >
       <div className="flex flex-col justify-between gap-10 p-8 text-novatek-bg max-md:order-2 max-md:gap-8 max-md:p-6">
@@ -60,7 +61,9 @@ function PortfolioGrid({ projects }: { projects: PortfolioItem[] }) {
           {Array.from({ length: rowCount }).map((_, rowIndex) => (
             <div className="grid grid-cols-2 gap-12 max-lg:grid-cols-1 max-md:gap-6" key={rowIndex}>
               {projects.slice(rowIndex * 2, rowIndex * 2 + 2).map((project, index) => (
-                <ProjectCard project={project} key={`${project.title}-${rowIndex}-${index}`} />
+                <div data-reveal style={revealDelay(index)} key={`${project.title}-${rowIndex}-${index}`}>
+                  <ProjectCard project={project} />
+                </div>
               ))}
             </div>
           ))}

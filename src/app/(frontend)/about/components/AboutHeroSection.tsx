@@ -21,7 +21,7 @@ export function AboutHeroSection({ brand, hero, nav }: AboutHeroSectionProps) {
         aria-hidden="true"
       />
       <SiteHeader activeHref="/about" brand={brand} nav={nav} />
-      <div className="relative z-10 mx-auto flex max-w-content flex-col items-center gap-12">
+      <div className="relative z-10 mx-auto flex max-w-content flex-col items-center gap-12" data-reveal>
         <div className="flex flex-col items-center gap-4 text-center">
           <p className="text-lg font-semibold text-white">// {hero.eyebrow} //</p>
           <h1 className="max-w-[681px] text-[clamp(32px,4vw,48px)] font-semibold leading-[1.25] text-white [&_span]:text-novatek-primary">

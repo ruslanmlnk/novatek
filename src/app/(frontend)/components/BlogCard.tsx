@@ -13,7 +13,7 @@ type BlogCardProps = {
 export function BlogCard({ post, image }: BlogCardProps) {
   return (
     <a
-      className="grid gap-8 bg-novatek-soft p-6 text-novatek-bg transition-opacity hover:opacity-90"
+      className="grid h-full gap-8 bg-novatek-soft p-6 text-novatek-bg transition-opacity hover:opacity-90"
       href={`/blog/${post.slug}`}
     >
       <img className="h-60 w-full object-cover" src={image ?? post.image} alt="" />

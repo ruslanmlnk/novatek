@@ -5,6 +5,7 @@ import { getPortfolioProjects, getSiteData, type PortfolioItem } from '../../cms
 import { ArrowButton } from '../../components/ArrowButton'
 import { CmsRichText } from '../../components/CmsRichText'
 import { PageHero } from '../../components/PageHero'
+import { revealDelay } from '../../components/reveal'
 import { SiteFooter } from '../../components/sections/SiteFooter'
 
 type PageProps = {
@@ -108,15 +109,16 @@ export default async function PortfolioCasePage({ params }: PageProps) {
             className="aspect-[2/1] w-full max-w-[1012px] object-cover max-md:aspect-[3/2]"
             src={details.heroImage}
             alt=""
+            data-reveal
           />
-          <div className="grid w-full max-w-[1012px] gap-8">
+          <div className="grid w-full max-w-[1012px] gap-8" data-reveal>
             <CmsRichText data={details.content} />
           </div>
         </div>
       </section>
       <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-12">
         <div className="mx-auto grid max-w-content gap-12">
-          <div className="grid gap-4">
+          <div className="grid gap-4" data-reveal>
             <p className="text-lg font-medium leading-[1.45] text-white">// Related Projects //</p>
             <div className="flex items-center justify-between gap-8 max-md:flex-col max-md:items-start">
               <h2 className="text-[clamp(40px,5vw,48px)] font-semibold leading-[1.25] text-white">
@@ -126,11 +128,13 @@ export default async function PortfolioCasePage({ params }: PageProps) {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-12 max-lg:grid-cols-1">
-            {related.map((item) => (
+            {related.map((item, index) => (
               <a
                 className="grid min-h-[372px] grid-cols-[minmax(0,1fr)_280px] bg-novatek-soft transition-opacity hover:opacity-90 max-md:grid-cols-1"
                 href={`/portfolio/${item.slug}`}
                 key={item.slug}
+                data-reveal
+                style={revealDelay(index)}
               >
                 <div className="flex flex-col justify-between gap-10 p-8 text-novatek-bg max-md:order-2 max-md:gap-8 max-md:p-6">
                   <p className="text-lg font-medium leading-[1.45] text-novatek-primary">
