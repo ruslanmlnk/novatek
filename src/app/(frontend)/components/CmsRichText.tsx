@@ -20,7 +20,13 @@ function imageUrl(image: unknown): string | undefined {
 const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
   ...defaultConverters,
   heading: ({ node, nodesToJSX }) => (
-    <h2 className="text-[26px] font-semibold leading-[1.45] text-white">
+    <h2
+      className={
+        node.tag === 'h3'
+          ? 'text-2xl font-semibold leading-[1.4] text-white'
+          : 'text-[26px] font-semibold leading-[1.45] text-white'
+      }
+    >
       {nodesToJSX({ nodes: node.children })}
     </h2>
   ),
@@ -34,11 +40,30 @@ const converters: JSXConvertersFunction = ({ defaultConverters }) => ({
       &ldquo;{nodesToJSX({ nodes: node.children })}&rdquo;
     </blockquote>
   ),
-  list: ({ node, nodesToJSX }) => (
-    <ul className="grid gap-4">{nodesToJSX({ nodes: node.children })}</ul>
-  ),
+  list: ({ node, nodesToJSX }) => {
+    const isOrdered = node.tag === 'ol' || node.listType === 'number'
+    const className =
+      'grid gap-4 pl-7 text-lg font-medium leading-[1.45] text-novatek-muted marker:text-novatek-primary'
+
+    if (isOrdered) {
+      return (
+        <ol
+          className={`${className} list-outside list-decimal`}
+          start={typeof node.start === 'number' ? node.start : undefined}
+        >
+          {nodesToJSX({ nodes: node.children })}
+        </ol>
+      )
+    }
+
+    return (
+      <ul className={`${className} list-outside list-disc`}>
+        {nodesToJSX({ nodes: node.children })}
+      </ul>
+    )
+  },
   listitem: ({ node, nodesToJSX }) => (
-    <li className="text-lg font-medium leading-[1.45] text-novatek-muted">
+    <li className="pl-1 text-lg font-medium leading-[1.45] text-novatek-muted marker:text-novatek-primary">
       {nodesToJSX({ nodes: node.children })}
     </li>
   ),

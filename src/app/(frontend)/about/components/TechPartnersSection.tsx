@@ -12,15 +12,29 @@ export function TechPartnersSection({ partners, title, eyebrow }: TechPartnersSe
           <HighlightedTitle {...title} />
         </h2>
       </div>
-      <div className="flex items-center justify-center gap-8 overflow-hidden max-md:flex-col max-md:items-stretch max-md:gap-6 max-md:px-6">
-        {partners.map((partner) => (
-          <div
-            className="grid h-[155px] w-[400px] shrink-0 place-items-center bg-novatek-soft max-md:w-full"
-            key={partner.name}
-          >
-            <img className="max-h-[60px] max-w-[200px] object-contain" src={partner.image} alt={partner.name} />
-          </div>
-        ))}
+      <div className="overflow-hidden">
+        <div className="flex w-max animate-marquee motion-reduce:animate-none">
+          {[0, 1].map((copy) => (
+            <div
+              className="flex gap-8 pr-8 max-md:gap-6 max-md:pr-6"
+              aria-hidden={copy === 1}
+              key={copy}
+            >
+              {partners.map((partner) => (
+                <div
+                  className="grid h-[155px] w-[400px] shrink-0 place-items-center bg-novatek-soft max-md:h-[120px] max-md:w-[280px]"
+                  key={partner.name}
+                >
+                  <img
+                    className="max-h-[60px] max-w-[200px] object-contain"
+                    src={partner.image}
+                    alt={partner.name}
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )
