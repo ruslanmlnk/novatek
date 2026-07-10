@@ -315,6 +315,9 @@ export const siteData = {
       '42 Vasil Levski Blvd, Plovdiv 4003, Bulgaria',
     ],
     copyright: 'Novatek Engineering LTD © 2026',
-    socials: ['Instagram', 'TikTok'],
+    socials: [
+      { label: 'Instagram', url: '#' },
+      { label: 'TikTok', url: '#' },
+    ],
   },
 }

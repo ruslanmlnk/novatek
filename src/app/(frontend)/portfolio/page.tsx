@@ -1,8 +1,7 @@
+import { getPortfolioProjects, getSiteData, type PortfolioItem } from '../cms'
 import { ArrowGlyph } from '../components/IconSet'
 import { PageHero } from '../components/PageHero'
 import { SiteFooter } from '../components/sections/SiteFooter'
-import { portfolioProjects } from '../content'
-import { siteData } from '../data'
 
 export const metadata = {
   title: 'Portfolio - Novatek Engineering',
@@ -20,7 +19,7 @@ const filters = [
   'Custom Solutions',
 ]
 
-function ProjectCard({ project }: { project: (typeof portfolioProjects)[number] }) {
+function ProjectCard({ project }: { project: PortfolioItem }) {
   return (
     <a
       className="grid min-h-[229px] grid-cols-[minmax(0,1fr)_280px] bg-novatek-soft transition-opacity hover:opacity-90 max-md:grid-cols-1"
@@ -48,7 +47,9 @@ function ProjectCard({ project }: { project: (typeof portfolioProjects)[number] 
   )
 }
 
-function PortfolioGrid() {
+function PortfolioGrid({ projects }: { projects: PortfolioItem[] }) {
+  const rowCount = Math.ceil(projects.length / 2)
+
   return (
     <section
       className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-12"
@@ -56,9 +57,9 @@ function PortfolioGrid() {
     >
       <div className="mx-auto grid max-w-content gap-12 max-md:gap-8">
         <div className="grid gap-8 max-md:gap-6">
-          {Array.from({ length: 3 }).map((_, rowIndex) => (
+          {Array.from({ length: rowCount }).map((_, rowIndex) => (
             <div className="grid grid-cols-2 gap-12 max-lg:grid-cols-1 max-md:gap-6" key={rowIndex}>
-              {portfolioProjects.slice(rowIndex * 2, rowIndex * 2 + 2).map((project, index) => (
+              {projects.slice(rowIndex * 2, rowIndex * 2 + 2).map((project, index) => (
                 <ProjectCard project={project} key={`${project.title}-${rowIndex}-${index}`} />
               ))}
             </div>
@@ -81,7 +82,11 @@ function PortfolioGrid() {
   )
 }
 
-export default function PortfolioPage() {
+export const revalidate = 60
+
+export default async function PortfolioPage() {
+  const [siteData, projects] = await Promise.all([getSiteData(), getPortfolioProjects()])
+
   return (
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
       <PageHero
@@ -99,7 +104,7 @@ export default function PortfolioPage() {
         filtersLabel="Portfolio filters"
         contentClassName="pb-[74px] pt-[42px]"
       />
-      <PortfolioGrid />
+      <PortfolioGrid projects={projects} />
       <SiteFooter
         brand={siteData.brand}
         footer={siteData.footer}

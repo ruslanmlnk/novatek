@@ -67,8 +67,11 @@ export interface Config {
   };
   blocks: {};
   collections: {
-    users: User;
+    services: Service;
+    projects: Project;
+    posts: Post;
     media: Media;
+    users: User;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -76,19 +79,32 @@ export interface Config {
   };
   collectionsJoins: {};
   collectionsSelect: {
-    users: UsersSelect<false> | UsersSelect<true>;
+    services: ServicesSelect<false> | ServicesSelect<true>;
+    projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
-    defaultIDType: string;
+    defaultIDType: number;
   };
   fallbackLocale: null;
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    site: Site;
+    home: Home;
+    about: About;
+    privacy: Privacy;
+  };
+  globalsSelect: {
+    site: SiteSelect<false> | SiteSelect<true>;
+    home: HomeSelect<false> | HomeSelect<true>;
+    about: AboutSelect<false> | AboutSelect<true>;
+    privacy: PrivacySelect<false> | PrivacySelect<true>;
+  };
   locale: null;
   widgets: {
     collections: CollectionsWidget;
@@ -118,11 +134,151 @@ export interface UserAuthOperations {
   };
 }
 /**
+ * Service cards on the home / services pages and the service detail pages
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services".
+ */
+export interface Service {
+  id: number;
+  _order?: string | null;
+  title: string;
+  /**
+   * URL of the detail page: /services/<slug>
+   */
+  slug: string;
+  slugLock?: boolean | null;
+  image?: (number | null) | Media;
+  features?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Short paragraph under the title on the detail page
+   */
+  intro: string;
+  capabilities?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  applications?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+}
+/**
+ * Case studies listed on the portfolio page
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects".
+ */
+export interface Project {
+  id: number;
+  _order?: string | null;
+  title: string;
+  /**
+   * URL of the case page: /portfolio/<slug>
+   */
+  slug: string;
+  slugLock?: boolean | null;
+  /**
+   * E.g. Laser Cutting, CNC Machining…
+   */
+  category: string;
+  description: string;
+  image?: (number | null) | Media;
+  heroImage?: (number | null) | Media;
+  content?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Articles listed on the blog page
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  /**
+   * URL of the article: /blog/<slug>
+   */
+  slug: string;
+  slugLock?: boolean | null;
+  category: 'Manufacturing Guides' | 'Engineering Insights' | 'Industry News';
+  date: string;
+  description: string;
+  image?: (number | null) | Media;
+  heroImage?: (number | null) | Media;
+  /**
+   * Quote blocks are rendered as the green gradient banner on the site
+   */
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
+  id: number;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -144,29 +300,10 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: string;
-  alt: string;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
-  id: string;
+  id: number;
   key: string;
   data:
     | {
@@ -183,20 +320,32 @@ export interface PayloadKv {
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: string;
+  id: number;
   document?:
     | ({
-        relationTo: 'users';
-        value: string | User;
+        relationTo: 'services';
+        value: number | Service;
+      } | null)
+    | ({
+        relationTo: 'projects';
+        value: number | Project;
+      } | null)
+    | ({
+        relationTo: 'posts';
+        value: number | Post;
       } | null)
     | ({
         relationTo: 'media';
-        value: string | Media;
+        value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'users';
+        value: number | User;
       } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   updatedAt: string;
   createdAt: string;
@@ -206,10 +355,10 @@ export interface PayloadLockedDocument {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: number;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   key?: string | null;
   value?:
@@ -229,11 +378,95 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
+  id: number;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "services_select".
+ */
+export interface ServicesSelect<T extends boolean = true> {
+  _order?: T;
+  title?: T;
+  slug?: T;
+  slugLock?: T;
+  image?: T;
+  features?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  intro?: T;
+  capabilities?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  applications?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "projects_select".
+ */
+export interface ProjectsSelect<T extends boolean = true> {
+  _order?: T;
+  title?: T;
+  slug?: T;
+  slugLock?: T;
+  category?: T;
+  description?: T;
+  image?: T;
+  heroImage?: T;
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  slugLock?: T;
+  category?: T;
+  date?: T;
+  description?: T;
+  image?: T;
+  heroImage?: T;
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -256,24 +489,6 @@ export interface UsersSelect<T extends boolean = true> {
         createdAt?: T;
         expiresAt?: T;
       };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media_select".
- */
-export interface MediaSelect<T extends boolean = true> {
-  alt?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  url?: T;
-  thumbnailURL?: T;
-  filename?: T;
-  mimeType?: T;
-  filesize?: T;
-  width?: T;
-  height?: T;
-  focalX?: T;
-  focalY?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -314,6 +529,600 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * Brand, contact details and footer — shared by every page
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site".
+ */
+export interface Site {
+  id: number;
+  brand: {
+    name: string;
+    tagline: string;
+  };
+  contacts: {
+    phone: string;
+    email: string;
+    address: string;
+  };
+  footer: {
+    tagline: string;
+    copyright: string;
+    mapImage?: (number | null) | Media;
+  };
+  socials?:
+    | {
+        label: string;
+        url: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home".
+ */
+export interface Home {
+  id: number;
+  hero: {
+    eyebrow: string;
+    /**
+     * The accent part is rendered in the green brand color
+     */
+    title: {
+      before?: string | null;
+      accent: string;
+      after?: string | null;
+    };
+    description: string;
+    backgroundImage?: (number | null) | Media;
+  };
+  whyChoose: {
+    heading: {
+      /**
+       * Small label rendered as // Eyebrow //
+       */
+      eyebrow: string;
+      /**
+       * The accent part is rendered in the green brand color
+       */
+      title: {
+        before?: string | null;
+        accent: string;
+        after?: string | null;
+      };
+    };
+    projectsCard: {
+      eyebrow: string;
+      metric: string;
+      description: string;
+    };
+    turnaroundCard: {
+      title: string;
+      description: string;
+    };
+    trustedCard: {
+      eyebrow: string;
+      metric: string;
+      rating: string;
+      description: string;
+    };
+  };
+  /**
+   * Service cards are managed in the Services collection
+   */
+  services: {
+    heading: {
+      /**
+       * Small label rendered as // Eyebrow //
+       */
+      eyebrow: string;
+      /**
+       * The accent part is rendered in the green brand color
+       */
+      title: {
+        before?: string | null;
+        accent: string;
+        after?: string | null;
+      };
+    };
+  };
+  process: {
+    heading: {
+      /**
+       * Small label rendered as // Eyebrow //
+       */
+      eyebrow: string;
+      /**
+       * The accent part is rendered in the green brand color
+       */
+      title: {
+        before?: string | null;
+        accent: string;
+        after?: string | null;
+      };
+    };
+    steps?:
+      | {
+          title: string;
+          /**
+           * Optional shorter title used on small screens
+           */
+          mobileTitle?: string | null;
+          description: string;
+          image?: (number | null) | Media;
+          features?:
+            | {
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  projects: {
+    heading: {
+      /**
+       * Small label rendered as // Eyebrow //
+       */
+      eyebrow: string;
+      /**
+       * The accent part is rendered in the green brand color
+       */
+      title: {
+        before?: string | null;
+        accent: string;
+        after?: string | null;
+      };
+    };
+    featured?: {
+      /**
+       * Portfolio case shown as the large featured card
+       */
+      project?: (number | null) | Project;
+      image?: (number | null) | Media;
+    };
+    cta: {
+      title: string;
+      description: string;
+    };
+  };
+  testimonials: {
+    heading: {
+      /**
+       * Small label rendered as // Eyebrow //
+       */
+      eyebrow: string;
+      /**
+       * The accent part is rendered in the green brand color
+       */
+      title: {
+        before?: string | null;
+        accent: string;
+        after?: string | null;
+      };
+    };
+    badge: string;
+    quote: string;
+    author: string;
+    role: string;
+  };
+  quoteBanner: {
+    title: string;
+  };
+  faq: {
+    heading: {
+      /**
+       * Small label rendered as // Eyebrow //
+       */
+      eyebrow: string;
+      /**
+       * The accent part is rendered in the green brand color
+       */
+      title: {
+        before?: string | null;
+        accent: string;
+        after?: string | null;
+      };
+    };
+    items?:
+      | {
+          question: string;
+          answer: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about".
+ */
+export interface About {
+  id: number;
+  hero: {
+    eyebrow: string;
+    /**
+     * The accent part is rendered in the green brand color
+     */
+    title: {
+      before?: string | null;
+      accent: string;
+      after?: string | null;
+    };
+    description: string;
+    image?: (number | null) | Media;
+  };
+  story: {
+    heading: {
+      /**
+       * Small label rendered as // Eyebrow //
+       */
+      eyebrow: string;
+      /**
+       * The accent part is rendered in the green brand color
+       */
+      title: {
+        before?: string | null;
+        accent: string;
+        after?: string | null;
+      };
+    };
+    image?: (number | null) | Media;
+    storyText: string;
+  };
+  techPartners: {
+    heading: {
+      /**
+       * Small label rendered as // Eyebrow //
+       */
+      eyebrow: string;
+      /**
+       * The accent part is rendered in the green brand color
+       */
+      title: {
+        before?: string | null;
+        accent: string;
+        after?: string | null;
+      };
+    };
+    partners?:
+      | {
+          name: string;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "privacy".
+ */
+export interface Privacy {
+  id: number;
+  /**
+   * Shown under the title as "Last updated: …"
+   */
+  lastUpdated: string;
+  sections?:
+    | {
+        title: string;
+        body: string;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site_select".
+ */
+export interface SiteSelect<T extends boolean = true> {
+  brand?:
+    | T
+    | {
+        name?: T;
+        tagline?: T;
+      };
+  contacts?:
+    | T
+    | {
+        phone?: T;
+        email?: T;
+        address?: T;
+      };
+  footer?:
+    | T
+    | {
+        tagline?: T;
+        copyright?: T;
+        mapImage?: T;
+      };
+  socials?:
+    | T
+    | {
+        label?: T;
+        url?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home_select".
+ */
+export interface HomeSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        eyebrow?: T;
+        title?:
+          | T
+          | {
+              before?: T;
+              accent?: T;
+              after?: T;
+            };
+        description?: T;
+        backgroundImage?: T;
+      };
+  whyChoose?:
+    | T
+    | {
+        heading?:
+          | T
+          | {
+              eyebrow?: T;
+              title?:
+                | T
+                | {
+                    before?: T;
+                    accent?: T;
+                    after?: T;
+                  };
+            };
+        projectsCard?:
+          | T
+          | {
+              eyebrow?: T;
+              metric?: T;
+              description?: T;
+            };
+        turnaroundCard?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        trustedCard?:
+          | T
+          | {
+              eyebrow?: T;
+              metric?: T;
+              rating?: T;
+              description?: T;
+            };
+      };
+  services?:
+    | T
+    | {
+        heading?:
+          | T
+          | {
+              eyebrow?: T;
+              title?:
+                | T
+                | {
+                    before?: T;
+                    accent?: T;
+                    after?: T;
+                  };
+            };
+      };
+  process?:
+    | T
+    | {
+        heading?:
+          | T
+          | {
+              eyebrow?: T;
+              title?:
+                | T
+                | {
+                    before?: T;
+                    accent?: T;
+                    after?: T;
+                  };
+            };
+        steps?:
+          | T
+          | {
+              title?: T;
+              mobileTitle?: T;
+              description?: T;
+              image?: T;
+              features?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  projects?:
+    | T
+    | {
+        heading?:
+          | T
+          | {
+              eyebrow?: T;
+              title?:
+                | T
+                | {
+                    before?: T;
+                    accent?: T;
+                    after?: T;
+                  };
+            };
+        featured?:
+          | T
+          | {
+              project?: T;
+              image?: T;
+            };
+        cta?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+      };
+  testimonials?:
+    | T
+    | {
+        heading?:
+          | T
+          | {
+              eyebrow?: T;
+              title?:
+                | T
+                | {
+                    before?: T;
+                    accent?: T;
+                    after?: T;
+                  };
+            };
+        badge?: T;
+        quote?: T;
+        author?: T;
+        role?: T;
+      };
+  quoteBanner?:
+    | T
+    | {
+        title?: T;
+      };
+  faq?:
+    | T
+    | {
+        heading?:
+          | T
+          | {
+              eyebrow?: T;
+              title?:
+                | T
+                | {
+                    before?: T;
+                    accent?: T;
+                    after?: T;
+                  };
+            };
+        items?:
+          | T
+          | {
+              question?: T;
+              answer?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "about_select".
+ */
+export interface AboutSelect<T extends boolean = true> {
+  hero?:
+    | T
+    | {
+        eyebrow?: T;
+        title?:
+          | T
+          | {
+              before?: T;
+              accent?: T;
+              after?: T;
+            };
+        description?: T;
+        image?: T;
+      };
+  story?:
+    | T
+    | {
+        heading?:
+          | T
+          | {
+              eyebrow?: T;
+              title?:
+                | T
+                | {
+                    before?: T;
+                    accent?: T;
+                    after?: T;
+                  };
+            };
+        image?: T;
+        storyText?: T;
+      };
+  techPartners?:
+    | T
+    | {
+        heading?:
+          | T
+          | {
+              eyebrow?: T;
+              title?:
+                | T
+                | {
+                    before?: T;
+                    accent?: T;
+                    after?: T;
+                  };
+            };
+        partners?:
+          | T
+          | {
+              name?: T;
+              image?: T;
+              id?: T;
+            };
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "privacy_select".
+ */
+export interface PrivacySelect<T extends boolean = true> {
+  lastUpdated?: T;
+  sections?:
+    | T
+    | {
+        title?: T;
+        body?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

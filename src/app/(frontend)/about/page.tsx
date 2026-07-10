@@ -1,10 +1,9 @@
+import { getAboutData, getSiteData } from '../cms'
 import { ContactFormSection } from '../components/sections/ContactFormSection'
 import { SiteFooter } from '../components/sections/SiteFooter'
-import { siteData } from '../data'
 import { AboutHeroSection } from './components/AboutHeroSection'
 import { AboutStorySection } from './components/AboutStorySection'
 import { TechPartnersSection } from './components/TechPartnersSection'
-import { aboutData } from './data'
 
 export const metadata = {
   title: 'About Us — Novatek Engineering',
@@ -12,7 +11,11 @@ export const metadata = {
     'Novatek Engineering delivers precision engineering and manufacturing solutions built on years of technical expertise.',
 }
 
-export default function AboutPage() {
+export const revalidate = 60
+
+export default async function AboutPage() {
+  const [siteData, aboutData] = await Promise.all([getSiteData(), getAboutData()])
+
   return (
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
       <AboutHeroSection brand={siteData.brand} hero={aboutData.hero} nav={siteData.nav} />

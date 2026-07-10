@@ -1,9 +1,8 @@
+import { getBlogPosts, getSiteData, type BlogPost } from '../cms'
 import { BlogCard } from '../components/BlogCard'
 import { ArrowGlyph } from '../components/IconSet'
 import { PageHero } from '../components/PageHero'
 import { SiteFooter } from '../components/sections/SiteFooter'
-import { blogPosts } from '../content'
-import { siteData } from '../data'
 
 export const metadata = {
   title: 'Blog - Novatek Engineering',
@@ -13,19 +12,40 @@ export const metadata = {
 
 const categories = ['All', 'Manufacturing Guides', 'Engineering Insights', 'Industry News']
 
-const gridCards = [
-  { post: blogPosts[0] },
-  { post: blogPosts[1] },
-  { post: blogPosts[2] },
-  { post: blogPosts[2], image: '/assets/novatek/figma-d874ddc716-723.png' },
-  { post: blogPosts[0], image: '/assets/novatek/figma-203fb8614a-723.png' },
-  { post: blogPosts[1] },
-  { post: blogPosts[1], image: '/assets/novatek/figma-0b3a9a9f59-723.png' },
-  { post: blogPosts[2], image: '/assets/novatek/figma-0a202eb44c-723.png' },
-  { post: blogPosts[0], image: '/assets/novatek/figma-203fb8614a-723.png' },
-]
+type Posts = BlogPost[]
 
-function BlogGrid() {
+const altImages: Record<string, string[]> = {
+  'laser-cutting-tips': ['/assets/novatek/figma-203fb8614a-723.png'],
+  'reverse-engineering': ['/assets/novatek/figma-0b3a9a9f59-723.png'],
+  'manufacturing-trends': [
+    '/assets/novatek/figma-d874ddc716-723.png',
+    '/assets/novatek/figma-0a202eb44c-723.png',
+  ],
+}
+
+function cardImage(post: Posts[number], variant: number): string | undefined {
+  if (variant === 0) return undefined
+  const variants = altImages[post.slug] ?? []
+  return variants[Math.min(variant, variants.length) - 1]
+}
+
+function buildGridCards(posts: Posts) {
+  if (posts.length !== 3) return posts.map((post) => ({ post, image: undefined }))
+
+  const pattern: [number, number][] = [
+    [0, 0], [1, 0], [2, 0],
+    [2, 1], [0, 1], [1, 0],
+    [1, 1], [2, 2], [0, 1],
+  ]
+
+  return pattern.map(([postIndex, variant]) => ({
+    post: posts[postIndex],
+    image: cardImage(posts[postIndex], variant),
+  }))
+}
+
+function BlogGrid({ posts }: { posts: Posts }) {
+  const gridCards = buildGridCards(posts)
   return (
     <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-12" id="blog-grid">
       <div className="mx-auto grid max-w-content gap-12">
@@ -51,7 +71,11 @@ function BlogGrid() {
   )
 }
 
-export default function BlogPage() {
+export const revalidate = 60
+
+export default async function BlogPage() {
+  const [siteData, posts] = await Promise.all([getSiteData(), getBlogPosts()])
+
   return (
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
       <PageHero
@@ -69,7 +93,7 @@ export default function BlogPage() {
         filtersLabel="Blog categories"
         gridLines
       />
-      <BlogGrid />
+      <BlogGrid posts={posts} />
       <SiteFooter
         brand={siteData.brand}
         footer={siteData.footer}

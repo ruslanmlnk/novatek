@@ -60,17 +60,23 @@ function SocialIcon({ name }: SocialIconProps) {
   )
 }
 
-function SocialLinks({ className, socials }: { className?: string; socials: string[] }) {
+function SocialLinks({
+  className,
+  socials,
+}: {
+  className?: string
+  socials: { label: string; url: string }[]
+}) {
   return (
     <div className={`flex items-center gap-4 ${className ?? ''}`}>
       {socials.map((social) => (
         <a
           className="inline-flex items-center gap-2 text-lg font-medium leading-[1.45] text-white transition-colors hover:text-novatek-primary"
-          href="#top"
-          key={social}
+          href={social.url}
+          key={social.label}
         >
-          <SocialIcon name={social} />
-          {social}
+          <SocialIcon name={social.label} />
+          {social.label}
         </a>
       ))}
     </div>

@@ -15,14 +15,14 @@ type ServiceExtra = {
   intro: string
 }
 
-export const serviceDetails = siteData.services.items.map((service) => {
-  const commonProcess = [
-    'Review files, requirements and project constraints',
-    'Confirm materials, tolerances and delivery expectations',
-    'Prepare the technical production plan',
-    'Manufacture, inspect and prepare the result for delivery',
-  ]
+export const serviceProcess = [
+  'Review files, requirements and project constraints',
+  'Confirm materials, tolerances and delivery expectations',
+  'Prepare the technical production plan',
+  'Manufacture, inspect and prepare the result for delivery',
+]
 
+export const serviceDetails = siteData.services.items.map((service) => {
   const detailMap: Record<string, ServiceExtra> = {
     '3D Printing': {
       intro:
@@ -117,7 +117,7 @@ export const serviceDetails = siteData.services.items.map((service) => {
     ...service,
     slug: serviceSlugs[service.title],
     ...details,
-    process: commonProcess,
+    process: serviceProcess,
   }
 })
 

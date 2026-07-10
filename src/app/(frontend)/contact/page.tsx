@@ -1,8 +1,8 @@
+import { getSiteData } from '../cms'
 import { ArrowButton } from '../components/ArrowButton'
 import { GridLines } from '../components/GridLines'
 import { SiteFooter } from '../components/sections/SiteFooter'
 import { SiteHeader } from '../components/SiteHeader'
-import { siteData } from '../data'
 
 export const metadata = {
   description: 'Contact Novatek Engineering for manufacturing, engineering and quote requests.',
@@ -47,7 +47,10 @@ function UploadGlyph() {
   )
 }
 
-export default function ContactPage() {
+export const revalidate = 60
+
+export default async function ContactPage() {
+  const siteData = await getSiteData()
   const [phone, email, address] = siteData.footer.contact
 
   return (

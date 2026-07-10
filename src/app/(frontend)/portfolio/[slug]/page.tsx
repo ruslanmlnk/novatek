@@ -1,10 +1,11 @@
 import { notFound } from 'next/navigation'
 
+import { caseContent } from '@/lexical'
+import { getPortfolioProjects, getSiteData, type PortfolioItem } from '../../cms'
 import { ArrowButton } from '../../components/ArrowButton'
+import { CmsRichText } from '../../components/CmsRichText'
 import { PageHero } from '../../components/PageHero'
 import { SiteFooter } from '../../components/sections/SiteFooter'
-import { portfolioProjects } from '../../content'
-import { siteData } from '../../data'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -42,11 +43,8 @@ const caseDetailsMap: Record<string, Partial<CaseDetails>> = {
   },
 }
 
-function getCaseDetails(
-  project: (typeof portfolioProjects)[number],
-  related: typeof portfolioProjects,
-): CaseDetails {
-  return {
+function getCaseDetails(project: PortfolioItem, related: PortfolioItem[]) {
+  const structured: CaseDetails = {
     heroImage: project.image,
     gallery: [project.image, ...related.map((item) => item.image)].slice(0, 3),
     overview:
@@ -58,15 +56,24 @@ function getCaseDetails(
       'The completed work delivered reliable production quality, clear communication and a repeatable process that can be scaled or adapted for similar manufacturing needs.',
     ...caseDetailsMap[project.slug],
   }
+
+  return {
+    heroImage: project.caseStudy?.heroImage ?? structured.heroImage,
+    content: project.caseStudy?.content ?? caseContent(structured),
+  }
 }
 
-export function generateStaticParams() {
-  return portfolioProjects.map((project) => ({ slug: project.slug }))
+export const revalidate = 60
+
+export async function generateStaticParams() {
+  const projects = await getPortfolioProjects()
+  return projects.map((project) => ({ slug: project.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
-  const project = portfolioProjects.find((item) => item.slug === slug)
+  const projects = await getPortfolioProjects()
+  const project = projects.find((item) => item.slug === slug)
 
   return {
     description: project?.description ?? 'Novatek Engineering case study.',
@@ -74,22 +81,14 @@ export async function generateMetadata({ params }: PageProps) {
   }
 }
 
-function TextBlock({ body, title }: { body: string; title: string }) {
-  return (
-    <section className="grid gap-4">
-      <h2 className="text-[26px] font-semibold leading-[1.45] text-white">{title}</h2>
-      <p className="text-lg font-medium leading-[1.45] text-novatek-muted">{body}</p>
-    </section>
-  )
-}
-
 export default async function PortfolioCasePage({ params }: PageProps) {
   const { slug } = await params
-  const project = portfolioProjects.find((item) => item.slug === slug)
+  const [projects, siteData] = await Promise.all([getPortfolioProjects(), getSiteData()])
+  const project = projects.find((item) => item.slug === slug)
 
   if (!project) notFound()
 
-  const related = portfolioProjects.filter((item) => item.slug !== project.slug).slice(0, 2)
+  const related = projects.filter((item) => item.slug !== project.slug).slice(0, 2)
   const details = getCaseDetails(project, related)
 
   return (
@@ -111,33 +110,7 @@ export default async function PortfolioCasePage({ params }: PageProps) {
             alt=""
           />
           <div className="grid w-full max-w-[1012px] gap-8">
-            <div className="grid gap-6">
-              <TextBlock body={details.overview} title="Project Overview:" />
-              <TextBlock body={details.approach} title="Approach:" />
-            </div>
-            <div className="grid grid-cols-3 gap-8 max-md:grid-cols-1">
-              {details.gallery.map((image) => (
-                <img
-                  className="aspect-square w-full object-cover max-md:aspect-auto max-md:h-[316px]"
-                  src={image}
-                  alt=""
-                  key={image}
-                />
-              ))}
-            </div>
-            <div className="grid gap-6">
-              <div className="grid gap-6">
-                <p className="text-lg font-medium leading-[1.45] text-novatek-muted">
-                  Technical Specifications:
-                </p>
-                <ul className="grid gap-4 text-lg font-medium leading-[1.45] text-novatek-muted">
-                  {details.specs.map((spec) => (
-                    <li key={spec}>{spec}</li>
-                  ))}
-                </ul>
-              </div>
-              <TextBlock body={details.results} title="Results:" />
-            </div>
+            <CmsRichText data={details.content} />
           </div>
         </div>
       </section>

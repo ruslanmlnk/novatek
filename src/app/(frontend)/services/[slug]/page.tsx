@@ -5,20 +5,27 @@ import { GridLines } from '../../components/GridLines'
 import { QuoteSection } from '../../components/sections/QuoteSection'
 import { SiteFooter } from '../../components/sections/SiteFooter'
 import { SiteHeader } from '../../components/SiteHeader'
-import { serviceDetails } from '../../content'
-import { siteData } from '../../data'
+import { getServiceDetails, getSiteData } from '../../cms'
+import type { serviceDetails } from '../../content'
+import type { siteData as SiteDataShape } from '../../data'
 
 type PageProps = {
   params: Promise<{ slug: string }>
 }
 
-export function generateStaticParams() {
-  return serviceDetails.map((service) => ({ slug: service.slug }))
+type SiteData = typeof SiteDataShape
+
+export const revalidate = 60
+
+export async function generateStaticParams() {
+  const services = await getServiceDetails()
+  return services.map((service) => ({ slug: service.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
-  const service = serviceDetails.find((item) => item.slug === slug)
+  const services = await getServiceDetails()
+  const service = services.find((item) => item.slug === slug)
 
   return {
     description:
@@ -42,7 +49,13 @@ function CheckList({ items }: { items: string[] }) {
   )
 }
 
-function ServiceHero({ service }: { service: (typeof serviceDetails)[number] }) {
+function ServiceHero({
+  service,
+  siteData,
+}: {
+  service: (typeof serviceDetails)[number]
+  siteData: SiteData
+}) {
   return (
     <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)]">
       <div className="absolute inset-x-0 top-0 h-[801px] bg-[linear-gradient(180deg,rgba(67,70,49,0.5)_0%,rgba(25,25,25,0)_27.81%)]" />
@@ -121,13 +134,14 @@ function ServiceContent({ service }: { service: (typeof serviceDetails)[number] 
 
 export default async function ServicePage({ params }: PageProps) {
   const { slug } = await params
-  const service = serviceDetails.find((item) => item.slug === slug)
+  const [services, siteData] = await Promise.all([getServiceDetails(), getSiteData()])
+  const service = services.find((item) => item.slug === slug)
 
   if (!service) notFound()
 
   return (
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
-      <ServiceHero service={service} />
+      <ServiceHero service={service} siteData={siteData} />
       <ServiceContent service={service} />
       <QuoteSection {...siteData.quote} />
       <SiteFooter

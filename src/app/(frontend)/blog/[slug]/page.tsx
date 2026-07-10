@@ -1,11 +1,11 @@
 import { notFound } from 'next/navigation'
 
+import { getBlogPosts, getSiteData } from '../../cms'
 import { ArrowButton } from '../../components/ArrowButton'
 import { BlogCard } from '../../components/BlogCard'
+import { CmsRichText } from '../../components/CmsRichText'
 import { PageHero } from '../../components/PageHero'
 import { SiteFooter } from '../../components/sections/SiteFooter'
-import { blogPosts } from '../../content'
-import { siteData } from '../../data'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -51,13 +51,17 @@ const shareLinks = [
   },
 ]
 
-export function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }))
+export const revalidate = 60
+
+export async function generateStaticParams() {
+  const posts = await getBlogPosts()
+  return posts.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
-  const post = blogPosts.find((item) => item.slug === slug)
+  const posts = await getBlogPosts()
+  const post = posts.find((item) => item.slug === slug)
 
   return {
     description: post?.description ?? 'Engineering insights from Novatek Engineering.',
@@ -67,11 +71,12 @@ export async function generateMetadata({ params }: PageProps) {
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params
-  const post = blogPosts.find((item) => item.slug === slug)
+  const [posts, siteData] = await Promise.all([getBlogPosts(), getSiteData()])
+  const post = posts.find((item) => item.slug === slug)
 
   if (!post) notFound()
 
-  const relatedPosts = [...blogPosts.filter((item) => item.slug !== post.slug), post]
+  const relatedPosts = [...posts.filter((item) => item.slug !== post.slug), post].slice(0, 3)
 
   return (
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
@@ -99,30 +104,7 @@ export default async function ArticlePage({ params }: PageProps) {
             alt=""
           />
           <div className="grid w-full max-w-[1012px] gap-8">
-            <div className="grid gap-6">
-              <div className="grid gap-4">
-                <h2 className="text-[26px] font-semibold leading-[1.45] text-white">Overview:</h2>
-                <p className="text-lg font-medium leading-[1.45] text-novatek-muted">
-                  {post.article.overview}
-                </p>
-              </div>
-              <ul className="grid gap-4">
-                {post.article.keyPoints.map((point) => (
-                  <li className="text-lg font-medium leading-[1.45] text-novatek-muted" key={point}>
-                    {point}
-                  </li>
-                ))}
-              </ul>
-              <p className="text-lg font-medium leading-[1.45] text-novatek-muted">
-                {post.article.details}
-              </p>
-            </div>
-            <blockquote className="bg-[linear-gradient(136deg,#C5D487_2.79%,#7E8466_95.83%)] p-8 text-center text-lg font-medium leading-[1.45] text-white">
-              &ldquo;{post.article.quote}&rdquo;
-            </blockquote>
-            <p className="text-lg font-medium leading-[1.45] text-novatek-muted">
-              {post.article.conclusion}
-            </p>
+            <CmsRichText data={post.content} />
             <div className="flex items-center justify-between gap-8 border-t border-white/20 pt-8 max-md:flex-col max-md:items-start">
               <h2 className="text-[26px] font-semibold leading-[1.45] text-white">
                 Share this article

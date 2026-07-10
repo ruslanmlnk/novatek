@@ -1,8 +1,8 @@
+import { getSiteData } from '../cms'
 import { PageHero } from '../components/PageHero'
 import { ContactFormSection } from '../components/sections/ContactFormSection'
 import { ServicesSection } from '../components/sections/ServicesSection'
 import { SiteFooter } from '../components/sections/SiteFooter'
-import { siteData } from '../data'
 
 export const metadata = {
   title: 'Services - Novatek Engineering',
@@ -10,7 +10,11 @@ export const metadata = {
     'Explore Novatek Engineering services including laser cutting, CNC machining, 3D scanning, 3D printing, engineering design and custom manufacturing.',
 }
 
-export default function ServicesPage() {
+export const revalidate = 60
+
+export default async function ServicesPage() {
+  const siteData = await getSiteData()
+
   return (
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
       <PageHero

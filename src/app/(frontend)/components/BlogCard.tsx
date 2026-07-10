@@ -1,7 +1,12 @@
-import type { blogPosts } from '../content'
-
 type BlogCardProps = {
-  post: (typeof blogPosts)[number]
+  post: {
+    slug: string
+    category: string
+    date: string
+    title: string
+    description: string
+    image: string
+  }
   image?: string
 }
 
