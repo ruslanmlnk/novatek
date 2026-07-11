@@ -76,13 +76,17 @@ export function ServicesSection({ heading, items, locale = 'en' }: ServicesSecti
             </div>
             <div className="grid min-h-[231px] grid-cols-[58px_minmax(0,404px)] items-stretch gap-8 max-md:min-h-0 max-md:grid-cols-1">
               <ServiceGlyph className="max-md:hidden" index={index} />
-              <div className="h-full min-h-[231px] w-full overflow-hidden max-md:h-[200px] max-md:min-h-0">
+              <a
+                className="block h-full min-h-[231px] w-full overflow-hidden max-md:h-[200px] max-md:min-h-0"
+                href={localizeHref(`/services/${service.slug}`, locale)}
+                aria-label={`${dict.common.view} ${service.title}`}
+              >
                 <img
                   className="h-full min-h-[231px] w-full object-cover transition-transform duration-500 ease-linear group-hover:scale-110 max-md:min-h-0"
                   src={service.image}
                   alt=""
                 />
-              </div>
+              </a>
             </div>
             <div className="grid grid-cols-[minmax(220px,345px)_minmax(260px,345px)_40px] items-start justify-between gap-8 max-xl:grid-cols-[minmax(190px,249px)_minmax(260px,309px)_40px] max-md:grid-cols-1 max-md:gap-6">
               <h3 className="max-w-[345px] text-[26px] font-semibold leading-[38px] text-white max-md:hidden">
