@@ -31,7 +31,7 @@ export default async function ContactPage() {
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
       <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)]">
         <div className="absolute inset-x-0 top-0 h-[801px] bg-[linear-gradient(180deg,rgba(67,70,49,0.5)_0%,rgba(25,25,25,0)_27.81%)]" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[1078px]">
+        <div className="pointer-events-none absolute inset-0">
           <GridLines height={1078} />
         </div>
         <SiteHeader
