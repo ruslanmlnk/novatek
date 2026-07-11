@@ -1,5 +1,7 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { bg } from '@payloadcms/translations/languages/bg'
+import { en } from '@payloadcms/translations/languages/en'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -39,6 +41,17 @@ export default buildConfig({
     Users,
   ],
   globals: [Site, Home, About, Privacy],
+  localization: {
+    locales: [
+      { label: 'English', code: 'en' },
+      { label: 'Български', code: 'bg' },
+    ],
+    defaultLocale: 'en',
+    fallback: true,
+  },
+  i18n: {
+    supportedLanguages: { en, bg },
+  },
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

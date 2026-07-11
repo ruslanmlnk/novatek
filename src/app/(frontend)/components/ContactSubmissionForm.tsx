@@ -4,6 +4,7 @@ import type { CSSProperties, FormEvent } from 'react'
 import { usePathname } from 'next/navigation'
 import { useRef, useState } from 'react'
 
+import { dictionary, type Locale } from '@/lib/i18n'
 import { ArrowGlyph } from './IconSet'
 
 type ContactSubmissionFormProps = {
@@ -11,6 +12,7 @@ type ContactSubmissionFormProps = {
   source: string
   style?: CSSProperties
   variant: 'dark' | 'light'
+  locale?: Locale
 }
 
 type SubmitState = {
@@ -115,10 +117,13 @@ export function ContactSubmissionForm({
   source,
   style,
   variant,
+  locale = 'en',
 }: ContactSubmissionFormProps) {
+  const dict = dictionary[locale].form
+  const submissionText = dictionary[locale].submissions
   const formRef = useRef<HTMLFormElement>(null)
   const pathname = usePathname()
-  const [fileLabel, setFileLabel] = useState('No files selected')
+  const [fileLabel, setFileLabel] = useState<string>(dict.noFiles)
   const [pending, setPending] = useState(false)
   const [state, setState] = useState<SubmitState>({ message: '', status: 'idle' })
   const light = variant === 'light'
@@ -138,21 +143,21 @@ export function ContactSubmissionForm({
 
       if (!response.ok || !result.ok) {
         setState({
-          message: result.message ?? 'Something went wrong. Please try again.',
+          message: result.message ?? submissionText.error,
           status: 'error',
         })
         return
       }
 
       formRef.current?.reset()
-      setFileLabel('No files selected')
+      setFileLabel(dict.noFiles)
       setState({
-        message: result.message ?? 'Your request has been sent.',
+        message: result.message ?? submissionText.success,
         status: 'success',
       })
     } catch {
       setState({
-        message: 'Something went wrong. Please try again.',
+        message: submissionText.error,
         status: 'error',
       })
     } finally {
@@ -178,35 +183,36 @@ export function ContactSubmissionForm({
     >
       <input name="source" type="hidden" value={source} />
       <input name="page" type="hidden" value={pathname} />
+      <input name="locale" type="hidden" value={locale} />
       <div className="grid gap-4">
         <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
           <Field
-            label="First name"
+            label={dict.firstName}
             name="firstName"
-            placeholder={light ? undefined : 'Your first name'}
+            placeholder={light ? undefined : dict.firstNamePlaceholder}
             required
             variant={variant}
           />
           <Field
-            label="Last name"
+            label={dict.lastName}
             name="lastName"
-            placeholder={light ? undefined : 'Your last name'}
+            placeholder={light ? undefined : dict.lastNamePlaceholder}
             variant={variant}
           />
         </div>
         <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
           <Field
-            label="Email address"
+            label={dict.email}
             name="email"
-            placeholder={light ? undefined : 'you@example.com'}
+            placeholder={light ? undefined : dict.emailPlaceholder}
             required
             type="email"
             variant={variant}
           />
           <Field
-            label="Phone number"
+            label={dict.phone}
             name="phone"
-            placeholder={light ? undefined : '+359 ...'}
+            placeholder={light ? undefined : dict.phonePlaceholder}
             type="tel"
             variant={variant}
           />
@@ -216,7 +222,7 @@ export function ContactSubmissionForm({
             light ? 'text-novatek-muted' : 'text-white'
           }`}
         >
-          <FieldLabel label="Project description" required variant={variant} />
+          <FieldLabel label={dict.projectDescription} required variant={variant} />
           <textarea
             className={
               light
@@ -224,7 +230,7 @@ export function ContactSubmissionForm({
                 : 'min-h-[78px] resize-y border border-white/15 bg-transparent px-4 py-3 text-base font-medium text-white outline-none transition-colors placeholder:text-white/35 focus:border-novatek-primary'
             }
             name="message"
-            placeholder={light ? undefined : 'Tell us what you need manufactured or engineered'}
+            placeholder={light ? undefined : dict.messagePlaceholder}
             required
           />
         </label>
@@ -233,7 +239,7 @@ export function ContactSubmissionForm({
             light ? 'text-novatek-muted' : 'text-novatek-muted'
           }`}
         >
-          <span>Upload files</span>
+          <span>{dict.uploadFiles}</span>
           <span
             className={
               light
@@ -243,7 +249,7 @@ export function ContactSubmissionForm({
           >
             {light ? <UploadFileGlyph /> : <UploadArrowGlyph />}
             <span className="max-w-[518px] text-center text-sm font-semibold leading-[1.25] text-novatek-primary">
-              Supported formats: {supportedFormats}
+              {dict.supportedFormats}: {supportedFormats}
             </span>
             <span className="text-center text-sm font-medium leading-[1.25] text-novatek-muted">
               {fileLabel}
@@ -256,7 +262,9 @@ export function ContactSubmissionForm({
               onChange={(event) => {
                 const count = event.currentTarget.files?.length ?? 0
                 setFileLabel(
-                  count ? `${count} file${count === 1 ? '' : 's'} selected` : 'No files selected',
+                  count
+                    ? `${count} ${count === 1 ? dict.fileSelected : dict.filesSelected}`
+                    : dict.noFiles,
                 )
               }}
               type="file"
@@ -279,7 +287,7 @@ export function ContactSubmissionForm({
           light ? 'text-novatek-bg/60' : 'text-novatek-muted'
         }`}
       >
-        We accept orders and project requests across Europe.
+        {dict.europe}
       </p>
       <button
         className="group inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 text-base font-medium text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive disabled:cursor-not-allowed disabled:opacity-60 max-md:w-full max-md:justify-between"
@@ -288,13 +296,13 @@ export function ContactSubmissionForm({
       >
         <span className="relative overflow-hidden">
           <span className="block transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:-translate-y-full">
-            {pending ? 'Sending...' : 'Send Request'}
+            {pending ? dict.sending : dict.sendRequest}
           </span>
           <span
             className="absolute inset-0 block translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-y-0"
             aria-hidden="true"
           >
-            {pending ? 'Sending...' : 'Send Request'}
+            {pending ? dict.sending : dict.sendRequest}
           </span>
         </span>
         <span

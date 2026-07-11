@@ -1,14 +1,16 @@
+import { dictionary, type Locale } from '@/lib/i18n'
 import type { ServiceDetail } from '@/lib/queries/services'
 import { revealDelay } from '../reveal'
 import { FeatureGlyph } from './FeatureGlyph'
 
-export function ServiceOverview({ service }: { service: ServiceDetail }) {
+export function ServiceOverview({ locale = 'en', service }: { locale?: Locale; service: ServiceDetail }) {
+  const dict = dictionary[locale]
   return (
     <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
       <div className="mx-auto grid max-w-content gap-[82px] max-md:gap-12">
         <div className="mx-auto grid w-full max-w-[630px] gap-6" data-reveal>
           <div className="grid gap-4">
-            <p className="text-lg font-medium leading-[1.45] text-white">// Service Overview //</p>
+            <p className="text-lg font-medium leading-[1.45] text-white">// {dict.pages.service.overviewEyebrow} //</p>
             <h2 className="text-[26px] font-semibold leading-[1.45] text-white">
               {service.overviewHeading}
             </h2>

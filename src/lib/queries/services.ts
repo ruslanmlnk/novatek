@@ -1,6 +1,7 @@
 import { cache } from 'react'
 
 import type { SeoData } from '../seo'
+import type { Locale } from '../i18n'
 import { mediaUrl, textList } from '../media'
 import { db } from '../payload'
 
@@ -22,9 +23,14 @@ export type ServiceDetail = ServiceCard & {
   industries: { industry: string; applications: string[] }[]
 }
 
-export const getServices = cache(async (): Promise<ServiceDetail[]> => {
+export const getServices = cache(async (locale: Locale = 'en'): Promise<ServiceDetail[]> => {
   const payload = await db()
-  const { docs } = await payload.find({ collection: 'services', limit: 100, sort: '_order' })
+  const { docs } = await payload.find({
+    collection: 'services',
+    limit: 100,
+    locale,
+    sort: '_order',
+  })
 
   return docs.map((doc) => {
     const image = mediaUrl(doc.image)
@@ -54,7 +60,10 @@ export const getServices = cache(async (): Promise<ServiceDetail[]> => {
   })
 })
 
-export const getService = async (slug: string): Promise<ServiceDetail | undefined> => {
-  const services = await getServices()
+export const getService = async (
+  slug: string,
+  locale: Locale = 'en',
+): Promise<ServiceDetail | undefined> => {
+  const services = await getServices(locale)
   return services.find((service) => service.slug === slug)
 }

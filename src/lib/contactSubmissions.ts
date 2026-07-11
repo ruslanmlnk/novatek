@@ -2,6 +2,7 @@ import { Buffer } from 'node:buffer'
 
 import type { File as PayloadFile } from 'payload'
 
+import { dictionary, isLocale, type Locale } from './i18n'
 import { sendContactSubmissionEmail } from './email'
 import { db } from './payload'
 
@@ -31,6 +32,7 @@ export type ContactSubmissionResult = { ok: true; message: string } | { ok: fals
 
 type Metadata = {
   ipAddress?: string
+  locale?: Locale
   userAgent?: string
 }
 
@@ -77,13 +79,16 @@ export async function createContactSubmission(
   const message = text(formData.get('message'))
   const source = text(formData.get('source')) || 'Website contact form'
   const page = text(formData.get('page'))
+  const formLocale = text(formData.get('locale'))
+  const locale = metadata.locale ?? (isLocale(formLocale) ? formLocale : 'en')
+  const messages = dictionary[locale].submissions
 
   if (!firstName || !email || !message) {
-    return { ok: false, message: 'Please fill in your name, email and project description.' }
+    return { ok: false, message: messages.required }
   }
 
   if (!validEmail(email)) {
-    return { ok: false, message: 'Please enter a valid email address.' }
+    return { ok: false, message: messages.invalidEmail }
   }
 
   const files = formData
@@ -92,22 +97,22 @@ export async function createContactSubmission(
     .filter((file) => file.size > 0)
 
   if (files.length > maxFiles) {
-    return { ok: false, message: `Please upload no more than ${maxFiles} files.` }
+    return { ok: false, message: messages.maxFiles }
   }
 
   const totalFileSize = files.reduce((total, file) => total + file.size, 0)
   if (totalFileSize > maxTotalFileSize) {
-    return { ok: false, message: 'The total upload size is too large.' }
+    return { ok: false, message: messages.totalTooLarge }
   }
 
   for (const file of files) {
     if (file.size > maxFileSize) {
-      return { ok: false, message: `${file.name} is larger than 25 MB.` }
+      return { ok: false, message: `${file.name} ${messages.fileTooLarge}` }
     }
 
     const extension = fileExtension(file.name)
     if (!allowedExtensions.has(extension)) {
-      return { ok: false, message: `${file.name} is not a supported file format.` }
+      return { ok: false, message: `${file.name} ${messages.unsupportedFormat}` }
     }
   }
 
@@ -194,5 +199,5 @@ export async function createContactSubmission(
     throw error
   }
 
-  return { ok: true, message: 'Your request has been sent. We will contact you shortly.' }
+  return { ok: true, message: messages.success }
 }

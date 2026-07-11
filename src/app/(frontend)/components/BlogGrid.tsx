@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
+import type { Locale } from '@/lib/i18n'
 import { BlogCard } from './BlogCard'
 import { useCategoryFilter } from './CategoryFilter'
 import { ArrowGlyph } from './IconSet'
@@ -17,7 +18,15 @@ export type BlogCardData = {
 
 const PAGE_SIZE = 9
 
-export function BlogGrid({ posts }: { posts: BlogCardData[] }) {
+export function BlogGrid({
+  locale = 'en',
+  nextLabel = 'Next',
+  posts,
+}: {
+  locale?: Locale
+  nextLabel?: string
+  posts: BlogCardData[]
+}) {
   const { category } = useCategoryFilter()
   const [page, setPage] = useState(0)
 
@@ -38,7 +47,7 @@ export function BlogGrid({ posts }: { posts: BlogCardData[] }) {
       <div className="mx-auto grid max-w-content gap-12">
         <div className="grid grid-cols-3 gap-8 max-lg:grid-cols-2 max-md:grid-cols-1" data-reveal>
           {visiblePosts.map((post) => (
-            <BlogCard post={post} key={post.slug} />
+            <BlogCard locale={locale} post={post} key={post.slug} />
           ))}
         </div>
         {pageCount > 1 && (
@@ -51,7 +60,7 @@ export function BlogGrid({ posts }: { posts: BlogCardData[] }) {
               onClick={goToNextPage}
               type="button"
             >
-              <span>Next</span>
+              <span>{nextLabel}</span>
               <span
                 className="grid size-10 place-items-center bg-white text-novatek-bg"
                 aria-hidden="true"

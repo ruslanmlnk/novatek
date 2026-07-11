@@ -1,3 +1,5 @@
+import { t } from '@/lib/i18n'
+import { getRequestLocale } from '@/lib/locale'
 import { getPostCategories } from '@/lib/queries/categories'
 import { getPosts } from '@/lib/queries/posts'
 import { getSiteData } from '@/lib/queries/site'
@@ -8,21 +10,24 @@ import { PageHero } from '../components/PageHero'
 import { SiteFooter } from '../components/sections/SiteFooter'
 
 export async function generateMetadata() {
-  const siteData = await getSiteData()
+  const locale = await getRequestLocale()
+  const dict = t(locale)
+  const siteData = await getSiteData(locale)
   return buildMeta(siteData.seo.blog, {
-    title: 'Blog - Novatek Engineering',
-    description:
-      'Engineering insights, manufacturing guides and industry news from Novatek Engineering.',
+    title: dict.pages.blog.metaTitle,
+    description: dict.pages.blog.metaDescription,
   })
 }
 
 export const revalidate = 60
 
 export default async function BlogPage() {
+  const locale = await getRequestLocale()
+  const dict = t(locale)
   const [siteData, posts, categories] = await Promise.all([
-    getSiteData(),
-    getPosts(),
-    getPostCategories(),
+    getSiteData(locale),
+    getPosts(locale),
+    getPostCategories(locale),
   ])
 
   const cards: BlogCardData[] = posts.map((post) => ({
@@ -40,23 +45,30 @@ export default async function BlogPage() {
         <PageHero
           activeHref="/blog"
           brand={siteData.brand}
+          locale={locale}
           nav={siteData.nav}
-          eyebrow="Blog"
+          eyebrow={dict.pages.blog.eyebrow}
           title={
             <>
-              Engineering <span className="text-novatek-primary">insights</span>
+              {dict.pages.blog.titleBefore}
+              <span className="text-novatek-primary">{dict.pages.blog.titleAccent}</span>
             </>
           }
           filtersSlot={
-            <CategoryFilters categories={['All', ...categories]} label="Blog categories" />
+            <CategoryFilters
+              allLabel={dict.common.all}
+              categories={categories}
+              label={dict.pages.blog.filters}
+            />
           }
           gridLines
         />
-        <BlogGrid posts={cards} />
+        <BlogGrid locale={locale} nextLabel={dict.common.next} posts={cards} />
       </CategoryFilterProvider>
       <SiteFooter
         brand={siteData.brand}
         footer={siteData.footer}
+        locale={locale}
         nav={siteData.nav}
         services={siteData.services.items}
       />

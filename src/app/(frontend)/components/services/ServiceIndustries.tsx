@@ -1,6 +1,8 @@
+import { dictionary, type Locale } from '@/lib/i18n'
 import type { ServiceDetail } from '@/lib/queries/services'
 
-export function ServiceIndustries({ service }: { service: ServiceDetail }) {
+export function ServiceIndustries({ locale = 'en', service }: { locale?: Locale; service: ServiceDetail }) {
+  const dict = dictionary[locale]
   if (!service.industries.length) return null
 
   return (
@@ -11,17 +13,17 @@ export function ServiceIndustries({ service }: { service: ServiceDetail }) {
           data-reveal
         >
           <p className="shrink-0 text-lg font-medium leading-[1.45] text-white">
-            // Applications //
+            // {dict.pages.service.applicationsEyebrow} //
           </p>
           <h2 className="max-w-[640px] text-[clamp(32px,4vw,48px)] font-semibold leading-[1.25] text-white">
-            <span className="text-novatek-primary">{service.title}</span> solutions for different
-            industries
+            <span className="text-novatek-primary">{service.title}</span>
+            {dict.pages.service.industriesTitleAfter}
           </h2>
         </div>
         <div className="grid gap-6" data-reveal>
           <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,644px)] gap-8 border-b border-white/20 pb-6 text-lg font-medium leading-[1.45] text-white max-md:grid-cols-1">
-            <p>Industry</p>
-            <p className="max-md:hidden">Applications</p>
+            <p>{dict.pages.service.industryColumn}</p>
+            <p className="max-md:hidden">{dict.pages.service.applicationsColumn}</p>
           </div>
           {service.industries.map((row) => (
             <div

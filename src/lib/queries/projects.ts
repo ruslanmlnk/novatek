@@ -2,6 +2,7 @@ import { cache } from 'react'
 
 import type { RichTextData } from '@/lexical'
 import type { SeoData } from '../seo'
+import type { Locale } from '../i18n'
 import { mediaUrl, relationTitle } from '../media'
 import { db } from '../payload'
 
@@ -19,9 +20,14 @@ export type PortfolioProject = {
   }
 }
 
-export const getProjects = cache(async (): Promise<PortfolioProject[]> => {
+export const getProjects = cache(async (locale: Locale = 'en'): Promise<PortfolioProject[]> => {
   const payload = await db()
-  const { docs } = await payload.find({ collection: 'projects', limit: 100, sort: '_order' })
+  const { docs } = await payload.find({
+    collection: 'projects',
+    limit: 100,
+    locale,
+    sort: '_order',
+  })
 
   return docs.map((doc) => {
     const image = mediaUrl(doc.image)
@@ -42,7 +48,10 @@ export const getProjects = cache(async (): Promise<PortfolioProject[]> => {
   })
 })
 
-export const getProject = async (slug: string): Promise<PortfolioProject | undefined> => {
-  const projects = await getProjects()
+export const getProject = async (
+  slug: string,
+  locale: Locale = 'en',
+): Promise<PortfolioProject | undefined> => {
+  const projects = await getProjects(locale)
   return projects.find((project) => project.slug === slug)
 }

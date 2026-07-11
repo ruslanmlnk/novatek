@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
+import { localizeHref, type Locale } from '@/lib/i18n'
 import { useCategoryFilter } from './CategoryFilter'
 import { ArrowGlyph } from './IconSet'
 
@@ -15,11 +16,11 @@ export type PortfolioCardData = {
 
 const PAGE_SIZE = 6
 
-function ProjectCard({ project }: { project: PortfolioCardData }) {
+function ProjectCard({ locale, project }: { locale: Locale; project: PortfolioCardData }) {
   return (
     <a
       className="grid h-full min-h-[229px] grid-cols-[minmax(0,1fr)_280px] bg-novatek-soft transition-opacity hover:opacity-90 max-md:grid-cols-1"
-      href={`/portfolio/${project.slug}`}
+      href={localizeHref(`/portfolio/${project.slug}`, locale)}
     >
       <div className="flex flex-col justify-between gap-10 p-8 text-novatek-bg max-md:order-2 max-md:gap-8 max-md:p-6">
         <p className="text-lg font-medium leading-[1.45] text-novatek-primary">
@@ -43,7 +44,15 @@ function ProjectCard({ project }: { project: PortfolioCardData }) {
   )
 }
 
-export function PortfolioGrid({ projects }: { projects: PortfolioCardData[] }) {
+export function PortfolioGrid({
+  locale = 'en',
+  nextLabel = 'Next',
+  projects,
+}: {
+  locale?: Locale
+  nextLabel?: string
+  projects: PortfolioCardData[]
+}) {
   const { category } = useCategoryFilter()
   const [page, setPage] = useState(0)
 
@@ -70,7 +79,7 @@ export function PortfolioGrid({ projects }: { projects: PortfolioCardData[] }) {
           {Array.from({ length: rowCount }).map((_, rowIndex) => (
             <div className="grid grid-cols-2 gap-12 max-lg:grid-cols-1 max-md:gap-6" key={rowIndex}>
               {visibleProjects.slice(rowIndex * 2, rowIndex * 2 + 2).map((project) => (
-                <ProjectCard project={project} key={project.slug} />
+                <ProjectCard locale={locale} project={project} key={project.slug} />
               ))}
             </div>
           ))}
@@ -85,7 +94,7 @@ export function PortfolioGrid({ projects }: { projects: PortfolioCardData[] }) {
               onClick={goToNextPage}
               type="button"
             >
-              <span>Next</span>
+              <span>{nextLabel}</span>
               <span
                 className="grid size-10 place-items-center bg-white text-novatek-bg"
                 aria-hidden="true"

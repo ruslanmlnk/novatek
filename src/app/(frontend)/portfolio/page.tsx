@@ -1,3 +1,5 @@
+import { t } from '@/lib/i18n'
+import { getRequestLocale } from '@/lib/locale'
 import { getProjectCategories } from '@/lib/queries/categories'
 import { getProjects } from '@/lib/queries/projects'
 import { getSiteData } from '@/lib/queries/site'
@@ -8,21 +10,24 @@ import { PortfolioGrid, type PortfolioCardData } from '../components/PortfolioGr
 import { SiteFooter } from '../components/sections/SiteFooter'
 
 export async function generateMetadata() {
-  const siteData = await getSiteData()
+  const locale = await getRequestLocale()
+  const dict = t(locale)
+  const siteData = await getSiteData(locale)
   return buildMeta(siteData.seo.portfolio, {
-    title: 'Portfolio - Novatek Engineering',
-    description:
-      'Explore Novatek Engineering case studies across laser cutting, CNC machining, 3D scanning, 3D printing, engineering design and custom manufacturing.',
+    title: dict.pages.portfolio.metaTitle,
+    description: dict.pages.portfolio.metaDescription,
   })
 }
 
 export const revalidate = 60
 
 export default async function PortfolioPage() {
+  const locale = await getRequestLocale()
+  const dict = t(locale)
   const [siteData, projects, categories] = await Promise.all([
-    getSiteData(),
-    getProjects(),
-    getProjectCategories(),
+    getSiteData(locale),
+    getProjects(locale),
+    getProjectCategories(locale),
   ])
 
   const cards: PortfolioCardData[] = projects.map((project) => ({
@@ -39,23 +44,30 @@ export default async function PortfolioPage() {
         <PageHero
           activeHref="/portfolio"
           brand={siteData.brand}
+          locale={locale}
           nav={siteData.nav}
-          eyebrow="Portfolio"
+          eyebrow={dict.pages.portfolio.eyebrow}
           title={
             <>
-              Our <span className="text-novatek-primary">Case studies</span>
+              {dict.pages.portfolio.titleBefore}
+              <span className="text-novatek-primary">{dict.pages.portfolio.titleAccent}</span>
             </>
           }
           filtersSlot={
-            <CategoryFilters categories={['All', ...categories]} label="Portfolio filters" />
+            <CategoryFilters
+              allLabel={dict.common.all}
+              categories={categories}
+              label={dict.pages.portfolio.filters}
+            />
           }
           contentClassName="pb-[74px] pt-[42px]"
         />
-        <PortfolioGrid projects={cards} />
+        <PortfolioGrid locale={locale} nextLabel={dict.common.next} projects={cards} />
       </CategoryFilterProvider>
       <SiteFooter
         brand={siteData.brand}
         footer={siteData.footer}
+        locale={locale}
         nav={siteData.nav}
         services={siteData.services.items}
       />

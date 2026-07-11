@@ -1,3 +1,4 @@
+import { localizeHref, t, type Locale } from '@/lib/i18n'
 import type { NavItem, siteData } from '../../data'
 import { BrandLogo } from '../BrandLogo'
 import { GridLines } from '../GridLines'
@@ -8,6 +9,7 @@ type SiteFooterProps = {
   nav: NavItem[]
   services: { title: string; slug: string }[]
   footer: typeof siteData.footer
+  locale?: Locale
 }
 
 type SocialIconProps = {
@@ -144,10 +146,11 @@ function FooterGlow() {
   )
 }
 
-export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
+export function SiteFooter({ brand, footer, locale = 'en', nav, services }: SiteFooterProps) {
+  const dict = t(locale)
   const mainLinks = nav.some((item) => item.label === 'Home')
     ? nav
-    : [{ label: 'Home', href: '/' }, ...nav]
+    : [{ label: dict.common.home, href: localizeHref('/', locale) }, ...nav]
 
   return (
     <footer
@@ -178,7 +181,9 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
 
           <div className="grid w-full max-w-[730px] grid-cols-[168px_174px_348px] items-start gap-x-5 gap-y-8 max-md:max-w-none max-md:grid-cols-1 max-md:gap-6">
             <div className="flex w-[168px] flex-col items-start gap-6 max-md:w-full">
-              <h3 className="text-[26px] font-semibold leading-[1.45] text-white">Main links</h3>
+              <h3 className="text-[26px] font-semibold leading-[1.45] text-white">
+                {dict.footer.mainLinks}
+              </h3>
               <div className="flex flex-col items-start gap-4 self-stretch">
                 {mainLinks.map((item, index) => (
                   <a
@@ -195,12 +200,14 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
             </div>
 
             <div className="flex flex-col items-start gap-6">
-              <h3 className="text-[26px] font-semibold leading-[1.45] text-white">Services</h3>
+              <h3 className="text-[26px] font-semibold leading-[1.45] text-white">
+                {dict.footer.services}
+              </h3>
               <div className="flex flex-col items-start gap-4">
                 {services.map((service) => (
                   <a
                     className="text-lg font-medium leading-[1.45] text-novatek-muted transition-colors hover:text-novatek-primary"
-                    href={`/services/${service.slug}`}
+                    href={localizeHref(`/services/${service.slug}`, locale)}
                     key={service.slug}
                   >
                     {service.title}
@@ -210,7 +217,9 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
             </div>
 
             <div className="flex flex-col items-start gap-6">
-              <h3 className="text-[26px] font-semibold leading-[1.45] text-white">Contact info</h3>
+              <h3 className="text-[26px] font-semibold leading-[1.45] text-white">
+                {dict.footer.contactInfo}
+              </h3>
               <div className="flex flex-col items-start gap-4 self-stretch">
                 {[footer.contact[2], footer.contact[0], footer.contact[1]].map((line) => (
                   <span
@@ -225,9 +234,9 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
 
             <a
               className="hidden text-lg font-medium leading-[1.45] text-white transition-colors hover:text-novatek-primary max-md:inline-flex"
-              href="/privacy-policy"
+              href={localizeHref('/privacy-policy', locale)}
             >
-              Privacy Policy
+              {dict.common.privacyPolicy}
             </a>
           </div>
         </div>
@@ -235,9 +244,9 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
         <div className="mt-16 flex items-center justify-between gap-4 max-md:mt-8 max-md:justify-center">
           <a
             className="w-[212px] text-lg font-medium leading-[1.45] text-white transition-colors hover:text-novatek-primary max-md:hidden"
-            href="/privacy-policy"
+            href={localizeHref('/privacy-policy', locale)}
           >
-            Privacy Policy
+            {dict.common.privacyPolicy}
           </a>
           <p className="text-center text-lg font-medium leading-[1.45] text-white">
             {footer.copyright}

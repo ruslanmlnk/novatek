@@ -2,6 +2,8 @@ import { cache } from 'react'
 
 import type { Project } from '@/payload-types'
 import { siteData } from '@/app/(frontend)/data'
+import { siteDataBg } from '@/app/(frontend)/data.bg'
+import { localizeHref, t, type Locale } from '../i18n'
 import { mediaUrl, relationTitle } from '../media'
 import type { SeoData } from '../seo'
 import { db } from '../payload'
@@ -9,6 +11,7 @@ import { getServices, type ServiceCard } from './services'
 
 export type SiteData = Omit<typeof siteData, 'services'> & {
   services: (typeof siteData)['services'] & { items: ServiceCard[] }
+  locale: Locale
   seo: {
     home: SeoData
     services: SeoData
@@ -33,34 +36,52 @@ function title(
   }
 }
 
-export const getSiteData = cache(async (): Promise<SiteData> => {
+function localizeButton<T extends { href: string; label: string }>(button: T, locale: Locale): T {
+  return { ...button, href: localizeHref(button.href, locale) }
+}
+
+export const getSiteData = cache(async (locale: Locale = 'en'): Promise<SiteData> => {
   const payload = await db()
+  const dict = t(locale)
   const [site, home, services] = await Promise.all([
-    payload.findGlobal({ slug: 'site' }),
-    payload.findGlobal({ slug: 'home' }),
-    getServices(),
+    payload.findGlobal({ slug: 'site', locale }),
+    payload.findGlobal({ slug: 'home', locale }),
+    getServices(locale),
   ])
 
-  const s = siteData
+  const s = locale === 'bg' ? siteDataBg : siteData
 
   return {
+    locale,
     brand: {
       name: pick(site.brand?.name, s.brand.name),
       tagline: pick(site.brand?.tagline, s.brand.tagline),
     },
-    nav: s.nav,
+    nav: [
+      { label: dict.common.services, href: '/services' },
+      { label: locale === 'bg' ? 'Портфолио' : 'Portfolio', href: '/portfolio' },
+      { label: locale === 'bg' ? 'За нас' : 'About', href: '/about' },
+      { label: locale === 'bg' ? 'Блог' : 'Blog', href: '/blog' },
+      { label: locale === 'bg' ? 'Контакти' : 'Contacts', href: '/contact' },
+    ].map((item) => ({ ...item, href: localizeHref(item.href, locale) })),
     hero: {
       backgroundImage: mediaUrl(home.hero?.backgroundImage, s.hero.backgroundImage),
       eyebrow: pick(home.hero?.eyebrow, s.hero.eyebrow),
       title: title(home.hero?.title, s.hero.title),
       description: pick(home.hero?.description, s.hero.description),
-      buttons: s.hero.buttons,
+      buttons: [
+        { label: dict.common.requestAQuote, href: localizeHref('/contact', locale) },
+        { label: locale === 'bg' ? 'Вижте услугите' : 'View Services', href: '#services' },
+      ],
     },
     whyChoose: {
       heading: {
         eyebrow: pick(home.whyChoose?.heading?.eyebrow, s.whyChoose.heading.eyebrow),
         title: title(home.whyChoose?.heading?.title, s.whyChoose.heading.title),
-        button: s.whyChoose.heading.button,
+        button: {
+          label: locale === 'bg' ? 'Научете повече за нас' : s.whyChoose.heading.button.label,
+          href: localizeHref(s.whyChoose.heading.button.href, locale),
+        },
       },
       cards: [
         {
@@ -95,7 +116,7 @@ export const getSiteData = cache(async (): Promise<SiteData> => {
       heading: {
         eyebrow: pick(home.services?.heading?.eyebrow, s.services.heading.eyebrow),
         title: title(home.services?.heading?.title, s.services.heading.title),
-        button: s.services.heading.button,
+        button: { label: dict.common.getAQuote, href: localizeHref('/contact', locale) },
       },
       items: services,
     },
@@ -131,13 +152,22 @@ export const getSiteData = cache(async (): Promise<SiteData> => {
           image: mediaUrl(home.projects?.featured?.image, s.projects.featured.image),
           button: {
             label: s.projects.featured.button.label,
-            href: featured ? `/portfolio/${featured.slug}` : s.projects.featured.button.href,
+            href: localizeHref(
+              featured ? `/portfolio/${featured.slug}` : s.projects.featured.button.href,
+              locale,
+            ),
           },
         },
         cta: {
           title: pick(home.projects?.cta?.title, s.projects.cta.title),
           description: pick(home.projects?.cta?.description, s.projects.cta.description),
-          button: s.projects.cta.button,
+          button: localizeButton(
+            {
+              ...s.projects.cta.button,
+              label: locale === 'bg' ? 'Вижте всички проекти' : s.projects.cta.button.label,
+            },
+            locale,
+          ),
         },
       }
     })(),
@@ -156,7 +186,7 @@ export const getSiteData = cache(async (): Promise<SiteData> => {
     },
     quote: {
       title: pick(home.quoteBanner?.title, s.quote.title),
-      button: s.quote.button,
+      button: { label: dict.common.requestAQuote, href: localizeHref('/contact', locale) },
     },
     faq: {
       eyebrow: pick(home.faq?.heading?.eyebrow, s.faq.eyebrow),

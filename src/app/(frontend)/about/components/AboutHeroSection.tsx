@@ -1,3 +1,4 @@
+import type { Locale } from '@/lib/i18n'
 import type { NavItem, siteData } from '../../data'
 import { ArrowButton } from '../../components/ArrowButton'
 import { GridLines } from '../../components/GridLines'
@@ -10,9 +11,10 @@ type AboutHeroSectionProps = {
   brand: typeof siteData.brand
   nav: NavItem[]
   hero: typeof aboutData.hero
+  locale?: Locale
 }
 
-export function AboutHeroSection({ brand, hero, nav }: AboutHeroSectionProps) {
+export function AboutHeroSection({ brand, hero, locale = 'en', nav }: AboutHeroSectionProps) {
   return (
     <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
       <GridLines height={1100} />
@@ -20,8 +22,11 @@ export function AboutHeroSection({ brand, hero, nav }: AboutHeroSectionProps) {
         className="pointer-events-none absolute inset-x-0 top-0 h-[223px] bg-[linear-gradient(180deg,rgba(67,70,49,0.5)_0%,rgba(25,25,25,0)_100%)]"
         aria-hidden="true"
       />
-      <SiteHeader activeHref="/about" brand={brand} nav={nav} />
-      <div className="relative z-10 mx-auto flex max-w-content flex-col items-center gap-12" data-reveal>
+      <SiteHeader activeHref="/about" brand={brand} locale={locale} nav={nav} />
+      <div
+        className="relative z-10 mx-auto flex max-w-content flex-col items-center gap-12"
+        data-reveal
+      >
         <div className="flex flex-col items-center gap-4 text-center">
           <p className="text-lg font-semibold text-white">// {hero.eyebrow} //</p>
           <h1 className="max-w-[681px] text-[clamp(32px,4vw,48px)] font-semibold leading-[1.25] text-white [&_span]:text-novatek-primary">
@@ -35,7 +40,9 @@ export function AboutHeroSection({ brand, hero, nav }: AboutHeroSectionProps) {
             alt=""
           />
           <div className="relative flex h-full w-[593px] max-w-full shrink-0 flex-col gap-[30px] overflow-hidden bg-novatek-primary p-8 max-lg:h-auto max-lg:w-full max-md:p-6 max-md:pb-28">
-            <p className="relative z-10 text-lg font-medium leading-[1.45] text-white">{hero.description}</p>
+            <p className="relative z-10 text-lg font-medium leading-[1.45] text-white">
+              {hero.description}
+            </p>
             <ArrowButton {...hero.button} variant="onPrimary" />
             <div
               className="novatek-marquee pointer-events-none absolute bottom-0 left-0 flex w-max"

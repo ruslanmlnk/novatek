@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation'
 
+import { localizeHref, t } from '@/lib/i18n'
+import { getRequestLocale } from '@/lib/locale'
 import { getService, getServices } from '@/lib/queries/services'
 import { getSiteData } from '@/lib/queries/site'
 import { buildMeta } from '@/lib/seo'
@@ -24,20 +26,22 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
+  const locale = await getRequestLocale()
+  const dict = t(locale)
   const { slug } = await params
-  const service = await getService(slug)
+  const service = await getService(slug, locale)
 
   return buildMeta(service?.seo, {
-    title: service ? `${service.title} - Novatek Engineering` : 'Service - Novatek Engineering',
-    description:
-      service?.overview.split('\n')[0] ??
-      'Precision engineering and manufacturing services by Novatek Engineering.',
+    title: service ? `${service.title} - Novatek Engineering` : dict.pages.service.metaTitle,
+    description: service?.overview.split('\n')[0] ?? dict.pages.service.metaDescription,
   })
 }
 
 export default async function ServicePage({ params }: PageProps) {
+  const locale = await getRequestLocale()
+  const dict = t(locale)
   const { slug } = await params
-  const [service, siteData] = await Promise.all([getService(slug), getSiteData()])
+  const [service, siteData] = await Promise.all([getService(slug, locale), getSiteData(locale)])
 
   if (!service) notFound()
 
@@ -46,6 +50,7 @@ export default async function ServicePage({ params }: PageProps) {
       <PageHero
         activeHref="/services"
         brand={siteData.brand}
+        locale={locale}
         nav={siteData.nav}
         eyebrow={service.title}
         title={
@@ -60,7 +65,10 @@ export default async function ServicePage({ params }: PageProps) {
       <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
         <div className="mx-auto grid max-w-content justify-items-center gap-12">
           <div data-reveal>
-            <ArrowButton href="/contact" label="Request A Quote" />
+            <ArrowButton
+              href={localizeHref('/contact', locale)}
+              label={dict.common.requestAQuote}
+            />
           </div>
           <img
             className="aspect-[2/1] w-full object-cover max-md:aspect-[3/2]"
@@ -71,18 +79,20 @@ export default async function ServicePage({ params }: PageProps) {
           />
         </div>
       </section>
-      <ServiceOverview service={service} />
-      <ServiceIndustries service={service} />
+      <ServiceOverview locale={locale} service={service} />
+      <ServiceIndustries locale={locale} service={service} />
       <ServiceFaq faq={siteData.faq} />
       <ContactFormSection
         address={siteData.footer.contact[2]}
         backgroundImage={siteData.hero.backgroundImage}
         email={siteData.footer.contact[1]}
+        locale={locale}
         phone={siteData.footer.contact[0]}
       />
       <SiteFooter
         brand={siteData.brand}
         footer={siteData.footer}
+        locale={locale}
         nav={siteData.nav}
         services={siteData.services.items}
       />

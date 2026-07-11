@@ -1,5 +1,7 @@
 import { notFound } from 'next/navigation'
 
+import { localizeHref, t, type Locale } from '@/lib/i18n'
+import { getRequestLocale } from '@/lib/locale'
 import { getProject, getProjects, type PortfolioProject } from '@/lib/queries/projects'
 import { getSiteData } from '@/lib/queries/site'
 import { buildMeta } from '@/lib/seo'
@@ -21,35 +23,44 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: PageProps) {
+  const locale = await getRequestLocale()
+  const dict = t(locale)
   const { slug } = await params
-  const project = await getProject(slug)
+  const project = await getProject(slug, locale)
 
   return buildMeta(project?.seo, {
-    title: project ? `${project.title} - Novatek Engineering` : 'Case Study - Novatek Engineering',
-    description: project?.description ?? 'Novatek Engineering case study.',
+    title: project ? `${project.title} - Novatek Engineering` : dict.pages.project.metaTitle,
+    description: project?.description ?? dict.pages.project.metaDescription,
   })
 }
 
-function RelatedProjects({ projects }: { projects: PortfolioProject[] }) {
+function RelatedProjects({ locale, projects }: { locale: Locale; projects: PortfolioProject[] }) {
   if (!projects.length) return null
+  const dict = t(locale)
 
   return (
     <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-12">
       <div className="mx-auto grid max-w-content gap-12">
         <div className="grid gap-4" data-reveal>
-          <p className="text-lg font-medium leading-[1.45] text-white">// Related Projects //</p>
+          <p className="text-lg font-medium leading-[1.45] text-white">
+            // {dict.pages.project.relatedEyebrow} //
+          </p>
           <div className="flex items-center justify-between gap-8 max-md:flex-col max-md:items-start">
             <h2 className="text-[clamp(40px,5vw,48px)] font-semibold leading-[1.25] text-white">
-              More<span className="text-novatek-primary"> case studies</span>
+              {dict.pages.project.relatedTitleBefore}
+              <span className="text-novatek-primary">{dict.pages.project.relatedTitleAccent}</span>
             </h2>
-            <ArrowButton href="/portfolio" label="View All Cases" />
+            <ArrowButton
+              href={localizeHref('/portfolio', locale)}
+              label={dict.pages.project.viewAll}
+            />
           </div>
         </div>
         <div className="grid grid-cols-2 gap-12 max-lg:grid-cols-1">
           {projects.map((item, index) => (
             <a
               className="grid min-h-[372px] grid-cols-[minmax(0,1fr)_280px] bg-novatek-soft transition-opacity hover:opacity-90 max-md:grid-cols-1"
-              href={`/portfolio/${item.slug}`}
+              href={localizeHref(`/portfolio/${item.slug}`, locale)}
               key={item.slug}
               data-reveal
               style={revealDelay(index)}
@@ -79,8 +90,9 @@ function RelatedProjects({ projects }: { projects: PortfolioProject[] }) {
 }
 
 export default async function PortfolioCasePage({ params }: PageProps) {
+  const locale = await getRequestLocale()
   const { slug } = await params
-  const [projects, siteData] = await Promise.all([getProjects(), getSiteData()])
+  const [projects, siteData] = await Promise.all([getProjects(locale), getSiteData(locale)])
   const project = projects.find((item) => item.slug === slug)
 
   if (!project) notFound()
@@ -92,6 +104,7 @@ export default async function PortfolioCasePage({ params }: PageProps) {
       <PageHero
         activeHref="/portfolio"
         brand={siteData.brand}
+        locale={locale}
         nav={siteData.nav}
         eyebrow={project.category}
         title={project.title}
@@ -113,10 +126,11 @@ export default async function PortfolioCasePage({ params }: PageProps) {
           )}
         </div>
       </section>
-      <RelatedProjects projects={related} />
+      <RelatedProjects locale={locale} projects={related} />
       <SiteFooter
         brand={siteData.brand}
         footer={siteData.footer}
+        locale={locale}
         nav={siteData.nav}
         services={siteData.services.items}
       />

@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import type { Locale } from '@/lib/i18n'
 import type { NavItem, siteData } from '../data'
 import { GridLines } from './GridLines'
 import { SiteHeader } from './SiteHeader'
@@ -14,6 +15,7 @@ type PageHeroProps = {
   filtersSlot?: ReactNode
   gridLines?: boolean
   contentClassName?: string
+  locale?: Locale
 }
 
 export function PageHero({
@@ -27,6 +29,7 @@ export function PageHero({
   filtersSlot,
   gridLines = false,
   contentClassName = 'pb-12 pt-12',
+  locale = 'en',
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)]">
@@ -36,7 +39,7 @@ export function PageHero({
           <GridLines height={396} />
         </div>
       )}
-      <SiteHeader activeHref={activeHref} brand={brand} nav={nav} />
+      <SiteHeader activeHref={activeHref} brand={brand} locale={locale} nav={nav} />
       <div
         className={`relative mx-auto flex max-w-content flex-col items-center gap-8 text-center ${contentClassName}`}
         data-reveal

@@ -98,7 +98,7 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  fallbackLocale: null;
+  fallbackLocale: ('false' | 'none' | 'null') | false | null | ('en' | 'bg') | ('en' | 'bg')[];
   globals: {
     site: Site;
     home: Home;
@@ -111,7 +111,7 @@ export interface Config {
     about: AboutSelect<false> | AboutSelect<true>;
     privacy: PrivacySelect<false> | PrivacySelect<true>;
   };
-  locale: null;
+  locale: 'en' | 'bg';
   widgets: {
     collections: CollectionsWidget;
   };

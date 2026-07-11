@@ -1,13 +1,14 @@
 ﻿'use client'
 
 import { useEffect, useMemo, useRef, useState } from 'react'
+import { dictionary, type Locale } from '@/lib/i18n'
 import type { siteData } from '../../data'
 import { CheckGlyph, ProcessRequestGlyph } from '../IconSet'
 import { HighlightedTitle } from '../SectionHeading'
 
-type ProcessSectionProps = typeof siteData.process
+type ProcessSectionProps = typeof siteData.process & { locale?: Locale }
 
-export function ProcessSection({ eyebrow, features, image, steps, title }: ProcessSectionProps) {
+export function ProcessSection({ eyebrow, features, image, locale = 'en', steps, title }: ProcessSectionProps) {
   const sectionRef = useRef<HTMLElement>(null)
   const [progress, setProgress] = useState(0)
   const [isDesktop, setIsDesktop] = useState(false)
@@ -158,7 +159,7 @@ export function ProcessSection({ eyebrow, features, image, steps, title }: Proce
             })}
           </div>
           <div className="w-[309px] justify-self-end transition-opacity duration-500 max-lg:w-full max-lg:max-w-[309px] max-lg:justify-self-center">
-            <p className="mb-8 text-lg font-medium leading-[26px] text-white">Features</p>
+            <p className="mb-8 text-lg font-medium leading-[26px] text-white">{dictionary[locale].common.features}</p>
             <div className="relative min-h-[134px] max-lg:min-h-0">
               {isDesktop ? (
                 steps.map((step, index) => {

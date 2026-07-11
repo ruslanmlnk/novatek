@@ -7,37 +7,38 @@ import { slugField } from '../fields/slug'
 
 export const Services: CollectionConfig = {
   slug: 'services',
-  labels: { singular: 'Service', plural: 'Services' },
+  labels: { singular: { en: 'Service', bg: 'Услуга' }, plural: { en: 'Services', bg: 'Услуги' } },
   orderable: true,
   hooks: { afterChange: [revalidateSite], afterDelete: [revalidateSite] },
   access: { read: () => true },
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug'],
-    description: 'Service cards on the home / services pages and the service detail pages',
+    description: { en: 'Service cards on the home / services pages and the service detail pages', bg: 'Карти на услугите на началната страница / страницата с услуги и детайлните страници' },
   },
   fields: [
-    { name: 'title', type: 'text', required: true },
+    { name: 'title', type: 'text', required: true, localized: true },
     ...slugField('title', { description: 'URL of the detail page: /services/<slug>' }),
-    imageField('image', 'Card image'),
-    textItems('features', 'Card feature list'),
+    imageField('image', { en: 'Card image', bg: 'Изображение на картата' }),
+    textItems('features', { en: 'Card feature list', bg: 'Списък с характеристики' }),
     {
       type: 'collapsible',
-      label: 'Detail page — hero',
+      label: { en: 'Detail page — hero', bg: 'Детайлна страница — херо' },
       fields: [
         highlightedTitle({}, 'heroTitle'),
-        imageField('heroImage', 'Wide hero image'),
+        imageField('heroImage', { en: 'Wide hero image', bg: 'Широко херо изображение' }),
       ],
     },
     {
       type: 'collapsible',
-      label: 'Detail page — overview',
+      label: { en: 'Detail page — overview', bg: 'Детайлна страница — общ преглед' },
       fields: [
-        { name: 'overviewHeading', type: 'text', required: true, label: 'Overview heading' },
+        { name: 'overviewHeading', type: 'text', required: true, localized: true, label: { en: 'Overview heading', bg: 'Заглавие на прегледа' } },
         {
           name: 'overview',
           type: 'textarea',
           required: true,
+          localized: true,
           admin: {
             description:
               'Overview paragraphs (blank line = new paragraph). The first paragraph is also used as the SEO description',
@@ -46,29 +47,29 @@ export const Services: CollectionConfig = {
         {
           name: 'cards',
           type: 'array',
-          label: 'Feature cards',
+          label: { en: 'Feature cards', bg: 'Карти с характеристики' },
           minRows: 4,
           maxRows: 4,
-          labels: { singular: 'Card', plural: 'Cards' },
+          labels: { singular: { en: 'Card', bg: 'Карта' }, plural: { en: 'Cards', bg: 'Карти' } },
           fields: [
-            { name: 'title', type: 'text', required: true },
-            { name: 'description', type: 'text', required: true },
+            { name: 'title', type: 'text', required: true, localized: true },
+            { name: 'description', type: 'text', required: true, localized: true },
           ],
         },
       ],
     },
     {
       type: 'collapsible',
-      label: 'Detail page — applications',
+      label: { en: 'Detail page — applications', bg: 'Детайлна страница — приложения' },
       fields: [
         {
           name: 'industries',
           type: 'array',
-          label: 'Industries table',
-          labels: { singular: 'Industry', plural: 'Industries' },
+          label: { en: 'Industries table', bg: 'Таблица с индустрии' },
+          labels: { singular: { en: 'Industry', bg: 'Индустрия' }, plural: { en: 'Industries', bg: 'Индустрии' } },
           fields: [
-            { name: 'industry', type: 'text', required: true },
-            textItems('applications', 'Applications'),
+            { name: 'industry', type: 'text', required: true, localized: true },
+            textItems('applications', { en: 'Applications', bg: 'Приложения' }),
           ],
         },
       ],

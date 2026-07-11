@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { dictionary, localizeHref, type Locale } from '@/lib/i18n'
 import type { ServiceCard } from '@/lib/queries/services'
 import type { siteData } from '../../data'
 import { ArrowGlyph, CheckGlyph, ServiceGlyph } from '../IconSet'
@@ -10,11 +11,13 @@ import { HighlightedTitle } from '../SectionHeading'
 type ServicesSectionProps = {
   heading?: typeof siteData.services.heading
   items: ServiceCard[]
+  locale?: Locale
 }
 
 const MOBILE_PAGE_SIZE = 2
 
-export function ServicesSection({ heading, items }: ServicesSectionProps) {
+export function ServicesSection({ heading, items, locale = 'en' }: ServicesSectionProps) {
+  const dict = dictionary[locale]
   const [page, setPage] = useState(0)
   const pageCount = Math.ceil(items.length / MOBILE_PAGE_SIZE)
   const pageStart = page * MOBILE_PAGE_SIZE
@@ -64,8 +67,8 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
               </div>
               <a
                 className="grid size-10 shrink-0 place-items-center overflow-hidden bg-novatek-primary text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive"
-                href={`/services/${service.slug}`}
-                aria-label={`View ${service.title}`}
+                href={localizeHref(`/services/${service.slug}`, locale)}
+                aria-label={`${dict.common.view} ${service.title}`}
               >
                 <ArrowGlyph className="col-start-1 row-start-1 h-3 w-4 transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-[30px]" />
                 <ArrowGlyph className="col-start-1 row-start-1 h-3 w-4 -translate-x-[30px] transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-0" />
@@ -86,7 +89,7 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
                 {service.title}
               </h3>
               <div className="grid w-full max-w-[345px] gap-8 max-md:max-w-none max-md:gap-6">
-                <p className="text-base font-medium leading-[23px] text-white">Features</p>
+                <p className="text-base font-medium leading-[23px] text-white">{dict.common.features}</p>
                 <ul className="grid gap-2.5">
                   {service.features.map((feature) => (
                     <li
@@ -101,8 +104,8 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
               </div>
               <a
                 className="grid size-10 place-items-center overflow-hidden bg-novatek-primary text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive max-md:hidden"
-                href={`/services/${service.slug}`}
-                aria-label={`View ${service.title}`}
+                href={localizeHref(`/services/${service.slug}`, locale)}
+                aria-label={`${dict.common.view} ${service.title}`}
               >
                 <ArrowGlyph className="col-start-1 row-start-1 h-3 w-4 transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-[30px]" />
                 <ArrowGlyph className="col-start-1 row-start-1 h-3 w-4 -translate-x-[30px] transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-0" />
@@ -121,7 +124,7 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
             onClick={() => setPage((current) => (current + 1) % pageCount)}
             type="button"
           >
-            <span>Next</span>
+            <span>{dict.common.next}</span>
             <span className="grid size-10 place-items-center bg-white text-novatek-bg" aria-hidden="true">
               <ArrowGlyph className="h-3 w-4" />
             </span>

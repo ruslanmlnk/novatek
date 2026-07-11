@@ -2,6 +2,7 @@ import React from 'react'
 import { Inter_Tight } from 'next/font/google'
 import './styles.css'
 
+import { getRequestLocale } from '@/lib/locale'
 import { siteUrl } from '@/lib/seo'
 import { ScrollReveal } from './components/ScrollReveal'
 
@@ -18,9 +19,10 @@ export const metadata = {
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
+  const locale = await getRequestLocale()
 
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body className={`${interTight.className} bg-novatek-bg text-white antialiased`}>
         <ScrollReveal />
         <main>{children}</main>

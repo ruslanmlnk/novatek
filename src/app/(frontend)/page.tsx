@@ -1,3 +1,4 @@
+import { getRequestLocale } from '@/lib/locale'
 import { getSiteData } from '@/lib/queries/site'
 import { buildMeta } from '@/lib/seo'
 import { ContactFormSection } from './components/sections/ContactFormSection'
@@ -14,7 +15,8 @@ import { WhyChooseSection } from './components/sections/WhyChooseSection'
 export const revalidate = 60
 
 export async function generateMetadata() {
-  const siteData = await getSiteData()
+  const locale = await getRequestLocale()
+  const siteData = await getSiteData(locale)
   return buildMeta(siteData.seo.home, {
     title: 'Novatek Engineering',
     description: 'Precision engineering and manufacturing services by Novatek Engineering.',
@@ -22,14 +24,15 @@ export async function generateMetadata() {
 }
 
 export default async function HomePage() {
-  const siteData = await getSiteData()
+  const locale = await getRequestLocale()
+  const siteData = await getSiteData(locale)
 
   return (
     <div className="min-h-screen bg-novatek-bg" id="top">
       <HeroSection brand={siteData.brand} hero={siteData.hero} nav={siteData.nav} />
       <WhyChooseSection {...siteData.whyChoose} />
-      <ServicesSection {...siteData.services} />
-      <ProcessSection {...siteData.process} />
+      <ServicesSection {...siteData.services} locale={locale} />
+      <ProcessSection {...siteData.process} locale={locale} />
       <ProjectsSection {...siteData.projects} />
       <TestimonialsSection {...siteData.testimonials} />
       <QuoteSection {...siteData.quote} />
@@ -38,11 +41,13 @@ export default async function HomePage() {
         address={siteData.footer.contact[2]}
         backgroundImage={siteData.hero.backgroundImage}
         email={siteData.footer.contact[1]}
+        locale={locale}
         phone={siteData.footer.contact[0]}
       />
       <SiteFooter
         brand={siteData.brand}
         footer={siteData.footer}
+        locale={locale}
         nav={siteData.nav}
         services={siteData.services.items}
       />

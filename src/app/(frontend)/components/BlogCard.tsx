@@ -1,3 +1,5 @@
+import { localizeHref, type Locale } from '@/lib/i18n'
+
 type BlogCardProps = {
   post: {
     slug: string
@@ -8,13 +10,14 @@ type BlogCardProps = {
     image: string
   }
   image?: string
+  locale?: Locale
 }
 
-export function BlogCard({ post, image }: BlogCardProps) {
+export function BlogCard({ post, image, locale = 'en' }: BlogCardProps) {
   return (
     <a
       className="grid h-full gap-8 bg-novatek-soft p-6 text-novatek-bg transition-opacity hover:opacity-90"
-      href={`/blog/${post.slug}`}
+      href={localizeHref(`/blog/${post.slug}`, locale)}
     >
       <img className="h-60 w-full object-cover" src={image ?? post.image} alt="" />
       <div className="grid gap-4">

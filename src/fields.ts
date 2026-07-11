@@ -7,20 +7,36 @@ export function highlightedTitle(
   return {
     name,
     type: 'group',
-    label: 'Title',
+    label: { en: 'Title', bg: 'Заглавие' },
     admin: {
-      description: 'The accent part is rendered in the green brand color',
+      description: {
+        en: 'The accent part is rendered in the green brand color',
+        bg: 'Акцентната част се показва в зеления брандов цвят',
+      },
     },
     fields: [
-      { name: 'before', type: 'text', label: 'Before accent', defaultValue: defaults.before },
+      {
+        name: 'before',
+        type: 'text',
+        label: { en: 'Before accent', bg: 'Преди акцента' },
+        localized: true,
+        defaultValue: defaults.before,
+      },
       {
         name: 'accent',
         type: 'text',
-        label: 'Accent',
+        label: { en: 'Accent', bg: 'Акцент' },
+        localized: true,
         required: true,
         defaultValue: defaults.accent,
       },
-      { name: 'after', type: 'text', label: 'After accent', defaultValue: defaults.after },
+      {
+        name: 'after',
+        type: 'text',
+        label: { en: 'After accent', bg: 'След акцента' },
+        localized: true,
+        defaultValue: defaults.after,
+      },
     ],
   }
 }
@@ -34,32 +50,41 @@ export function sectionHeading(defaults: {
   return {
     name: 'heading',
     type: 'group',
-    label: 'Section heading',
+    label: { en: 'Section heading', bg: 'Заглавие на секцията' },
     fields: [
       {
         name: 'eyebrow',
         type: 'text',
-        label: 'Eyebrow',
+        label: { en: 'Eyebrow', bg: 'Надзаглавие' },
+        localized: true,
         required: true,
         defaultValue: defaults.eyebrow,
-        admin: { description: 'Small label rendered as // Eyebrow //' },
+        admin: {
+          description: {
+            en: 'Small label rendered as // Eyebrow //',
+            bg: 'Малък етикет, показван като // Надзаглавие //',
+          },
+        },
       },
       highlightedTitle(defaults),
     ],
   }
 }
 
-export function textItems(name: string, label: string, defaults?: string[]): Field {
+export function textItems(name: string, label: string | Record<string, string>, defaults?: string[]): Field {
   return {
     name,
     type: 'array',
     label,
-    labels: { singular: 'Item', plural: 'Items' },
+    labels: {
+      singular: { en: 'Item', bg: 'Елемент' },
+      plural: { en: 'Items', bg: 'Елементи' },
+    },
     defaultValue: defaults?.map((text) => ({ text })),
-    fields: [{ name: 'text', type: 'text', required: true }],
+    fields: [{ name: 'text', type: 'text', required: true, localized: true }],
   }
 }
 
-export function imageField(name = 'image', label = 'Image'): Field {
+export function imageField(name = 'image', label: string | Record<string, string> = 'Image'): Field {
   return { name, type: 'upload', relationTo: 'media', label }
 }

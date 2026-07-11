@@ -8,13 +8,13 @@ import { slugField } from '../fields/slug'
 
 export const GalleryBlock: Block = {
   slug: 'gallery',
-  labels: { singular: 'Gallery', plural: 'Galleries' },
+  labels: { singular: { en: 'Gallery', bg: 'Галерия' }, plural: { en: 'Galleries', bg: 'Галерии' } },
   fields: [
     {
       name: 'images',
       type: 'array',
       maxRows: 3,
-      labels: { singular: 'Photo', plural: 'Photos' },
+      labels: { singular: { en: 'Photo', bg: 'Снимка' }, plural: { en: 'Photos', bg: 'Снимки' } },
       fields: [imageField('image', 'Photo')],
     },
   ],
@@ -22,17 +22,17 @@ export const GalleryBlock: Block = {
 
 export const Projects: CollectionConfig = {
   slug: 'projects',
-  labels: { singular: 'Project', plural: 'Portfolio' },
+  labels: { singular: { en: 'Project', bg: 'Проект' }, plural: { en: 'Portfolio', bg: 'Портфолио' } },
   orderable: true,
   hooks: { afterChange: [revalidateSite], afterDelete: [revalidateSite] },
   access: { read: () => true },
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'category', 'slug'],
-    description: 'Case studies listed on the portfolio page',
+    description: { en: 'Case studies listed on the portfolio page', bg: 'Кейсове, показани на страницата с портфолио' },
   },
   fields: [
-    { name: 'title', type: 'text', required: true },
+    { name: 'title', type: 'text', required: true, localized: true },
     ...slugField('title', { description: 'URL of the case page: /portfolio/<slug>' }),
     {
       name: 'category',
@@ -40,20 +40,21 @@ export const Projects: CollectionConfig = {
       relationTo: 'project-categories',
       required: true,
     },
-    { name: 'description', type: 'textarea', required: true, label: 'Card description' },
-    imageField('image', 'Card image'),
+    { name: 'description', type: 'textarea', required: true, localized: true, label: { en: 'Card description', bg: 'Описание на картата' } },
+    imageField('image', { en: 'Card image', bg: 'Изображение на картата' }),
     {
       type: 'collapsible',
-      label: 'Case study page',
+      label: { en: 'Case study page', bg: 'Страница на кейса' },
       admin: {
         description: 'Optional — empty fields fall back to sensible defaults on the case page',
       },
       fields: [
-        imageField('heroImage', 'Large hero image'),
+        imageField('heroImage', { en: 'Large hero image', bg: 'Голямо херо изображение' }),
         {
           name: 'content',
           type: 'richText',
-          label: 'Case content',
+          localized: true,
+          label: { en: 'Case content', bg: 'Съдържание на кейса' },
           editor: lexicalEditor({
             features: ({ rootFeatures }) => [
               ...rootFeatures,

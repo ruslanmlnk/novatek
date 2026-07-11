@@ -7,22 +7,29 @@ import { seoFields } from '../fields/seo'
 
 export const Site: GlobalConfig = {
   slug: 'site',
-  label: 'Site Settings',
+  label: { en: 'Site Settings', bg: 'Настройки на сайта' },
   hooks: { afterChange: [revalidateSite] },
   access: { read: () => true },
-  admin: { description: 'Brand, contact details and footer — shared by every page' },
+  admin: {
+    description: {
+      en: 'Brand, contact details and footer — shared by every page',
+      bg: 'Бранд, контакти и футър — общи за всички страници',
+    },
+  },
   fields: [
     {
       name: 'brand',
       type: 'group',
+      label: { en: 'Brand', bg: 'Бранд' },
       fields: [
         { name: 'name', type: 'text', required: true, defaultValue: 'Novatek' },
-        { name: 'tagline', type: 'text', required: true, defaultValue: 'Engineering' },
+        { name: 'tagline', type: 'text', required: true, localized: true, defaultValue: 'Engineering' },
       ],
     },
     {
       name: 'contacts',
       type: 'group',
+      label: { en: 'Contacts', bg: 'Контакти' },
       fields: [
         { name: 'phone', type: 'text', required: true, defaultValue: '+359 878 668 410' },
         {
@@ -35,6 +42,7 @@ export const Site: GlobalConfig = {
           name: 'address',
           type: 'text',
           required: true,
+          localized: true,
           defaultValue: '42 Vasil Levski Blvd, Plovdiv 4003, Bulgaria',
         },
       ],
@@ -42,11 +50,13 @@ export const Site: GlobalConfig = {
     {
       name: 'footer',
       type: 'group',
+      label: { en: 'Footer', bg: 'Футър' },
       fields: [
         {
           name: 'tagline',
           type: 'textarea',
           required: true,
+          localized: true,
           defaultValue:
             'Engineering solutions built on precision. Manufacturing delivered with confidence.',
         },
@@ -54,27 +64,33 @@ export const Site: GlobalConfig = {
           name: 'copyright',
           type: 'text',
           required: true,
+          localized: true,
           defaultValue: 'Novatek Engineering LTD © 2026',
         },
-        imageField('mapImage', 'Map image'),
+        imageField('mapImage', { en: 'Map image', bg: 'Карта (изображение)' }),
       ],
     },
     {
       name: 'pagesSeo',
       type: 'group',
-      label: 'Pages SEO',
-      admin: { description: 'Meta tags of the listing pages that have no own content page' },
+      label: { en: 'Pages SEO', bg: 'SEO на страниците' },
+      admin: {
+        description: {
+          en: 'Meta tags of the listing pages that have no own content page',
+          bg: 'Мета тагове на списъчните страници без собствена страница със съдържание',
+        },
+      },
       fields: [
-        seoFields('services', 'Services page'),
-        seoFields('portfolio', 'Portfolio page'),
-        seoFields('blog', 'Blog page'),
-        seoFields('contact', 'Contact page'),
+        seoFields('services', { en: 'Services page', bg: 'Страница „Услуги“' }),
+        seoFields('portfolio', { en: 'Portfolio page', bg: 'Страница „Портфолио“' }),
+        seoFields('blog', { en: 'Blog page', bg: 'Страница „Блог“' }),
+        seoFields('contact', { en: 'Contact page', bg: 'Страница „Контакти“' }),
       ],
     },
     {
       name: 'socials',
       type: 'array',
-      label: 'Social links',
+      label: { en: 'Social links', bg: 'Социални мрежи' },
       defaultValue: [
         { label: 'Instagram', url: '#' },
         { label: 'TikTok', url: '#' },

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+import { isLocale } from '@/lib/i18n'
 import type { ContactSubmissionResult } from '@/lib/contactSubmissions'
 import { createContactSubmission } from '@/lib/contactSubmissions'
 
@@ -14,8 +15,10 @@ export async function POST(request: NextRequest) {
 
   try {
     const formData = await request.formData()
+    const locale = formData.get('locale')
     result = await createContactSubmission(formData, {
       ipAddress: request.headers.get('x-forwarded-for')?.split(',')[0]?.trim(),
+      locale: typeof locale === 'string' && isLocale(locale) ? locale : undefined,
       userAgent: request.headers.get('user-agent') ?? undefined,
     })
   } catch (error) {
