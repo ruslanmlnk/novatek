@@ -39,6 +39,7 @@ export default async function ServicesPage() {
           </>
         }
         contentClassName="pb-[74px] pt-[42px]"
+        gridLines
       />
       <ServicesSection items={siteData.services.items} locale={locale} />
       <ContactFormSection

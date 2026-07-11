@@ -7,6 +7,7 @@ import { getSiteData } from '@/lib/queries/site'
 import { buildMeta } from '@/lib/seo'
 import { ArrowButton } from '../../components/ArrowButton'
 import { CmsRichText } from '../../components/CmsRichText'
+import { GridLines } from '../../components/GridLines'
 import { PageHero } from '../../components/PageHero'
 import { revealDelay } from '../../components/reveal'
 import { SiteFooter } from '../../components/sections/SiteFooter'
@@ -39,8 +40,9 @@ function RelatedProjects({ locale, projects }: { locale: Locale; projects: Portf
   const dict = t(locale)
 
   return (
-    <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-12">
-      <div className="mx-auto grid max-w-content gap-12">
+    <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-12">
+      <GridLines height={600} />
+      <div className="relative z-10 mx-auto grid max-w-content gap-12">
         <div className="grid gap-4" data-reveal>
           <p className="text-lg font-medium leading-[1.45] text-white">
             // {dict.pages.project.relatedEyebrow} //
@@ -111,8 +113,9 @@ export default async function PortfolioCasePage({ params }: PageProps) {
         description={project.description}
         gridLines
       />
-      <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-[42px]">
-        <div className="mx-auto grid max-w-content justify-items-center gap-12">
+      <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] pt-[42px]">
+        <GridLines height={700} />
+        <div className="relative z-10 mx-auto grid max-w-content justify-items-center gap-12">
           <img
             className="aspect-[2/1] w-full max-w-[1012px] object-cover max-md:aspect-[3/2]"
             src={project.caseStudy.heroImage}
