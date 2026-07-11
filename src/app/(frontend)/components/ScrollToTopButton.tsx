@@ -23,7 +23,7 @@ export function ScrollToTopButton({ locale }: ScrollToTopButtonProps) {
 
   return (
     <button
-      className={`fixed bottom-6 right-6 z-[70] grid size-11 place-items-center overflow-hidden bg-novatek-primary text-white shadow-[0_12px_32px_rgba(0,0,0,0.35)] transition duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive max-md:bottom-5 max-md:right-5 ${
+      className={`fixed bottom-6 right-6 z-[70] grid size-11 place-items-center overflow-hidden bg-white text-[#151515] shadow-[0_12px_32px_rgba(0,0,0,0.35)] transition duration-300 hover:bg-novatek-soft active:bg-white/90 max-md:bottom-5 max-md:right-5 ${
         visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'
       }`}
       type="button"
