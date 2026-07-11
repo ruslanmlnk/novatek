@@ -3,6 +3,7 @@ import { getPosts } from '@/lib/queries/posts'
 import { getSiteData } from '@/lib/queries/site'
 import { buildMeta } from '@/lib/seo'
 import { BlogGrid, type BlogCardData } from '../components/BlogGrid'
+import { CategoryFilterProvider, CategoryFilters } from '../components/CategoryFilter'
 import { PageHero } from '../components/PageHero'
 import { SiteFooter } from '../components/sections/SiteFooter'
 
@@ -35,22 +36,24 @@ export default async function BlogPage() {
 
   return (
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
-      <PageHero
-        activeHref="/blog"
-        brand={siteData.brand}
-        nav={siteData.nav}
-        eyebrow="Blog"
-        title={
-          <>
-            Engineering <span className="text-novatek-primary">insights</span>
-          </>
-        }
-        filters={['All', ...categories]}
-        filtersHref="#blog-grid"
-        filtersLabel="Blog categories"
-        gridLines
-      />
-      <BlogGrid posts={cards} />
+      <CategoryFilterProvider>
+        <PageHero
+          activeHref="/blog"
+          brand={siteData.brand}
+          nav={siteData.nav}
+          eyebrow="Blog"
+          title={
+            <>
+              Engineering <span className="text-novatek-primary">insights</span>
+            </>
+          }
+          filtersSlot={
+            <CategoryFilters categories={['All', ...categories]} label="Blog categories" />
+          }
+          gridLines
+        />
+        <BlogGrid posts={cards} />
+      </CategoryFilterProvider>
       <SiteFooter
         brand={siteData.brand}
         footer={siteData.footer}

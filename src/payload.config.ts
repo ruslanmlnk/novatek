@@ -12,6 +12,7 @@ import { Projects } from './collections/Projects'
 import { ProjectCategories } from './collections/ProjectCategories'
 import { Posts } from './collections/Posts'
 import { PostCategories } from './collections/PostCategories'
+import { ContactSubmissions } from './collections/ContactSubmissions'
 import { Site } from './globals/Site'
 import { Home } from './globals/Home'
 import { About } from './globals/About'
@@ -27,7 +28,16 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Services, Projects, ProjectCategories, Posts, PostCategories, Media, Users],
+  collections: [
+    ContactSubmissions,
+    Services,
+    Projects,
+    ProjectCategories,
+    Posts,
+    PostCategories,
+    Media,
+    Users,
+  ],
   globals: [Site, Home, About, Privacy],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

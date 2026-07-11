@@ -31,7 +31,12 @@ export function ServiceIndustries({ service }: { service: ServiceDetail }) {
               <p className="text-white md:text-novatek-muted">{row.industry}</p>
               <ul className="grid gap-4">
                 {row.applications.map((application) => (
-                  <li key={application}>{application}</li>
+                  <li
+                    className="relative pl-[15px] before:absolute before:left-0 before:top-[0.72em] before:size-1 before:-translate-y-1/2 before:rounded-full before:bg-novatek-muted"
+                    key={application}
+                  >
+                    {application}
+                  </li>
                 ))}
               </ul>
             </div>

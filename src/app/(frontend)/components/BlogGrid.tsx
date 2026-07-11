@@ -1,8 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { BlogCard } from './BlogCard'
+import { useCategoryFilter } from './CategoryFilter'
 import { ArrowGlyph } from './IconSet'
 
 export type BlogCardData = {
@@ -17,9 +18,15 @@ export type BlogCardData = {
 const PAGE_SIZE = 9
 
 export function BlogGrid({ posts }: { posts: BlogCardData[] }) {
+  const { category } = useCategoryFilter()
   const [page, setPage] = useState(0)
-  const pageCount = Math.max(Math.ceil(posts.length / PAGE_SIZE), 1)
-  const visiblePosts = posts.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE)
+
+  useEffect(() => setPage(0), [category])
+
+  const filteredPosts =
+    category === 'All' ? posts : posts.filter((post) => post.category === category)
+  const pageCount = Math.max(Math.ceil(filteredPosts.length / PAGE_SIZE), 1)
+  const visiblePosts = filteredPosts.slice(page * PAGE_SIZE, page * PAGE_SIZE + PAGE_SIZE)
 
   const goToNextPage = () => {
     setPage((current) => (current + 1) % pageCount)

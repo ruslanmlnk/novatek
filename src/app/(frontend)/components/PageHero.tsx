@@ -11,9 +11,7 @@ type PageHeroProps = {
   meta?: ReactNode
   title: ReactNode
   description?: string
-  filters?: string[]
-  filtersHref?: string
-  filtersLabel?: string
+  filtersSlot?: ReactNode
   gridLines?: boolean
   contentClassName?: string
 }
@@ -26,9 +24,7 @@ export function PageHero({
   meta,
   title,
   description,
-  filters,
-  filtersHref = '#',
-  filtersLabel = 'Filters',
+  filtersSlot,
   gridLines = false,
   contentClassName = 'pb-12 pt-12',
 }: PageHeroProps) {
@@ -59,25 +55,7 @@ export function PageHero({
             </p>
           )}
         </div>
-        {filters && (
-          <nav
-            className="flex max-w-full flex-wrap items-center justify-center gap-x-6 gap-y-3 text-lg font-medium leading-[1.45] text-white max-md:justify-start max-md:text-base"
-            aria-label={filtersLabel}
-          >
-            {filters.map((filter, index) => (
-              <a className="inline-flex items-center gap-4" href={filtersHref} key={filter}>
-                <span className="text-white/20">/</span>
-                <span
-                  className={
-                    index === 0 ? 'border-b border-novatek-primary text-novatek-primary' : undefined
-                  }
-                >
-                  {filter}
-                </span>
-              </a>
-            ))}
-          </nav>
-        )}
+        {filtersSlot}
       </div>
     </section>
   )
