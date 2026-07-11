@@ -1,3 +1,4 @@
+import { GridLines } from '../../components/GridLines'
 import { HighlightedTitle } from '../../components/SectionHeading'
 import type { aboutData } from '../data'
 
@@ -5,9 +6,10 @@ type TechPartnersSectionProps = typeof aboutData.techPartners
 
 export function TechPartnersSection({ partners, title, eyebrow }: TechPartnersSectionProps) {
   return (
-    <section className="bg-novatek-bg py-[74px]">
+    <section className="relative overflow-hidden bg-novatek-bg py-[74px]">
+      <GridLines height={400} />
       <div
-        className="mx-auto mb-12 flex max-w-content flex-col items-center gap-4 px-[clamp(20px,5.1vw,74px)] text-center"
+        className="relative z-10 mx-auto mb-12 flex max-w-content flex-col items-center gap-4 px-[clamp(20px,5.1vw,74px)] text-center"
         data-reveal
       >
         <p className="text-lg font-semibold text-white">// {eyebrow} //</p>
@@ -15,7 +17,7 @@ export function TechPartnersSection({ partners, title, eyebrow }: TechPartnersSe
           <HighlightedTitle {...title} />
         </h2>
       </div>
-      <div className="overflow-hidden">
+      <div className="relative z-10 overflow-hidden">
         <div className="flex w-max animate-marquee motion-reduce:animate-none">
           {[0, 1].map((copy) => (
             <div
