@@ -5,6 +5,7 @@ import './styles.css'
 import { getRequestLocale } from '@/lib/locale'
 import { siteUrl } from '@/lib/seo'
 import { ScrollReveal } from './components/ScrollReveal'
+import { ScrollToTopButton } from './components/ScrollToTopButton'
 
 const interTight = Inter_Tight({
   subsets: ['latin'],
@@ -26,6 +27,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
       <body className={`${interTight.className} bg-novatek-bg text-white antialiased`}>
         <ScrollReveal />
         <main>{children}</main>
+        <ScrollToTopButton locale={locale} />
       </body>
     </html>
   )

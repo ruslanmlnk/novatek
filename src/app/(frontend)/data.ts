@@ -246,11 +246,7 @@ export const siteData = {
   footer: {
     tagline: 'Engineering solutions built on precision. Manufacturing delivered with confidence.',
     mapImage: '/assets/novatek/figma-c96280815e-655.png',
-    contact: [
-      '+359 878 668 410',
-      'office@novatek-engineering.com',
-      '42 Vasil Levski Blvd, Plovdiv 4003, Bulgaria',
-    ],
+    contact: ['+359 878 668 410', 'office@novatek-engineering.com', 'Plovdiv 4023, Bulgaria'],
     copyright: 'Novatek Engineering LTD © 2026',
     socials: [
       { label: 'Instagram', url: '#' },

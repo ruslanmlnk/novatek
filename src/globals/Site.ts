@@ -23,7 +23,13 @@ export const Site: GlobalConfig = {
       label: { en: 'Brand', bg: 'Бранд' },
       fields: [
         { name: 'name', type: 'text', required: true, defaultValue: 'Novatek' },
-        { name: 'tagline', type: 'text', required: true, localized: true, defaultValue: 'Engineering' },
+        {
+          name: 'tagline',
+          type: 'text',
+          required: true,
+          localized: true,
+          defaultValue: 'Engineering',
+        },
       ],
     },
     {
@@ -43,7 +49,7 @@ export const Site: GlobalConfig = {
           type: 'text',
           required: true,
           localized: true,
-          defaultValue: '42 Vasil Levski Blvd, Plovdiv 4003, Bulgaria',
+          defaultValue: 'Plovdiv 4023, Bulgaria',
         },
       ],
     },
