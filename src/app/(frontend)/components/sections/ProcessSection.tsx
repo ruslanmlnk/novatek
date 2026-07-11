@@ -131,7 +131,7 @@ export function ProcessSection({ eyebrow, features, image, locale = 'en', steps,
 
                 return (
                   <img
-                    className="absolute inset-0 size-full object-cover grayscale transition-opacity duration-200 ease-linear"
+                    className="absolute inset-0 size-full object-cover transition-opacity duration-200 ease-linear"
                     src={step.image ?? image}
                     alt=""
                     key={step.number}
