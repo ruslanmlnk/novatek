@@ -2,6 +2,7 @@ import { Buffer } from 'node:buffer'
 
 import type { File as PayloadFile } from 'payload'
 
+import { sendContactSubmissionEmail } from './email'
 import { db } from './payload'
 
 const allowedExtensions = new Set([
@@ -31,6 +32,12 @@ export type ContactSubmissionResult = { ok: true; message: string } | { ok: fals
 type Metadata = {
   ipAddress?: string
   userAgent?: string
+}
+
+type EmailAttachment = {
+  filename: string
+  content: Buffer
+  contentType: string
 }
 
 function text(value: FormDataEntryValue | null): string {
@@ -106,12 +113,15 @@ export async function createContactSubmission(
 
   const payload = await db()
   const attachmentIds: number[] = []
+  const emailAttachments: EmailAttachment[] = []
 
   for (const file of files) {
+    const fileBuffer = Buffer.from(await file.arrayBuffer())
+    const fileName = sanitizeFileName(file.name)
     const payloadFile: PayloadFile = {
-      data: Buffer.from(await file.arrayBuffer()),
+      data: fileBuffer,
       mimetype: file.type || 'application/octet-stream',
-      name: sanitizeFileName(file.name),
+      name: fileName,
       size: file.size,
     }
 
@@ -126,6 +136,11 @@ export async function createContactSubmission(
       })
 
       attachmentIds.push(upload.id)
+      emailAttachments.push({
+        filename: fileName,
+        content: fileBuffer,
+        contentType: payloadFile.mimetype,
+      })
     } catch (error) {
       await Promise.allSettled(
         attachmentIds.map((id) =>
@@ -137,7 +152,7 @@ export async function createContactSubmission(
   }
 
   try {
-    await payload.create({
+    const submission = await payload.create({
       collection: 'contact-submissions',
       data: {
         status: 'new',
@@ -154,6 +169,24 @@ export async function createContactSubmission(
       },
       overrideAccess: true,
     })
+
+    try {
+      await sendContactSubmissionEmail({
+        submissionId: submission.id,
+        firstName,
+        lastName,
+        email,
+        phone,
+        message,
+        attachments: emailAttachments,
+        source,
+        page,
+        userAgent: metadata.userAgent,
+        ipAddress: metadata.ipAddress,
+      })
+    } catch (error) {
+      console.error('Contact submission email failed', error)
+    }
   } catch (error) {
     await Promise.allSettled(
       attachmentIds.map((id) => payload.delete({ collection: 'media', id, overrideAccess: true })),

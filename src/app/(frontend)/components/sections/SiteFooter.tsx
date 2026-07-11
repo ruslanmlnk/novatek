@@ -14,6 +14,9 @@ type SocialIconProps = {
   name: string
 }
 
+const footerMapSrc =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2957.572196416024!2d24.73981577603646!3d42.159440647752575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd193b64acca5%3A0xa8e5dcdb8ed7b4a7!2z0KHQtdCy0LXRgNC10L0sINGD0LsuIOKAntCS0LDRgdC40Lsg0JvQtdCy0YHQutC44oCcIDQyLCA0MDAzINCf0LvQvtCy0LTQuNCyLCDQkdC-0LvQs9Cw0YDRltGP!5e0!3m2!1suk!2scz!4v1783759693915!5m2!1suk!2scz'
+
 function SocialIcon({ name }: SocialIconProps) {
   if (name === 'Instagram') {
     return (
@@ -163,10 +166,13 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
               </p>
             </div>
             <SocialLinks className="hidden max-md:flex" socials={footer.socials} />
-            <img
-              className="aspect-[75/34] w-full max-w-[328px] object-cover opacity-90 max-md:max-w-none"
-              src={footer.mapImage}
-              alt=""
+            <iframe
+              className="aspect-[75/34] w-full max-w-[328px] border-0 opacity-90 [filter:grayscale(1)_invert(0.9)_contrast(0.85)_brightness(0.75)_sepia(0.18)_saturate(0.7)] max-md:max-w-none"
+              src={footerMapSrc}
+              title="Novatek Engineering location on Google Maps"
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="strict-origin-when-cross-origin"
             />
           </div>
 
