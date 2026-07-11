@@ -2,7 +2,7 @@ import { getServices } from '@/lib/queries/services'
 import { localizeHref, t, type Locale } from '@/lib/i18n'
 import type { NavItem } from '../data'
 import { ArrowButton } from './ArrowButton'
-import { BrandLogo } from './BrandLogo'
+import { HeaderLogo } from './HeaderLogo'
 import { LocaleSwitcher } from './LocaleSwitcher'
 
 type SiteHeaderProps = {
@@ -29,7 +29,7 @@ export async function SiteHeader({ activeHref, brand, locale = 'en', nav }: Site
         className="pointer-events-none absolute inset-0 -z-10 hidden bg-novatek-bg bg-[linear-gradient(180deg,#434631_0%,rgba(25,25,25,0)_100%)] opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-has-[details[open]]/header:opacity-100 max-lg:block"
         aria-hidden="true"
       />
-      <BrandLogo name={brand.name} tagline={brand.tagline} />
+      <HeaderLogo name={brand.name} />
       <nav
         className="flex items-center gap-6 text-lg font-medium leading-[1.45] text-white max-lg:hidden"
         aria-label="Main navigation"
