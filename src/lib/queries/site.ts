@@ -145,9 +145,13 @@ export const getSiteData = cache(async (): Promise<SiteData> => {
       eyebrow: pick(home.testimonials?.heading?.eyebrow, s.testimonials.eyebrow),
       title: title(home.testimonials?.heading?.title, s.testimonials.title),
       badge: pick(home.testimonials?.badge, s.testimonials.badge),
-      quote: pick(home.testimonials?.quote, s.testimonials.quote),
-      author: pick(home.testimonials?.author, s.testimonials.author),
-      role: pick(home.testimonials?.role, s.testimonials.role),
+      items: home.testimonials?.items?.length
+        ? home.testimonials.items.map((item) => ({
+            quote: item.quote,
+            author: item.author,
+            role: item.role,
+          }))
+        : s.testimonials.items,
       avatars: s.testimonials.avatars,
     },
     quote: {

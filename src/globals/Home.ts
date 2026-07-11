@@ -235,14 +235,25 @@ export const Home: GlobalConfig = {
                   defaultValue: 'Happy clients worldwide',
                 },
                 {
-                  name: 'quote',
-                  type: 'textarea',
-                  required: true,
-                  defaultValue:
-                    'Their precision engineering and attention to detail exceeded our expectations. From prototyping to delivery, the entire process was seamless and professional.',
+                  name: 'items',
+                  type: 'array',
+                  label: 'Testimonials',
+                  minRows: 1,
+                  admin: { description: 'Reviews shown in the slider on the right side' },
+                  defaultValue: [
+                    {
+                      quote:
+                        'Their precision engineering and attention to detail exceeded our expectations. From prototyping to delivery, the entire process was seamless and professional.',
+                      author: 'John Matthews',
+                      role: 'Procurement Manager',
+                    },
+                  ],
+                  fields: [
+                    { name: 'quote', type: 'textarea', required: true },
+                    { name: 'author', type: 'text', required: true },
+                    { name: 'role', type: 'text', required: true },
+                  ],
                 },
-                { name: 'author', type: 'text', required: true, defaultValue: 'John Matthews' },
-                { name: 'role', type: 'text', required: true, defaultValue: 'Procurement Manager' },
               ],
             },
           ],

@@ -1,3 +1,7 @@
+'use client'
+
+import { useState } from 'react'
+
 import type { siteData } from '../../data'
 import { ArrowGlyph } from '../IconSet'
 import { HighlightedTitle } from '../SectionHeading'
@@ -91,19 +95,21 @@ function GradientStars({
   )
 }
 
-function TestimonialNav() {
+function TestimonialNav({ onNext, onPrev }: { onNext: () => void; onPrev: () => void }) {
   return (
     <div className="flex shrink-0 items-center gap-3">
       <button
         aria-label="Previous testimonial"
-        className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors hover:bg-novatek-bg"
+        className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive"
+        onClick={onPrev}
         type="button"
       >
         <ArrowGlyph className="rotate-180" />
       </button>
       <button
         aria-label="Next testimonial"
-        className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors hover:bg-novatek-bg"
+        className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive"
+        onClick={onNext}
         type="button"
       >
         <ArrowGlyph />
@@ -171,14 +177,15 @@ function BackgroundVectors() {
 }
 
 export function TestimonialsSection({
-  author,
   avatars,
   badge,
   eyebrow,
-  quote,
-  role,
+  items,
   title,
 }: TestimonialsSectionProps) {
+  const [active, setActive] = useState(0)
+  const count = items.length
+
   return (
     <section
       className="overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)] py-[74px] text-white max-md:px-6 max-md:pb-12 max-md:pt-[42px]"
@@ -239,30 +246,48 @@ export function TestimonialsSection({
             </div>
           </aside>
           <div className="grid min-h-[491px] grid-rows-[1fr_auto] gap-[29px] max-md:min-h-0 max-md:gap-6">
-            <article className="relative flex min-h-[441px] flex-col justify-between overflow-hidden bg-novatek-soft p-[30px] text-novatek-bg max-md:min-h-[386px]">
-              <div className="pointer-events-none absolute inset-y-0 left-0 w-28 bg-[linear-gradient(90deg,rgba(126,132,102,0.18),rgba(246,246,246,0))]" />
-              <div className="relative max-w-[720px]">
-                <GradientStars
-                  className="mb-5"
-                  height={20}
-                  prefix="testimonial-stars"
-                  viewBox="0 0 115 20"
-                  width={115}
-                />
-                <p className="text-lg font-medium leading-[23px] text-novatek-bg">{quote}</p>
+            <div className="relative overflow-hidden">
+              <div
+                className="flex h-full transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)]"
+                style={{ transform: `translateX(-${active * 100}%)` }}
+              >
+                {items.map((item, index) => (
+                  <article
+                    className="relative flex min-h-[441px] w-full shrink-0 flex-col justify-between overflow-hidden bg-novatek-soft p-[30px] text-novatek-bg max-md:min-h-[386px]"
+                    aria-hidden={index !== active}
+                    key={`${item.author}-${index}`}
+                  >
+                    <div className="pointer-events-none absolute inset-y-0 left-0 w-28 bg-[linear-gradient(90deg,rgba(126,132,102,0.18),rgba(246,246,246,0))]" />
+                    <div className="relative max-w-[720px]">
+                      <GradientStars
+                        className="mb-5"
+                        height={20}
+                        prefix={`testimonial-stars-${index}`}
+                        viewBox="0 0 115 20"
+                        width={115}
+                      />
+                      <p className="text-lg font-medium leading-[23px] text-novatek-bg">
+                        {item.quote}
+                      </p>
+                    </div>
+                    <footer className="relative">
+                      <h3 className="text-[28px] font-semibold leading-[31px] text-novatek-bg">
+                        {item.author}
+                      </h3>
+                      <p className="mt-2.5 text-sm font-medium leading-[23px] text-novatek-muted">
+                        {item.role}
+                      </p>
+                    </footer>
+                  </article>
+                ))}
               </div>
-              <footer className="relative">
-                <h3 className="text-[28px] font-semibold leading-[31px] text-novatek-bg">
-                  {author}
-                </h3>
-                <p className="mt-2.5 text-sm font-medium leading-[23px] text-novatek-muted">
-                  {role}
-                </p>
-              </footer>
-            </article>
+            </div>
             <div className="flex items-center gap-8">
               <div className="h-px flex-1 bg-[#D1D1D1]" />
-              <TestimonialNav />
+              <TestimonialNav
+                onNext={() => setActive((current) => (current + 1) % count)}
+                onPrev={() => setActive((current) => (current - 1 + count) % count)}
+              />
             </div>
           </div>
         </div>

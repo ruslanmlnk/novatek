@@ -915,9 +915,17 @@ export interface Home {
       };
     };
     badge: string;
-    quote: string;
-    author: string;
-    role: string;
+    /**
+     * Reviews shown in the slider on the right side
+     */
+    items?:
+      | {
+          quote: string;
+          author: string;
+          role: string;
+          id?: string | null;
+        }[]
+      | null;
   };
   quoteBanner: {
     title: string;
@@ -1263,9 +1271,14 @@ export interface HomeSelect<T extends boolean = true> {
                   };
             };
         badge?: T;
-        quote?: T;
-        author?: T;
-        role?: T;
+        items?:
+          | T
+          | {
+              quote?: T;
+              author?: T;
+              role?: T;
+              id?: T;
+            };
       };
   quoteBanner?:
     | T

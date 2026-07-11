@@ -17,7 +17,7 @@ function ProjectButton({
 }) {
   return (
     <a
-      className={`inline-flex min-h-14 w-fit items-center ${gap} whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 font-medium leading-[23px] text-white transition-colors hover:bg-white hover:text-novatek-bg max-md:w-full max-md:justify-between`}
+      className={`inline-flex min-h-14 w-fit items-center ${gap} whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 font-medium leading-[23px] text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive max-md:w-full max-md:justify-between`}
       href={href}
     >
       <span className={textClass}>{label}</span>
@@ -50,14 +50,14 @@ export function ProjectsSection({ cta, eyebrow, featured, title }: ProjectsSecti
         <div className="flex shrink-0 items-center gap-3 max-md:self-end">
           <button
             aria-label="Previous project"
-            className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg"
+            className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive"
             type="button"
           >
             <ArrowGlyph className="rotate-180" />
           </button>
           <button
             aria-label="Next project"
-            className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg"
+            className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive"
             type="button"
           >
             <ArrowGlyph />

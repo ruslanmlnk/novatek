@@ -185,10 +185,14 @@ export const siteData = {
       accent: 'say about us',
     },
     badge: 'Happy clients worldwide',
-    quote:
-      'Their precision engineering and attention to detail exceeded our expectations. From prototyping to delivery, the entire process was seamless and professional.',
-    author: 'John Matthews',
-    role: 'Procurement Manager',
+    items: [
+      {
+        quote:
+          'Their precision engineering and attention to detail exceeded our expectations. From prototyping to delivery, the entire process was seamless and professional.',
+        author: 'John Matthews',
+        role: 'Procurement Manager',
+      },
+    ],
     avatars: [
       '/assets/novatek/figma-46db34ac37-100.png',
       '/assets/novatek/figma-c97031fe59-100.png',

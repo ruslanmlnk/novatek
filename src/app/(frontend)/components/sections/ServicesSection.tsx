@@ -63,7 +63,7 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
                 </h3>
               </div>
               <a
-                className="grid size-10 shrink-0 place-items-center overflow-hidden bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg"
+                className="grid size-10 shrink-0 place-items-center overflow-hidden bg-novatek-primary text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive"
                 href={`/services/${service.slug}`}
                 aria-label={`View ${service.title}`}
               >
@@ -100,7 +100,7 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
                 </ul>
               </div>
               <a
-                className="grid size-10 place-items-center overflow-hidden bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg max-md:hidden"
+                className="grid size-10 place-items-center overflow-hidden bg-novatek-primary text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive max-md:hidden"
                 href={`/services/${service.slug}`}
                 aria-label={`View ${service.title}`}
               >
@@ -117,7 +117,7 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
             {page + 1} / {pageCount}
           </p>
           <button
-            className="inline-flex items-center gap-4 border border-white/20 bg-novatek-bg py-2 pl-4 pr-2 text-base font-medium text-white"
+            className="inline-flex items-center gap-4 border border-white/20 bg-novatek-bg py-2 pl-4 pr-2 text-base font-medium text-white transition-colors duration-300 hover:bg-novatek-bgHover active:bg-novatek-bgActive"
             onClick={() => setPage((current) => (current + 1) % pageCount)}
             type="button"
           >

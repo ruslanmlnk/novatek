@@ -209,9 +209,7 @@ await payload.updateGlobal({
         title: siteData.testimonials.title,
       },
       badge: siteData.testimonials.badge,
-      quote: siteData.testimonials.quote,
-      author: siteData.testimonials.author,
-      role: siteData.testimonials.role,
+      items: siteData.testimonials.items,
     },
     quoteBanner: { title: siteData.quote.title },
     faq: {

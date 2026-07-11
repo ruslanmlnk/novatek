@@ -7,9 +7,13 @@ const config: Config = {
       colors: {
         novatek: {
           bg: '#151515',
+          bgHover: '#080808',
+          bgActive: '#000000',
           panel: '#202020',
           muted: '#939393',
           primary: '#7E8466',
+          primaryHover: '#6B7058',
+          primaryActive: '#5C5F51',
           primaryLight: '#C5D487',
           soft: '#F6F6F6',
         },

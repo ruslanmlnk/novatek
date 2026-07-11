@@ -282,7 +282,7 @@ export function ContactSubmissionForm({
         We accept orders and project requests across Europe.
       </p>
       <button
-        className="group inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 text-base font-medium text-white transition-colors hover:bg-white hover:text-novatek-bg disabled:cursor-not-allowed disabled:opacity-60 max-md:w-full max-md:justify-between"
+        className="group inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 text-base font-medium text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive disabled:cursor-not-allowed disabled:opacity-60 max-md:w-full max-md:justify-between"
         disabled={pending}
         type="submit"
       >

@@ -8,16 +8,16 @@ type ArrowButtonProps = ButtonData & {
 export function ArrowButton({ href, label, variant = 'primary' }: ArrowButtonProps) {
   const variantClass =
     variant === 'primary'
-      ? 'border-transparent bg-novatek-primary'
+      ? 'border-transparent bg-novatek-primary hover:bg-novatek-primaryHover active:bg-novatek-primaryActive'
       : variant === 'onPrimary'
-        ? 'border-white/20 bg-novatek-bg'
+        ? 'border-white/20 bg-novatek-bg hover:bg-novatek-bgHover active:bg-novatek-bgActive'
         : 'border-white/20 bg-white/[0.06]'
   const iconBgClass = variant === 'onPrimary' ? 'bg-white' : 'bg-novatek-bg'
   const iconColorClass = variant === 'onPrimary' ? 'text-novatek-bg' : 'text-white'
 
   return (
     <a
-      className={`group inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap border py-2 pl-4 pr-2 text-base font-semibold text-white max-md:w-full max-md:justify-between max-md:font-medium ${variantClass}`}
+      className={`group inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap border py-2 pl-4 pr-2 text-base font-semibold text-white transition-colors duration-300 max-md:w-full max-md:justify-between max-md:font-medium ${variantClass}`}
       href={href}
     >
       <span className="relative overflow-hidden">
