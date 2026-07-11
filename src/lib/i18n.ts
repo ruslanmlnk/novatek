@@ -136,7 +136,7 @@ export const dictionary = {
       sendRequest: 'Send Request',
       europe: 'We accept orders and project requests across Europe.',
       fileNaming:
-        'For laser cutting files, use this naming format: Material*Thickness*File name - Quantity.',
+        'For laser cutting files, use this naming format: Material*Thickness*File name _ Quantity.',
       firstNamePlaceholder: 'Your first name',
       lastNamePlaceholder: 'Your last name',
       emailPlaceholder: 'you@example.com',
@@ -262,7 +262,7 @@ export const dictionary = {
       sendRequest: 'Изпратете заявка',
       europe: 'Приемаме поръчки и проектни заявки от цяла Европа.',
       fileNaming:
-        'За файлове за лазерно рязане използвайте този формат на именуване: Материал*Дебелина*Име на файл - Количество.',
+        'За файлове за лазерно рязане използвайте този формат на именуване: Материал*Дебелина*Име на файл _ Количество.',
       firstNamePlaceholder: 'Вашето име',
       lastNamePlaceholder: 'Вашата фамилия',
       emailPlaceholder: 'you@example.com',
