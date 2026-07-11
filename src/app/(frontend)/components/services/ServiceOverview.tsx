@@ -7,19 +7,21 @@ import { FeatureGlyph } from './FeatureGlyph'
 export function ServiceOverview({ locale = 'en', service }: { locale?: Locale; service: ServiceDetail }) {
   const dict = dictionary[locale]
   return (
-    <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
-      <GridLines height={700} />
-      <div className="relative z-10 mx-auto grid max-w-content gap-[82px] max-md:gap-12">
-        <div className="mx-auto grid w-full max-w-[630px] gap-6" data-reveal>
-          <div className="grid gap-4">
-            <p className="text-lg font-medium leading-[1.45] text-white">// {dict.pages.service.overviewEyebrow} //</p>
-            <h2 className="text-[26px] font-semibold leading-[1.45] text-white">
-              {service.overviewHeading}
-            </h2>
+    <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
+      <div className="mx-auto grid max-w-content gap-[82px] max-md:gap-12">
+        <div className="relative overflow-hidden">
+          <GridLines height={300} />
+          <div className="relative z-10 mx-auto grid w-full max-w-[630px] gap-6" data-reveal>
+            <div className="grid gap-4">
+              <p className="text-lg font-medium leading-[1.45] text-white">// {dict.pages.service.overviewEyebrow} //</p>
+              <h2 className="text-[26px] font-semibold leading-[1.45] text-white">
+                {service.overviewHeading}
+              </h2>
+            </div>
+            <p className="whitespace-pre-line text-lg font-medium leading-[1.45] text-novatek-muted">
+              {service.overview}
+            </p>
           </div>
-          <p className="whitespace-pre-line text-lg font-medium leading-[1.45] text-novatek-muted">
-            {service.overview}
-          </p>
         </div>
         <div className="grid grid-cols-4 gap-8 max-lg:grid-cols-2 max-md:grid-cols-1">
           {service.cards.map((card, index) => (
