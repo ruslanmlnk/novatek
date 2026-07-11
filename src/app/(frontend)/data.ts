@@ -249,7 +249,7 @@ export const siteData = {
     contact: ['+359 878 668 410', 'office@novatek-engineering.com', 'Plovdiv 4023, Bulgaria'],
     copyright: 'Novatek Engineering LTD © 2026',
     socials: [
-      { label: 'Instagram', url: '#' },
+      { label: 'Facebook', url: '#' },
       { label: 'TikTok', url: '#' },
     ],
   },

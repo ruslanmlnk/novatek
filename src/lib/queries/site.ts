@@ -212,7 +212,11 @@ export const getSiteData = cache(async (locale: Locale = 'en'): Promise<SiteData
       ],
       copyright: pick(site.footer?.copyright, s.footer.copyright),
       socials: site.socials?.length
-        ? site.socials.map((social) => ({ label: social.label, url: social.url }))
+        ? site.socials.map((social) => ({
+            label: social.label,
+            url: social.url,
+            icon: mediaUrl(social.icon),
+          }))
         : s.footer.socials,
     },
   } as SiteData

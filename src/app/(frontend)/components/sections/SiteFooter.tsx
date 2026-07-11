@@ -14,31 +14,20 @@ type SiteFooterProps = {
 }
 
 type SocialIconProps = {
+  icon?: string
   name: string
 }
 
 const footerMapSrc =
   'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2957.572196416024!2d24.73981577603646!3d42.159440647752575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14acd193b64acca5%3A0xa8e5dcdb8ed7b4a7!2z0KHQtdCy0LXRgNC10L0sINGD0LsuIOKAntCS0LDRgdC40Lsg0JvQtdCy0YHQutC44oCcIDQyLCA0MDAzINCf0LvQvtCy0LTQuNCyLCDQkdC-0LvQs9Cw0YDRltGP!5e0!3m2!1suk!2scz!4v1783759693915!5m2!1suk!2scz'
 
-function SocialIcon({ name }: SocialIconProps) {
-  if (name === 'Instagram') {
-    return (
-      <svg
-        className="size-6 shrink-0"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          fillRule="evenodd"
-          clipRule="evenodd"
-          d="M6.11363 21.2237C7.33331 21.752 8.88887 21.752 12 21.752C15.1111 21.752 16.6667 21.752 17.8864 21.2237C19.3814 20.576 20.574 19.3835 21.2216 17.8884C21.75 16.6687 21.75 15.1131 21.75 12.002C21.75 8.89083 21.75 7.33526 21.2216 6.11558C20.574 4.62045 19.3814 3.42794 17.8864 2.78029C16.6667 2.25195 15.1111 2.25195 12 2.25195C8.88887 2.25195 7.33331 2.25195 6.11363 2.78029C4.6185 3.42794 3.42599 4.62045 2.77834 6.11558C2.25 7.33526 2.25 8.89083 2.25 12.002C2.25 15.1131 2.25 16.6687 2.77834 17.8884C3.42599 19.3835 4.6185 20.576 6.11363 21.2237ZM15.998 12.0026C15.998 14.2118 14.2072 16.0027 11.998 16.0027C9.7889 16.0027 7.99805 14.2118 7.99805 12.0026C7.99805 9.7935 9.7889 8.00264 11.998 8.00264C14.2072 8.00264 15.998 9.7935 15.998 12.0026ZM17.4989 7.50303C18.0511 7.50303 18.4988 7.05531 18.4988 6.50304C18.4988 5.95075 18.0511 5.50303 17.4989 5.50303C16.9465 5.50303 16.4988 5.95075 16.4988 6.50304C16.4988 7.05531 16.9465 7.50303 17.4989 7.50303Z"
-          fill="#E5E5E5"
-        />
-      </svg>
-    )
+function SocialIcon({ icon, name }: SocialIconProps) {
+  if (icon) {
+    return <img className="size-6 shrink-0" src={icon} alt="" />
+  }
+
+  if (name === 'Facebook') {
+    return <img className="size-6 shrink-0" src="/assets/novatek/facebook.svg" alt="" />
   }
 
   return (
@@ -70,7 +59,7 @@ function SocialLinks({
   socials,
 }: {
   className?: string
-  socials: { label: string; url: string }[]
+  socials: { icon?: string; label: string; url: string }[]
 }) {
   return (
     <div className={`flex items-center gap-4 ${className ?? ''}`}>
@@ -80,7 +69,7 @@ function SocialLinks({
           href={social.url}
           key={social.label}
         >
-          <SocialIcon name={social.label} />
+          <SocialIcon icon={social.icon} name={social.label} />
           {social.label}
         </a>
       ))}

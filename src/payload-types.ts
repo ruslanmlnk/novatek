@@ -763,6 +763,7 @@ export interface Site {
     | {
         label: string;
         url: string;
+        icon?: (number | null) | Media;
         id?: string | null;
       }[]
     | null;
@@ -1118,6 +1119,7 @@ export interface SiteSelect<T extends boolean = true> {
     | {
         label?: T;
         url?: T;
+        icon?: T;
         id?: T;
       };
   updatedAt?: T;

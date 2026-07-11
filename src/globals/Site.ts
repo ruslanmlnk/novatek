@@ -98,12 +98,13 @@ export const Site: GlobalConfig = {
       type: 'array',
       label: { en: 'Social links', bg: 'Социални мрежи' },
       defaultValue: [
-        { label: 'Instagram', url: '#' },
+        { label: 'Facebook', url: '#' },
         { label: 'TikTok', url: '#' },
       ],
       fields: [
         { name: 'label', type: 'text', required: true },
         { name: 'url', type: 'text', required: true },
+        imageField('icon', { en: 'Icon', bg: 'Икона' }),
       ],
     },
   ],
