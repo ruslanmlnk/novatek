@@ -63,11 +63,12 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
                 </h3>
               </div>
               <a
-                className="grid size-10 shrink-0 place-items-center bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg"
+                className="grid size-10 shrink-0 place-items-center overflow-hidden bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg"
                 href={`/services/${service.slug}`}
                 aria-label={`View ${service.title}`}
               >
-                <ArrowGlyph className="h-3 w-4" />
+                <ArrowGlyph className="col-start-1 row-start-1 h-3 w-4 transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-[30px]" />
+                <ArrowGlyph className="col-start-1 row-start-1 h-3 w-4 -translate-x-[30px] transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-0" />
               </a>
             </div>
             <div className="grid min-h-[231px] grid-cols-[58px_minmax(0,404px)] items-stretch gap-8 max-md:min-h-0 max-md:grid-cols-1">
@@ -99,11 +100,12 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
                 </ul>
               </div>
               <a
-                className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg max-md:hidden"
+                className="grid size-10 place-items-center overflow-hidden bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg max-md:hidden"
                 href={`/services/${service.slug}`}
                 aria-label={`View ${service.title}`}
               >
-                <ArrowGlyph className="h-3 w-4" />
+                <ArrowGlyph className="col-start-1 row-start-1 h-3 w-4 transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-[30px]" />
+                <ArrowGlyph className="col-start-1 row-start-1 h-3 w-4 -translate-x-[30px] transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-0" />
               </a>
             </div>
           </article>

@@ -2,7 +2,31 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes menu-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes novatek-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
+  .novatek-marquee {
+    animation: novatek-marquee 30s linear infinite;
+  }
+
   [data-reveal] {
     opacity: 0;
     transform: translateY(40px);

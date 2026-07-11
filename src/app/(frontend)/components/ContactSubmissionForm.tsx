@@ -282,16 +282,27 @@ export function ContactSubmissionForm({
         We accept orders and project requests across Europe.
       </p>
       <button
-        className="inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 text-base font-medium text-white transition-colors hover:bg-white hover:text-novatek-bg disabled:cursor-not-allowed disabled:opacity-60 max-md:w-full max-md:justify-between"
+        className="group inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 text-base font-medium text-white transition-colors hover:bg-white hover:text-novatek-bg disabled:cursor-not-allowed disabled:opacity-60 max-md:w-full max-md:justify-between"
         disabled={pending}
         type="submit"
       >
-        <span>{pending ? 'Sending...' : 'Send Request'}</span>
+        <span className="relative overflow-hidden">
+          <span className="block transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:-translate-y-full">
+            {pending ? 'Sending...' : 'Send Request'}
+          </span>
+          <span
+            className="absolute inset-0 block translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-y-0"
+            aria-hidden="true"
+          >
+            {pending ? 'Sending...' : 'Send Request'}
+          </span>
+        </span>
         <span
-          className="grid size-10 place-items-center bg-novatek-bg text-white"
+          className="grid size-10 place-items-center overflow-hidden bg-novatek-bg text-white"
           aria-hidden="true"
         >
-          <ArrowGlyph className="h-3 w-4" />
+          <ArrowGlyph className="col-start-1 row-start-1 h-3 w-4 transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-[30px]" />
+          <ArrowGlyph className="col-start-1 row-start-1 h-3 w-4 -translate-x-[30px] transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)] group-hover:translate-x-0" />
         </span>
       </button>
     </form>

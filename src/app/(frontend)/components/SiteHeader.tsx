@@ -20,7 +20,11 @@ export async function SiteHeader({ activeHref, brand, nav }: SiteHeaderProps) {
   }))
 
   return (
-    <header className="relative z-50 mx-auto flex h-[120px] w-full max-w-[1292px] items-center justify-between gap-8 py-8 max-lg:-mx-6 max-lg:h-20 max-lg:w-[calc(100%+48px)] max-lg:gap-4 max-lg:px-6 max-lg:py-6">
+    <header className="group/header relative z-50 mx-auto flex h-[120px] w-full max-w-[1292px] items-center justify-between gap-8 py-8 max-lg:-mx-6 max-lg:h-20 max-lg:w-[calc(100%+48px)] max-lg:gap-4 max-lg:px-6 max-lg:py-6">
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 hidden bg-novatek-bg bg-[linear-gradient(180deg,#434631_0%,rgba(25,25,25,0)_100%)] opacity-0 transition-opacity duration-500 ease-[cubic-bezier(0.65,0,0.35,1)] group-has-[details[open]]/header:opacity-100 max-lg:block"
+        aria-hidden="true"
+      />
       <BrandLogo name={brand.name} tagline={brand.tagline} />
       <nav
         className="flex items-center gap-6 text-lg font-medium leading-[1.45] text-white max-lg:hidden"
@@ -56,7 +60,7 @@ export async function SiteHeader({ activeHref, brand, nav }: SiteHeaderProps) {
           <span className="sr-only">Open navigation</span>
         </summary>
         <nav
-          className="fixed left-0 top-20 z-50 w-screen bg-novatek-bg px-6 pb-6 pt-6 text-lg font-medium leading-[26px] text-white shadow-2xl"
+          className="fixed left-0 top-20 z-50 w-screen animate-[menu-panel-in_0.5s_cubic-bezier(0.65,0,0.35,1)] bg-novatek-bg px-6 pb-6 pt-6 text-lg font-medium leading-[26px] text-white shadow-2xl"
           aria-label="Mobile navigation"
         >
           <div className="grid gap-[13px]">
@@ -84,7 +88,7 @@ export async function SiteHeader({ activeHref, brand, nav }: SiteHeaderProps) {
                   />
                 </svg>
               </summary>
-              <div className="mt-[16px] hidden gap-[13px] py-[17px] pl-[17px] group-open/services:grid">
+              <div className="mt-4 hidden gap-4 border border-white/10 bg-novatek-bg p-4 group-open/services:grid">
                 {mobileServiceLinks.map((item) => (
                   <a className="block py-0 text-white" href={item.href} key={item.href}>
                     {item.label}

@@ -31,7 +31,7 @@ export function CategoryFilters({ categories, label }: { categories: string[]; l
 
   return (
     <nav
-      className="flex max-w-full flex-wrap items-center justify-center gap-x-6 gap-y-3 text-lg font-medium leading-[1.45] text-white max-md:justify-start max-md:text-base"
+      className="flex max-w-full flex-wrap items-center justify-center gap-x-6 gap-y-3 text-lg font-medium leading-[1.45] text-white max-md:text-base"
       aria-label={label}
     >
       {categories.map((item) => (

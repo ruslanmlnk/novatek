@@ -42,7 +42,7 @@ export function FaqItem({
       >
         {question}
         <span
-          className={`grid shrink-0 place-items-center rounded-full bg-gradient-to-br from-novatek-primaryLight to-novatek-primary text-novatek-bg transition-transform duration-300 ${
+          className={`grid shrink-0 place-items-center rounded-full bg-gradient-to-br from-novatek-primaryLight to-novatek-primary text-white transition-transform duration-300 ${
             variant === 'box' ? 'size-9' : 'size-[30px] max-md:size-9'
           } ${open ? 'rotate-45' : ''}`}
           aria-hidden="true"

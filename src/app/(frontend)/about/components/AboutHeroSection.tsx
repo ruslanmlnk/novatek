@@ -37,7 +37,13 @@ export function AboutHeroSection({ brand, hero, nav }: AboutHeroSectionProps) {
           <div className="relative flex h-full w-[593px] max-w-full shrink-0 flex-col gap-[30px] overflow-hidden bg-novatek-primary p-8 max-lg:h-auto max-lg:w-full max-md:p-6 max-md:pb-28">
             <p className="relative z-10 text-lg font-medium leading-[1.45] text-white">{hero.description}</p>
             <ArrowButton {...hero.button} variant="onPrimary" />
-            <NovatekWordmark className="pointer-events-none absolute -left-[350px] bottom-0 h-auto w-[1292px] opacity-10" />
+            <div
+              className="novatek-marquee pointer-events-none absolute bottom-0 left-0 flex w-max"
+              aria-hidden="true"
+            >
+              <NovatekWordmark className="mr-20 h-auto w-[1292px] shrink-0 opacity-10" />
+              <NovatekWordmark className="mr-20 h-auto w-[1292px] shrink-0 opacity-10" />
+            </div>
           </div>
         </div>
       </div>
