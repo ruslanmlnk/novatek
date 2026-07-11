@@ -283,13 +283,14 @@ export function ContactSubmissionForm({
           {state.message}
         </p>
       )}
-      <p
-        className={`text-sm font-medium leading-[1.45] ${
+      <div
+        className={`grid gap-1 text-sm font-medium leading-[1.45] ${
           light ? 'text-novatek-bg/60' : 'text-novatek-muted'
         }`}
       >
-        {dict.europe}
-      </p>
+        <p>{dict.europe}</p>
+        <p>{dict.fileNaming}</p>
+      </div>
       <button
         className="group inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 text-base font-medium text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive disabled:cursor-not-allowed disabled:opacity-60 max-md:w-full max-md:justify-between"
         disabled={pending}
