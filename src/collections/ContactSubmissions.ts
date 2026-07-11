@@ -41,7 +41,7 @@ export const ContactSubmissions: CollectionConfig = {
       type: 'row',
       fields: [
         { name: 'email', type: 'email', required: true },
-        { name: 'phone', type: 'text' },
+        { name: 'phone', type: 'text', required: true },
       ],
     },
     {

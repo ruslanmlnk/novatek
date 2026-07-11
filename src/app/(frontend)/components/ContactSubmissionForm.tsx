@@ -61,7 +61,7 @@ function Field({
 
   return (
     <label
-      className={`grid gap-2 text-base font-medium leading-[1.45] ${
+      className={`grid min-w-0 gap-2 text-base font-medium leading-[1.45] ${
         light || !required ? 'text-novatek-muted' : 'text-white'
       }`}
     >
@@ -69,8 +69,8 @@ function Field({
       <input
         className={
           light
-            ? 'h-[55px] border border-white/10 bg-novatek-soft px-6 text-base font-medium text-novatek-bg outline-none transition-colors focus:border-novatek-primary'
-            : 'h-[55px] border border-white/15 bg-transparent px-4 text-base font-medium text-white outline-none transition-colors placeholder:text-white/35 focus:border-novatek-primary'
+            ? 'h-[55px] w-full min-w-0 border border-white/10 bg-novatek-soft px-6 text-base font-medium text-novatek-bg outline-none transition-colors focus:border-novatek-primary'
+            : 'h-[55px] w-full min-w-0 border border-white/15 bg-transparent px-4 text-base font-medium text-white outline-none transition-colors placeholder:text-white/35 focus:border-novatek-primary'
         }
         name={name}
         placeholder={placeholder}
@@ -185,7 +185,7 @@ export function ContactSubmissionForm({
       <input name="page" type="hidden" value={pathname} />
       <input name="locale" type="hidden" value={locale} />
       <div className="grid gap-4">
-        <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
+        <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] gap-4 max-md:grid-cols-1">
           <Field
             label={dict.firstName}
             name="firstName"
@@ -200,7 +200,7 @@ export function ContactSubmissionForm({
             variant={variant}
           />
         </div>
-        <div className="grid grid-cols-2 gap-4 max-md:grid-cols-1">
+        <div className="grid grid-cols-[repeat(2,minmax(0,1fr))] gap-4 max-md:grid-cols-1">
           <Field
             label={dict.email}
             name="email"
@@ -213,6 +213,7 @@ export function ContactSubmissionForm({
             label={dict.phone}
             name="phone"
             placeholder={light ? undefined : dict.phonePlaceholder}
+            required
             type="tel"
             variant={variant}
           />

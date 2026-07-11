@@ -151,7 +151,7 @@ export interface ContactSubmission {
   firstName: string;
   lastName?: string | null;
   email: string;
-  phone?: string | null;
+  phone: string;
   message: string;
   attachments?: (number | Media)[] | null;
   source?: string | null;

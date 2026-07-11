@@ -83,7 +83,7 @@ export async function createContactSubmission(
   const locale = metadata.locale ?? (isLocale(formLocale) ? formLocale : 'en')
   const messages = dictionary[locale].submissions
 
-  if (!firstName || !email || !message) {
+  if (!firstName || !email || !phone || !message) {
     return { ok: false, message: messages.required }
   }
 

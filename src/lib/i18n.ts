@@ -142,7 +142,7 @@ export const dictionary = {
       messagePlaceholder: 'Tell us what you need manufactured or engineered',
     },
     submissions: {
-      required: 'Please fill in your name, email and project description.',
+      required: 'Please fill in your name, email, phone number and project description.',
       invalidEmail: 'Please enter a valid email address.',
       maxFiles: 'Please upload no more than 8 files.',
       totalTooLarge: 'The total upload size is too large.',
@@ -266,7 +266,7 @@ export const dictionary = {
       messagePlaceholder: 'Опишете какво трябва да бъде произведено или проектирано',
     },
     submissions: {
-      required: 'Моля, попълнете име, имейл и описание на проекта.',
+      required: 'Моля, попълнете име, имейл, телефон и описание на проекта.',
       invalidEmail: 'Моля, въведете валиден имейл адрес.',
       maxFiles: 'Моля, качете не повече от 8 файла.',
       totalTooLarge: 'Общият размер на файловете е твърде голям.',
