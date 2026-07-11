@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react'
+import type { Locale } from '@/lib/i18n'
 import type { ButtonData, HighlightedText, NavItem } from '../../data'
 import { ArrowButton } from '../ArrowButton'
 import { GridLines } from '../GridLines'
@@ -19,9 +20,10 @@ type HeroSectionProps = {
     description: string
     buttons: ButtonData[]
   }
+  locale?: Locale
 }
 
-export function HeroSection({ brand, hero, nav }: HeroSectionProps) {
+export function HeroSection({ brand, hero, locale, nav }: HeroSectionProps) {
   return (
     <section
       className="relative flex min-h-[801px] flex-col items-center gap-8 overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] max-md:min-h-[659px] max-md:px-6 max-md:pb-0"
@@ -38,7 +40,7 @@ export function HeroSection({ brand, hero, nav }: HeroSectionProps) {
         className="pointer-events-none absolute inset-x-0 top-0 h-[223px] bg-[linear-gradient(180deg,rgba(67,70,49,0.5)_0%,rgba(25,25,25,0)_100%)]"
         aria-hidden="true"
       />
-      <SiteHeader brand={brand} nav={nav} />
+      <SiteHeader activeHref="/" brand={brand} locale={locale} nav={nav} />
       <div className="relative z-10 mx-auto flex min-h-[575px] w-full max-w-[1295px] shrink-0 flex-col items-end gap-[140px] max-md:min-h-[531px] max-md:items-start max-md:justify-end max-md:gap-[82px]">
         <NovatekWordmark className="h-auto w-full shrink-0" />
         <div

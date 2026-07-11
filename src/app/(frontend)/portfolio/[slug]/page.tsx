@@ -128,6 +128,7 @@ export default async function PortfolioCasePage({ params }: PageProps) {
       </section>
       <RelatedProjects locale={locale} projects={related} />
       <SiteFooter
+        activeHref="/portfolio"
         brand={siteData.brand}
         footer={siteData.footer}
         locale={locale}

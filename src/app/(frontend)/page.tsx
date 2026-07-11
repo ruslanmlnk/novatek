@@ -29,7 +29,7 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen bg-novatek-bg" id="top">
-      <HeroSection brand={siteData.brand} hero={siteData.hero} nav={siteData.nav} />
+      <HeroSection brand={siteData.brand} hero={siteData.hero} locale={locale} nav={siteData.nav} />
       <WhyChooseSection {...siteData.whyChoose} />
       <ServicesSection {...siteData.services} locale={locale} />
       <ProcessSection {...siteData.process} locale={locale} />
@@ -45,6 +45,7 @@ export default async function HomePage() {
         phone={siteData.footer.contact[0]}
       />
       <SiteFooter
+        activeHref="/"
         brand={siteData.brand}
         footer={siteData.footer}
         locale={locale}

@@ -51,6 +51,7 @@ export default async function PrivacyPolicyPage() {
         </div>
       </section>
       <SiteFooter
+        activeHref="/privacy-policy"
         brand={siteData.brand}
         footer={siteData.footer}
         locale={locale}

@@ -10,6 +10,7 @@ type SiteFooterProps = {
   services: { title: string; slug: string }[]
   footer: typeof siteData.footer
   locale?: Locale
+  activeHref?: string
 }
 
 type SocialIconProps = {
@@ -146,7 +147,14 @@ function FooterGlow() {
   )
 }
 
-export function SiteFooter({ brand, footer, locale = 'en', nav, services }: SiteFooterProps) {
+export function SiteFooter({
+  activeHref,
+  brand,
+  footer,
+  locale = 'en',
+  nav,
+  services,
+}: SiteFooterProps) {
   const dict = t(locale)
   const mainLinks = nav.some((item) => item.label === 'Home')
     ? nav
@@ -185,17 +193,22 @@ export function SiteFooter({ brand, footer, locale = 'en', nav, services }: Site
                 {dict.footer.mainLinks}
               </h3>
               <div className="flex flex-col items-start gap-4 self-stretch">
-                {mainLinks.map((item, index) => (
-                  <a
-                    className={`text-lg font-medium leading-[1.45] transition-colors hover:text-novatek-primary ${
-                      index === 0 ? 'text-novatek-primary' : 'text-novatek-muted'
-                    }`}
-                    href={item.href}
-                    key={item.label}
-                  >
-                    {item.label}
-                  </a>
-                ))}
+                {mainLinks.map((item) => {
+                  const isActive =
+                    Boolean(activeHref) &&
+                    (item.href === activeHref || item.href.endsWith(activeHref!))
+                  return (
+                    <a
+                      className={`text-lg font-medium leading-[1.45] transition-colors hover:text-novatek-primary ${
+                        isActive ? 'text-novatek-primary' : 'text-novatek-muted'
+                      }`}
+                      href={item.href}
+                      key={item.label}
+                    >
+                      {item.label}
+                    </a>
+                  )
+                })}
               </div>
             </div>
 

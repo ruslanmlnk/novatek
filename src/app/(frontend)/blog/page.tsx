@@ -66,6 +66,7 @@ export default async function BlogPage() {
         <BlogGrid locale={locale} nextLabel={dict.common.next} posts={cards} />
       </CategoryFilterProvider>
       <SiteFooter
+        activeHref="/blog"
         brand={siteData.brand}
         footer={siteData.footer}
         locale={locale}

@@ -65,6 +65,7 @@ export default async function PortfolioPage() {
         <PortfolioGrid locale={locale} nextLabel={dict.common.next} projects={cards} />
       </CategoryFilterProvider>
       <SiteFooter
+        activeHref="/portfolio"
         brand={siteData.brand}
         footer={siteData.footer}
         locale={locale}

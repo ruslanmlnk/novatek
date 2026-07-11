@@ -90,6 +90,7 @@ export default async function ServicePage({ params }: PageProps) {
         phone={siteData.footer.contact[0]}
       />
       <SiteFooter
+        activeHref="/services"
         brand={siteData.brand}
         footer={siteData.footer}
         locale={locale}

@@ -139,6 +139,7 @@ export default async function ArticlePage({ params }: PageProps) {
         </div>
       </section>
       <SiteFooter
+        activeHref="/blog"
         brand={siteData.brand}
         footer={siteData.footer}
         locale={locale}

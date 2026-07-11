@@ -44,6 +44,7 @@ export default async function AboutPage() {
         phone={siteData.footer.contact[0]}
       />
       <SiteFooter
+        activeHref="/about"
         brand={siteData.brand}
         footer={siteData.footer}
         locale={locale}
