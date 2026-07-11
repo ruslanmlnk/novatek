@@ -6,6 +6,7 @@ import { getService, getServices } from '@/lib/queries/services'
 import { getSiteData } from '@/lib/queries/site'
 import { buildMeta } from '@/lib/seo'
 import { ArrowButton } from '../../components/ArrowButton'
+import { GridLines } from '../../components/GridLines'
 import { PageHero } from '../../components/PageHero'
 import { revealDelay } from '../../components/reveal'
 import { ContactFormSection } from '../../components/sections/ContactFormSection'
@@ -61,9 +62,11 @@ export default async function ServicePage({ params }: PageProps) {
           </>
         }
         contentClassName="pb-[30px] pt-12"
+        gridLines
       />
-      <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
-        <div className="mx-auto grid max-w-content justify-items-center gap-12">
+      <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
+        <GridLines height={700} />
+        <div className="relative z-10 mx-auto grid max-w-content justify-items-center gap-12">
           <div data-reveal>
             <ArrowButton
               href={localizeHref('/contact', locale)}

@@ -1,13 +1,15 @@
 import { dictionary, type Locale } from '@/lib/i18n'
 import type { ServiceDetail } from '@/lib/queries/services'
+import { GridLines } from '../GridLines'
 import { revealDelay } from '../reveal'
 import { FeatureGlyph } from './FeatureGlyph'
 
 export function ServiceOverview({ locale = 'en', service }: { locale?: Locale; service: ServiceDetail }) {
   const dict = dictionary[locale]
   return (
-    <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
-      <div className="mx-auto grid max-w-content gap-[82px] max-md:gap-12">
+    <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px]">
+      <GridLines height={700} />
+      <div className="relative z-10 mx-auto grid max-w-content gap-[82px] max-md:gap-12">
         <div className="mx-auto grid w-full max-w-[630px] gap-6" data-reveal>
           <div className="grid gap-4">
             <p className="text-lg font-medium leading-[1.45] text-white">// {dict.pages.service.overviewEyebrow} //</p>

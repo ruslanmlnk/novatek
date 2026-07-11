@@ -1,13 +1,15 @@
 import { dictionary, type Locale } from '@/lib/i18n'
 import type { ServiceDetail } from '@/lib/queries/services'
+import { GridLines } from '../GridLines'
 
 export function ServiceIndustries({ locale = 'en', service }: { locale?: Locale; service: ServiceDetail }) {
   const dict = dictionary[locale]
   if (!service.industries.length) return null
 
   return (
-    <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] py-[74px]">
-      <div className="mx-auto grid max-w-content gap-[82px] max-md:gap-12">
+    <section className="relative overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)] py-[74px]">
+      <GridLines height={600} />
+      <div className="relative z-10 mx-auto grid max-w-content gap-[82px] max-md:gap-12">
         <div
           className="flex items-start justify-between gap-8 max-lg:flex-col max-lg:gap-4"
           data-reveal

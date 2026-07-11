@@ -61,6 +61,7 @@ export default async function PortfolioPage() {
             />
           }
           contentClassName="pb-[74px] pt-[42px]"
+          gridLines
         />
         <PortfolioGrid locale={locale} nextLabel={dict.common.next} projects={cards} />
       </CategoryFilterProvider>
