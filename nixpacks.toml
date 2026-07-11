@@ -1,0 +1,2 @@
+[phases.build]
+cmds = ['DATABASE_URL="${BUILD_DATABASE_URL:-$DATABASE_URL}" npm run build']
