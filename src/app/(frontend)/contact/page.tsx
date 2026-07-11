@@ -1,13 +1,17 @@
-import { getSiteData } from '../cms'
+import { getSiteData } from '@/lib/queries/site'
+import { buildMeta } from '@/lib/seo'
 import { ArrowButton } from '../components/ArrowButton'
 import { GridLines } from '../components/GridLines'
 import { revealDelay } from '../components/reveal'
 import { SiteFooter } from '../components/sections/SiteFooter'
 import { SiteHeader } from '../components/SiteHeader'
 
-export const metadata = {
-  description: 'Contact Novatek Engineering for manufacturing, engineering and quote requests.',
-  title: 'Contact - Novatek Engineering',
+export async function generateMetadata() {
+  const siteData = await getSiteData()
+  return buildMeta(siteData.seo.contact, {
+    title: 'Contact - Novatek Engineering',
+    description: 'Contact Novatek Engineering for manufacturing, engineering and quote requests.',
+  })
 }
 
 type FieldProps = {
@@ -126,7 +130,7 @@ export default async function ContactPage() {
         brand={siteData.brand}
         footer={siteData.footer}
         nav={siteData.nav}
-        services={siteData.services.items.map((service) => service.title)}
+        services={siteData.services.items}
       />
     </div>
   )

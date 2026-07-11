@@ -1,5 +1,5 @@
 import type { siteData } from '../../data'
-import { PlusGlyph } from '../IconSet'
+import { FaqItem } from '../FaqItem'
 import { revealDelay } from '../reveal'
 import { HighlightedTitle } from '../SectionHeading'
 
@@ -16,24 +16,13 @@ export function FaqSection({ eyebrow, items, title }: FaqSectionProps) {
       </div>
       <div className="mx-auto grid max-w-content grid-cols-2 grid-rows-3 grid-flow-col gap-x-8 max-md:grid-cols-1 max-md:grid-rows-none max-md:grid-flow-row">
         {items.map((item, index) => (
-          <details
-            className="group border-b border-white/10 py-7"
-            key={item.question}
-            open={index === 0}
-            data-reveal
+          <FaqItem
+            question={item.question}
+            answer={item.answer}
+            defaultOpen={index === 0}
             style={revealDelay(index, 80)}
-          >
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-5 text-xl font-semibold text-white marker:hidden max-md:text-lg max-md:font-medium [&::-webkit-details-marker]:hidden">
-              {item.question}
-              <span
-                className="grid size-[30px] shrink-0 place-items-center rounded-full bg-gradient-to-br from-novatek-primaryLight to-novatek-primary text-novatek-bg transition-transform group-open:rotate-45 max-md:size-9"
-                aria-hidden="true"
-              >
-                <PlusGlyph />
-              </span>
-            </summary>
-            <p className="mt-4 pr-[52px] text-lg font-medium text-novatek-muted">{item.answer}</p>
-          </details>
+            key={item.question}
+          />
         ))}
       </div>
     </section>

@@ -20,12 +20,6 @@ export type SectionHeadingData = {
   button?: ButtonData
 }
 
-export type Service = {
-  title: string
-  image: string
-  features: string[]
-}
-
 export const siteData = {
   brand: {
     name: 'Novatek',
@@ -48,7 +42,7 @@ export const siteData = {
     description:
       'Laser cutting, CNC machining, 3D scanning, reverse engineering and custom manufacturing solutions with fast turnaround and engineering precision.',
     buttons: [
-      { label: 'Request A Quote', href: '#quote' },
+      { label: 'Request A Quote', href: '/contact' },
       { label: 'View Services', href: '#services' },
     ] satisfies ButtonData[],
   },
@@ -90,69 +84,8 @@ export const siteData = {
         accent: 'engineering services',
         after: ' for industrial production',
       },
-      button: { label: 'Get A Quote', href: '#quote' },
+      button: { label: 'Get A Quote', href: '/contact' },
     } satisfies SectionHeadingData,
-    items: [
-      {
-        title: 'Laser Cutting',
-        image: '/assets/novatek/figma-d3ba282810-740.png',
-        features: [
-          'High-precision CNC laser cutting',
-          'Clean and accurate edge finishing',
-          'Complex shape manufacturing',
-          'Steel, aluminum & stainless steel',
-        ],
-      },
-      {
-        title: 'CNC Machining',
-        image: '/assets/novatek/figma-1b907ecfd6-740.png',
-        features: [
-          'Precision CNC milling solutions',
-          'Custom part manufacturing',
-          'Industrial-grade machining accuracy',
-          'Support for complex geometries',
-        ],
-      },
-      {
-        title: '3D Scanning',
-        image: '/assets/novatek/figma-56a5847ee2-740.png',
-        features: [
-          'High-precision 3D scanning',
-          'CAD-ready digital models',
-          'Reverse engineering support',
-          'Accurate geometry capture',
-        ],
-      },
-      {
-        title: '3D Printing',
-        image: '/assets/novatek/figma-5971e7f1e3-740.png',
-        features: [
-          'Rapid prototyping solutions',
-          'Functional printed components',
-          'Fast design iteration workflow',
-          'Custom production parts',
-        ],
-      },
-      {
-        title: 'Engineering & Design',
-        image: '/assets/novatek/figma-1a0dffa91f-740.png',
-        features: [
-          'CAD modeling & design',
-          'Production-ready technical drawings',
-          'Design optimization for manufacturing',
-        ],
-      },
-      {
-        title: 'Custom Solutions',
-        image: '/assets/novatek/figma-b29e3ab540-740.png',
-        features: [
-          'Custom engineering requests',
-          'Prototype development support',
-          'Technical consulting services',
-          'Tailored manufacturing solutions',
-        ],
-      },
-    ] satisfies Service[],
   },
   process: {
     eyebrow: 'How It Works',
@@ -265,7 +198,7 @@ export const siteData = {
   },
   quote: {
     title: 'Ready to start your next project?',
-    button: { label: 'Request A Quote', href: '#quote' },
+    button: { label: 'Request A Quote', href: '/contact' },
   },
   faq: {
     eyebrow: 'FAQ',

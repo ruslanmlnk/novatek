@@ -69,7 +69,9 @@ export interface Config {
   collections: {
     services: Service;
     projects: Project;
+    'project-categories': ProjectCategory;
     posts: Post;
+    'post-categories': PostCategory;
     media: Media;
     users: User;
     'payload-kv': PayloadKv;
@@ -81,7 +83,9 @@ export interface Config {
   collectionsSelect: {
     services: ServicesSelect<false> | ServicesSelect<true>;
     projects: ProjectsSelect<false> | ProjectsSelect<true>;
+    'project-categories': ProjectCategoriesSelect<false> | ProjectCategoriesSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    'post-categories': PostCategoriesSelect<false> | PostCategoriesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -156,21 +160,45 @@ export interface Service {
       }[]
     | null;
   /**
-   * Short paragraph under the title on the detail page
+   * The accent part is rendered in the green brand color
    */
-  intro: string;
-  capabilities?:
+  heroTitle: {
+    before?: string | null;
+    accent: string;
+    after?: string | null;
+  };
+  heroImage?: (number | null) | Media;
+  overviewHeading: string;
+  /**
+   * Overview paragraphs (blank line = new paragraph). The first paragraph is also used as the SEO description
+   */
+  overview: string;
+  cards?:
     | {
-        text: string;
+        title: string;
+        description: string;
         id?: string | null;
       }[]
     | null;
-  applications?:
+  industries?:
     | {
-        text: string;
+        industry: string;
+        applications?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
         id?: string | null;
       }[]
     | null;
+  /**
+   * Leave empty to use automatically generated values
+   */
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -208,10 +236,7 @@ export interface Project {
    */
   slug: string;
   slugLock?: boolean | null;
-  /**
-   * E.g. Laser Cutting, CNC Machining…
-   */
-  category: string;
+  category: number | ProjectCategory;
   description: string;
   image?: (number | null) | Media;
   heroImage?: (number | null) | Media;
@@ -230,6 +255,26 @@ export interface Project {
     };
     [k: string]: unknown;
   } | null;
+  /**
+   * Leave empty to use automatically generated values
+   */
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Categories of portfolio cases — also shown as filters on the portfolio page
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-categories".
+ */
+export interface ProjectCategory {
+  id: number;
+  _order?: string | null;
+  title: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -247,7 +292,7 @@ export interface Post {
    */
   slug: string;
   slugLock?: boolean | null;
-  category: 'Manufacturing Guides' | 'Engineering Insights' | 'Industry News';
+  category: number | PostCategory;
   date: string;
   description: string;
   image?: (number | null) | Media;
@@ -270,6 +315,26 @@ export interface Post {
     };
     [k: string]: unknown;
   };
+  /**
+   * Leave empty to use automatically generated values
+   */
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Categories of blog posts — also shown as filters on the blog page
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "post-categories".
+ */
+export interface PostCategory {
+  id: number;
+  _order?: string | null;
+  title: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -331,8 +396,16 @@ export interface PayloadLockedDocument {
         value: number | Project;
       } | null)
     | ({
+        relationTo: 'project-categories';
+        value: number | ProjectCategory;
+      } | null)
+    | ({
         relationTo: 'posts';
         value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'post-categories';
+        value: number | PostCategory;
       } | null)
     | ({
         relationTo: 'media';
@@ -400,18 +473,40 @@ export interface ServicesSelect<T extends boolean = true> {
         text?: T;
         id?: T;
       };
-  intro?: T;
-  capabilities?:
+  heroTitle?:
     | T
     | {
-        text?: T;
+        before?: T;
+        accent?: T;
+        after?: T;
+      };
+  heroImage?: T;
+  overviewHeading?: T;
+  overview?: T;
+  cards?:
+    | T
+    | {
+        title?: T;
+        description?: T;
         id?: T;
       };
-  applications?:
+  industries?:
     | T
     | {
-        text?: T;
+        industry?: T;
+        applications?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
         id?: T;
+      };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -430,6 +525,22 @@ export interface ProjectsSelect<T extends boolean = true> {
   image?: T;
   heroImage?: T;
   content?: T;
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "project-categories_select".
+ */
+export interface ProjectCategoriesSelect<T extends boolean = true> {
+  _order?: T;
+  title?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -447,6 +558,22 @@ export interface PostsSelect<T extends boolean = true> {
   image?: T;
   heroImage?: T;
   content?: T;
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "post-categories_select".
+ */
+export interface PostCategoriesSelect<T extends boolean = true> {
+  _order?: T;
+  title?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -551,6 +678,39 @@ export interface Site {
     tagline: string;
     copyright: string;
     mapImage?: (number | null) | Media;
+  };
+  /**
+   * Meta tags of the listing pages that have no own content page
+   */
+  pagesSeo?: {
+    /**
+     * Leave empty to use automatically generated values
+     */
+    services?: {
+      title?: string | null;
+      description?: string | null;
+    };
+    /**
+     * Leave empty to use automatically generated values
+     */
+    portfolio?: {
+      title?: string | null;
+      description?: string | null;
+    };
+    /**
+     * Leave empty to use automatically generated values
+     */
+    blog?: {
+      title?: string | null;
+      description?: string | null;
+    };
+    /**
+     * Leave empty to use automatically generated values
+     */
+    contact?: {
+      title?: string | null;
+      description?: string | null;
+    };
   };
   socials?:
     | {
@@ -738,6 +898,13 @@ export interface Home {
         }[]
       | null;
   };
+  /**
+   * Leave empty to use automatically generated values
+   */
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -801,6 +968,13 @@ export interface About {
         }[]
       | null;
   };
+  /**
+   * Leave empty to use automatically generated values
+   */
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -821,6 +995,13 @@ export interface Privacy {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Leave empty to use automatically generated values
+   */
+  seo?: {
+    title?: string | null;
+    description?: string | null;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -848,6 +1029,34 @@ export interface SiteSelect<T extends boolean = true> {
         tagline?: T;
         copyright?: T;
         mapImage?: T;
+      };
+  pagesSeo?:
+    | T
+    | {
+        services?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        portfolio?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        blog?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
+        contact?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+            };
       };
   socials?:
     | T
@@ -1039,6 +1248,12 @@ export interface HomeSelect<T extends boolean = true> {
               id?: T;
             };
       };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -1103,6 +1318,12 @@ export interface AboutSelect<T extends boolean = true> {
               id?: T;
             };
       };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -1119,6 +1340,12 @@ export interface PrivacySelect<T extends boolean = true> {
         title?: T;
         body?: T;
         id?: T;
+      };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
       };
   updatedAt?: T;
   createdAt?: T;

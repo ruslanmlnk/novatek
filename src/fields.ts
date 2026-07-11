@@ -1,8 +1,11 @@
 import type { Field } from 'payload'
 
-export function highlightedTitle(defaults: { before?: string; accent?: string; after?: string } = {}): Field {
+export function highlightedTitle(
+  defaults: { before?: string; accent?: string; after?: string } = {},
+  name = 'title',
+): Field {
   return {
-    name: 'title',
+    name,
     type: 'group',
     label: 'Title',
     admin: {

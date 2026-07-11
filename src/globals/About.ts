@@ -1,10 +1,14 @@
 import type { GlobalConfig } from 'payload'
 
+import { revalidateSite } from '../hooks/revalidate'
+
 import { highlightedTitle, imageField, sectionHeading } from '../fields'
+import { seoFields } from '../fields/seo'
 
 export const About: GlobalConfig = {
   slug: 'about',
   label: 'About Page',
+  hooks: { afterChange: [revalidateSite] },
   access: { read: () => true },
   fields: [
     {
@@ -83,6 +87,10 @@ export const About: GlobalConfig = {
               ],
             },
           ],
+        },
+        {
+          label: 'SEO',
+          fields: [seoFields()],
         },
       ],
     },

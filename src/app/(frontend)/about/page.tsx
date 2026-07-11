@@ -1,14 +1,19 @@
-import { getAboutData, getSiteData } from '../cms'
+import { getAboutData } from '@/lib/queries/about'
+import { buildMeta } from '@/lib/seo'
+import { getSiteData } from '@/lib/queries/site'
 import { ContactFormSection } from '../components/sections/ContactFormSection'
 import { SiteFooter } from '../components/sections/SiteFooter'
 import { AboutHeroSection } from './components/AboutHeroSection'
 import { AboutStorySection } from './components/AboutStorySection'
 import { TechPartnersSection } from './components/TechPartnersSection'
 
-export const metadata = {
-  title: 'About Us — Novatek Engineering',
-  description:
-    'Novatek Engineering delivers precision engineering and manufacturing solutions built on years of technical expertise.',
+export async function generateMetadata() {
+  const aboutData = await getAboutData()
+  return buildMeta(aboutData.seo, {
+    title: 'About Us — Novatek Engineering',
+    description:
+      'Novatek Engineering delivers precision engineering and manufacturing solutions built on years of technical expertise.',
+  })
 }
 
 export const revalidate = 60
@@ -31,7 +36,7 @@ export default async function AboutPage() {
         brand={siteData.brand}
         footer={siteData.footer}
         nav={siteData.nav}
-        services={siteData.services.items.map((service) => service.title)}
+        services={siteData.services.items}
       />
     </div>
   )

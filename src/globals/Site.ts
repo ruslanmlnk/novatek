@@ -1,10 +1,14 @@
 import type { GlobalConfig } from 'payload'
 
+import { revalidateSite } from '../hooks/revalidate'
+
 import { imageField } from '../fields'
+import { seoFields } from '../fields/seo'
 
 export const Site: GlobalConfig = {
   slug: 'site',
   label: 'Site Settings',
+  hooks: { afterChange: [revalidateSite] },
   access: { read: () => true },
   admin: { description: 'Brand, contact details and footer — shared by every page' },
   fields: [
@@ -53,6 +57,18 @@ export const Site: GlobalConfig = {
           defaultValue: 'Novatek Engineering LTD © 2026',
         },
         imageField('mapImage', 'Map image'),
+      ],
+    },
+    {
+      name: 'pagesSeo',
+      type: 'group',
+      label: 'Pages SEO',
+      admin: { description: 'Meta tags of the listing pages that have no own content page' },
+      fields: [
+        seoFields('services', 'Services page'),
+        seoFields('portfolio', 'Portfolio page'),
+        seoFields('blog', 'Blog page'),
+        seoFields('contact', 'Contact page'),
       ],
     },
     {

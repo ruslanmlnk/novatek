@@ -1,5 +1,4 @@
 import type { NavItem, siteData } from '../../data'
-import { serviceSlugs } from '../../content'
 import { BrandLogo } from '../BrandLogo'
 import { GridLines } from '../GridLines'
 import { NovatekWordmark } from '../NovatekWordmark'
@@ -7,7 +6,7 @@ import { NovatekWordmark } from '../NovatekWordmark'
 type SiteFooterProps = {
   brand: typeof siteData.brand
   nav: NavItem[]
-  services: string[]
+  services: { title: string; slug: string }[]
   footer: typeof siteData.footer
 }
 
@@ -195,10 +194,10 @@ export function SiteFooter({ brand, footer, nav, services }: SiteFooterProps) {
                 {services.map((service) => (
                   <a
                     className="text-lg font-medium leading-[1.45] text-novatek-muted transition-colors hover:text-novatek-primary"
-                    href={`/services/${serviceSlugs[service]}`}
-                    key={service}
+                    href={`/services/${service.slug}`}
+                    key={service.slug}
                   >
-                    {service}
+                    {service.title}
                   </a>
                 ))}
               </div>

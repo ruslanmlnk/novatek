@@ -1,4 +1,5 @@
-import { getSiteData } from './cms'
+import { getSiteData } from '@/lib/queries/site'
+import { buildMeta } from '@/lib/seo'
 import { ContactFormSection } from './components/sections/ContactFormSection'
 import { FaqSection } from './components/sections/FaqSection'
 import { HeroSection } from './components/sections/HeroSection'
@@ -11,6 +12,14 @@ import { TestimonialsSection } from './components/sections/TestimonialsSection'
 import { WhyChooseSection } from './components/sections/WhyChooseSection'
 
 export const revalidate = 60
+
+export async function generateMetadata() {
+  const siteData = await getSiteData()
+  return buildMeta(siteData.seo.home, {
+    title: 'Novatek Engineering',
+    description: 'Precision engineering and manufacturing services by Novatek Engineering.',
+  })
+}
 
 export default async function HomePage() {
   const siteData = await getSiteData()
@@ -35,7 +44,7 @@ export default async function HomePage() {
         brand={siteData.brand}
         footer={siteData.footer}
         nav={siteData.nav}
-        services={siteData.services.items.map((service) => service.title)}
+        services={siteData.services.items}
       />
     </div>
   )

@@ -1,15 +1,15 @@
 'use client'
 
 import { useState } from 'react'
+import type { ServiceCard } from '@/lib/queries/services'
 import type { siteData } from '../../data'
-import { serviceSlugs } from '../../content'
 import { ArrowGlyph, CheckGlyph, ServiceGlyph } from '../IconSet'
 import { ArrowButton } from '../ArrowButton'
 import { HighlightedTitle } from '../SectionHeading'
 
 type ServicesSectionProps = {
   heading?: typeof siteData.services.heading
-  items: typeof siteData.services.items
+  items: ServiceCard[]
 }
 
 const MOBILE_PAGE_SIZE = 2
@@ -64,7 +64,7 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
               </div>
               <a
                 className="grid size-10 shrink-0 place-items-center bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg"
-                href={`/services/${serviceSlugs[service.title]}`}
+                href={`/services/${service.slug}`}
                 aria-label={`View ${service.title}`}
               >
                 <ArrowGlyph className="h-3 w-4" />
@@ -100,7 +100,7 @@ export function ServicesSection({ heading, items }: ServicesSectionProps) {
               </div>
               <a
                 className="grid size-10 place-items-center bg-novatek-primary text-white transition-colors hover:bg-white hover:text-novatek-bg max-md:hidden"
-                href={`/services/${serviceSlugs[service.title]}`}
+                href={`/services/${service.slug}`}
                 aria-label={`View ${service.title}`}
               >
                 <ArrowGlyph className="h-3 w-4" />

@@ -3,14 +3,14 @@ import { fileURLToPath } from 'url'
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
-import { aboutData } from './app/(frontend)/about/data'
-import { privacyFallback } from './app/(frontend)/cms'
-import { blogPosts, portfolioProjects, serviceDetails } from './app/(frontend)/content'
-import { siteData } from './app/(frontend)/data'
-import { articleContent, caseContent } from './lexical'
+import { aboutData } from '../app/(frontend)/about/data'
+import { siteData } from '../app/(frontend)/data'
+import { articleContent, caseContent } from '../lexical'
+import { privacyDefaults } from '../lib/queries/privacy'
+import { postCategories, posts, projectCategories, projects, services } from './data'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
-const publicDir = path.resolve(dirname, '../public')
+const publicDir = path.resolve(dirname, '../../public')
 
 const payload = await getPayload({ config })
 
@@ -31,19 +31,27 @@ async function upload(imagePath: string, alt: string): Promise<number> {
 
 const rows = (texts: string[]) => texts.map((text) => ({ text }))
 
-function postDate(short: string): string {
-  const [day, month, year] = short.split(' ')
-  return new Date(`${month} ${day}, 20${year} 12:00 UTC`).toISOString()
-}
-
 const { totalDocs } = await payload.count({ collection: 'services' })
 if (totalDocs > 0) {
   payload.logger.info('Content already exists — skipping seed.')
   process.exit(0)
 }
 
+payload.logger.info('Seeding categories…')
+const postCategoryIds = new Map<string, number>()
+for (const title of postCategories) {
+  const doc = await payload.create({ collection: 'post-categories', data: { title } })
+  postCategoryIds.set(title, doc.id)
+}
+
+const projectCategoryIds = new Map<string, number>()
+for (const title of projectCategories) {
+  const doc = await payload.create({ collection: 'project-categories', data: { title } })
+  projectCategoryIds.set(title, doc.id)
+}
+
 payload.logger.info('Seeding services…')
-for (const service of serviceDetails) {
+for (const service of services) {
   await payload.create({
     collection: 'services',
     data: {
@@ -51,76 +59,64 @@ for (const service of serviceDetails) {
       slug: service.slug,
       image: await upload(service.image, service.title),
       features: rows(service.features),
-      intro: service.intro,
-      capabilities: rows(service.capabilities),
-      applications: rows(service.applications),
+      heroTitle: service.heroTitle,
+      heroImage: service.heroImage
+        ? await upload(service.heroImage, `${service.title} — hero`)
+        : undefined,
+      overviewHeading: service.overviewHeading,
+      overview: service.overview,
+      cards: service.cards,
+      industries: service.industries.map((row) => ({
+        industry: row.industry,
+        applications: rows(row.applications),
+      })),
     },
   })
 }
 
 payload.logger.info('Seeding portfolio…')
-const caseExtras: Record<
-  string,
-  { approach: string; gallery: string[]; heroImage: string; overview: string; results: string; specs: string[] }
-> = {
-  'custom-metal-components': {
-    heroImage: '/assets/novatek/figma-5107c2d1a7-2024.png',
-    gallery: [
-      '/assets/novatek/figma-62c65108ad-632.png',
-      '/assets/novatek/figma-10f924eaeb-632.png',
-      '/assets/novatek/figma-02ed1d64bc-632.png',
-    ],
-    overview:
-      'Our laser cutting services provide accurate and efficient manufacturing for custom and industrial applications. Using CNC-controlled equipment, we produce complex parts with clean edges, tight tolerances and consistent quality across every production run.',
-    approach:
-      'The project involved producing a range of custom steel components using CNC laser cutting technology. Special attention was given to dimensional accuracy, material utilization and edge quality to ensure every part met production requirements. By optimizing cutting parameters and workflow efficiency, we achieved consistent results across all manufactured components.',
-    specs: ['Machine components', 'Equipment parts', 'Mounting brackets', 'Structural metal elements'],
-    results:
-      'The completed components were delivered with high dimensional accuracy, clean edge quality and consistent repeatability across the production run. The project demonstrated the efficiency of CNC laser cutting for manufacturing durable industrial parts while maintaining fast turnaround times and reliable production standards.',
-  },
-}
-
 const projectIds = new Map<string, number>()
-for (const project of portfolioProjects) {
-  const extras = caseExtras[project.slug]
+for (const [index, project] of projects.entries()) {
+  const galleryPaths = project.caseStudy.gallery ?? [
+    project.image,
+    projects[(index + 1) % projects.length].image,
+    projects[(index + 2) % projects.length].image,
+  ]
+
   const doc = await payload.create({
     collection: 'projects',
     data: {
       title: project.title,
       slug: project.slug,
-      category: project.category,
+      category: projectCategoryIds.get(project.category)!,
       description: project.description,
       image: await upload(project.image, project.title),
-      ...(extras
-        ? {
-            heroImage: await upload(extras.heroImage, `${project.title} — hero`),
-            content: caseContent({
-              overview: extras.overview,
-              approach: extras.approach,
-              gallery: await Promise.all(
-                extras.gallery.map((image, index) =>
-                  upload(image, `${project.title} — photo ${index + 1}`),
-                ),
-              ),
-              specs: extras.specs,
-              results: extras.results,
-            }),
-          }
-        : {}),
+      heroImage: await upload(project.caseStudy.heroImage ?? project.image, `${project.title} — hero`),
+      content: caseContent({
+        overview: project.caseStudy.overview,
+        approach: project.caseStudy.approach,
+        gallery: await Promise.all(
+          galleryPaths.map((image, photoIndex) =>
+            upload(image, `${project.title} — photo ${photoIndex + 1}`),
+          ),
+        ),
+        specs: project.caseStudy.specs,
+        results: project.caseStudy.results,
+      }),
     },
   })
   projectIds.set(project.slug, doc.id)
 }
 
 payload.logger.info('Seeding blog posts…')
-for (const post of blogPosts) {
+for (const post of posts) {
   await payload.create({
     collection: 'posts',
     data: {
       title: post.title,
       slug: post.slug,
-      category: post.category as 'Manufacturing Guides',
-      date: postDate(post.date),
+      category: postCategoryIds.get(post.category)!,
+      date: new Date(`${post.date}T12:00:00Z`).toISOString(),
       description: post.description,
       image: await upload(post.image, post.title),
       heroImage: await upload(post.heroImage, `${post.title} — hero`),
@@ -256,7 +252,7 @@ await payload.updateGlobal({
 
 await payload.updateGlobal({
   slug: 'privacy',
-  data: privacyFallback,
+  data: privacyDefaults,
 })
 
 payload.logger.info('Seed complete.')

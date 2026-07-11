@@ -9,7 +9,9 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Services } from './collections/Services'
 import { Projects } from './collections/Projects'
+import { ProjectCategories } from './collections/ProjectCategories'
 import { Posts } from './collections/Posts'
+import { PostCategories } from './collections/PostCategories'
 import { Site } from './globals/Site'
 import { Home } from './globals/Home'
 import { About } from './globals/About'
@@ -25,7 +27,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Services, Projects, Posts, Media, Users],
+  collections: [Services, Projects, ProjectCategories, Posts, PostCategories, Media, Users],
   globals: [Site, Home, About, Privacy],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

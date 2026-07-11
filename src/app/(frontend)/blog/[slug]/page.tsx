@@ -1,6 +1,8 @@
 import { notFound } from 'next/navigation'
 
-import { getBlogPosts, getSiteData } from '../../cms'
+import { getPost, getPosts } from '@/lib/queries/posts'
+import { getSiteData } from '@/lib/queries/site'
+import { buildMeta } from '@/lib/seo'
 import { ArrowButton } from '../../components/ArrowButton'
 import { BlogCard } from '../../components/BlogCard'
 import { CmsRichText } from '../../components/CmsRichText'
@@ -10,26 +12,6 @@ import { SiteFooter } from '../../components/sections/SiteFooter'
 
 type PageProps = {
   params: Promise<{ slug: string }>
-}
-
-const MONTHS: Record<string, string> = {
-  Jan: 'January',
-  Feb: 'February',
-  Mar: 'March',
-  Apr: 'April',
-  May: 'May',
-  Jun: 'June',
-  Jul: 'July',
-  Aug: 'August',
-  Sep: 'September',
-  Oct: 'October',
-  Nov: 'November',
-  Dec: 'December',
-}
-
-function formatLongDate(date: string) {
-  const [day, month, year] = date.split(' ')
-  return `${MONTHS[month] ?? month} ${day}, 20${year}`
 }
 
 const shareLinks = [
@@ -55,24 +37,23 @@ const shareLinks = [
 export const revalidate = 60
 
 export async function generateStaticParams() {
-  const posts = await getBlogPosts()
+  const posts = await getPosts()
   return posts.map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params
-  const posts = await getBlogPosts()
-  const post = posts.find((item) => item.slug === slug)
+  const post = await getPost(slug)
 
-  return {
-    description: post?.description ?? 'Engineering insights from Novatek Engineering.',
+  return buildMeta(post?.seo, {
     title: post ? `${post.title} - Novatek Engineering` : 'Article - Novatek Engineering',
-  }
+    description: post?.description ?? 'Engineering insights from Novatek Engineering.',
+  })
 }
 
 export default async function ArticlePage({ params }: PageProps) {
   const { slug } = await params
-  const [posts, siteData] = await Promise.all([getBlogPosts(), getSiteData()])
+  const [posts, siteData] = await Promise.all([getPosts(), getSiteData()])
   const post = posts.find((item) => item.slug === slug)
 
   if (!post) notFound()
@@ -88,7 +69,7 @@ export default async function ArticlePage({ params }: PageProps) {
         meta={
           <div className="flex flex-wrap items-center justify-center gap-4">
             <span className="bg-[linear-gradient(136deg,#C5D487_2.79%,#7E8466_95.83%)] px-4 py-2 text-lg font-medium leading-[1.45] text-white">
-              {formatLongDate(post.date)}
+              {post.dateLong}
             </span>
             <p className="text-lg font-medium leading-[1.45] text-white">// {post.category} //</p>
           </div>
@@ -158,7 +139,7 @@ export default async function ArticlePage({ params }: PageProps) {
         brand={siteData.brand}
         footer={siteData.footer}
         nav={siteData.nav}
-        services={siteData.services.items.map((service) => service.title)}
+        services={siteData.services.items}
       />
     </div>
   )

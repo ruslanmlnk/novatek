@@ -1,8 +1,12 @@
 import type { GlobalConfig } from 'payload'
 
+import { seoFields } from '../fields/seo'
+import { revalidateSite } from '../hooks/revalidate'
+
 export const Privacy: GlobalConfig = {
   slug: 'privacy',
   label: 'Privacy Policy',
+  hooks: { afterChange: [revalidateSite] },
   access: { read: () => true },
   fields: [
     {
@@ -21,5 +25,6 @@ export const Privacy: GlobalConfig = {
         { name: 'body', type: 'textarea', required: true },
       ],
     },
+    seoFields(),
   ],
 }

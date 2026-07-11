@@ -1,11 +1,14 @@
 import type { CollectionConfig } from 'payload'
 
 import { imageField } from '../fields'
+import { seoFields } from '../fields/seo'
+import { revalidateSite } from '../hooks/revalidate'
 import { slugField } from '../fields/slug'
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
   labels: { singular: 'Post', plural: 'Blog Posts' },
+  hooks: { afterChange: [revalidateSite], afterDelete: [revalidateSite] },
   access: { read: () => true },
   defaultSort: '-date',
   admin: {
@@ -18,9 +21,9 @@ export const Posts: CollectionConfig = {
     ...slugField('title', { description: 'URL of the article: /blog/<slug>' }),
     {
       name: 'category',
-      type: 'select',
+      type: 'relationship',
+      relationTo: 'post-categories',
       required: true,
-      options: ['Manufacturing Guides', 'Engineering Insights', 'Industry News'],
     },
     { name: 'date', type: 'date', required: true },
     { name: 'description', type: 'textarea', required: true, label: 'Card description' },
@@ -35,5 +38,6 @@ export const Posts: CollectionConfig = {
         description: 'Quote blocks are rendered as the green gradient banner on the site',
       },
     },
+    seoFields(),
   ],
 }

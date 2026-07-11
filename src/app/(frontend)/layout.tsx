@@ -2,6 +2,7 @@ import React from 'react'
 import { Inter_Tight } from 'next/font/google'
 import './styles.css'
 
+import { siteUrl } from '@/lib/seo'
 import { ScrollReveal } from './components/ScrollReveal'
 
 const interTight = Inter_Tight({
@@ -10,6 +11,7 @@ const interTight = Inter_Tight({
 })
 
 export const metadata = {
+  metadataBase: new URL(siteUrl),
   description: 'Precision engineering and manufacturing services by Novatek Engineering.',
   title: 'Novatek Engineering',
 }

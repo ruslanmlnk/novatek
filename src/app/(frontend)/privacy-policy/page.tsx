@@ -1,10 +1,15 @@
-import { getPrivacyData, getSiteData } from '../cms'
+import { getPrivacyData } from '@/lib/queries/privacy'
+import { buildMeta } from '@/lib/seo'
+import { getSiteData } from '@/lib/queries/site'
 import { PageHero } from '../components/PageHero'
 import { SiteFooter } from '../components/sections/SiteFooter'
 
-export const metadata = {
-  description: 'Privacy policy for Novatek Engineering website visitors and quote requests.',
-  title: 'Privacy Policy - Novatek Engineering',
+export async function generateMetadata() {
+  const privacy = await getPrivacyData()
+  return buildMeta(privacy.seo, {
+    title: 'Privacy Policy - Novatek Engineering',
+    description: 'Privacy policy for Novatek Engineering website visitors and quote requests.',
+  })
 }
 
 export const revalidate = 60
@@ -41,7 +46,7 @@ export default async function PrivacyPolicyPage() {
         brand={siteData.brand}
         footer={siteData.footer}
         nav={siteData.nav}
-        services={siteData.services.items.map((service) => service.title)}
+        services={siteData.services.items}
       />
     </div>
   )

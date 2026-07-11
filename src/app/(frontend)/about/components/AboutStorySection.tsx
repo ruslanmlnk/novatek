@@ -1,11 +1,10 @@
-import type { siteData } from '../../data'
 import { ArrowButton } from '../../components/ArrowButton'
 import { HighlightedTitle } from '../../components/SectionHeading'
 import type { aboutData } from '../data'
 
 type AboutStorySectionProps = {
   story: typeof aboutData.story
-  services: typeof siteData.services.items
+  services: { title: string; slug: string }[]
 }
 
 function LinkArrowIcon() {
@@ -47,8 +46,8 @@ export function AboutStorySection({ services, story }: AboutStorySectionProps) {
               {services.map((service) => (
                 <a
                   className="flex items-center justify-between gap-4 border-b border-white/20 pb-4 text-lg font-medium text-white"
-                  href="/#services"
-                  key={service.title}
+                  href={`/services/${service.slug}`}
+                  key={service.slug}
                 >
                   {service.title}
                   <LinkArrowIcon />

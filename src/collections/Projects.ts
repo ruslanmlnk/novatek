@@ -2,6 +2,8 @@ import type { Block, CollectionConfig } from 'payload'
 import { BlocksFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 
 import { imageField } from '../fields'
+import { seoFields } from '../fields/seo'
+import { revalidateSite } from '../hooks/revalidate'
 import { slugField } from '../fields/slug'
 
 export const GalleryBlock: Block = {
@@ -22,6 +24,7 @@ export const Projects: CollectionConfig = {
   slug: 'projects',
   labels: { singular: 'Project', plural: 'Portfolio' },
   orderable: true,
+  hooks: { afterChange: [revalidateSite], afterDelete: [revalidateSite] },
   access: { read: () => true },
   admin: {
     useAsTitle: 'title',
@@ -33,9 +36,9 @@ export const Projects: CollectionConfig = {
     ...slugField('title', { description: 'URL of the case page: /portfolio/<slug>' }),
     {
       name: 'category',
-      type: 'text',
+      type: 'relationship',
+      relationTo: 'project-categories',
       required: true,
-      admin: { description: 'E.g. Laser Cutting, CNC Machining…' },
     },
     { name: 'description', type: 'textarea', required: true, label: 'Card description' },
     imageField('image', 'Card image'),
@@ -60,5 +63,6 @@ export const Projects: CollectionConfig = {
         },
       ],
     },
+    seoFields(),
   ],
 }

@@ -1,26 +1,22 @@
-import { getPortfolioProjects, getSiteData, type PortfolioItem } from '../cms'
+import { getProjectCategories } from '@/lib/queries/categories'
+import { getProjects, type PortfolioProject } from '@/lib/queries/projects'
+import { getSiteData } from '@/lib/queries/site'
+import { buildMeta } from '@/lib/seo'
 import { ArrowGlyph } from '../components/IconSet'
 import { PageHero } from '../components/PageHero'
 import { revealDelay } from '../components/reveal'
 import { SiteFooter } from '../components/sections/SiteFooter'
 
-export const metadata = {
-  title: 'Portfolio - Novatek Engineering',
-  description:
-    'Explore Novatek Engineering case studies across laser cutting, CNC machining, 3D scanning, 3D printing, engineering design and custom manufacturing.',
+export async function generateMetadata() {
+  const siteData = await getSiteData()
+  return buildMeta(siteData.seo.portfolio, {
+    title: 'Portfolio - Novatek Engineering',
+    description:
+      'Explore Novatek Engineering case studies across laser cutting, CNC machining, 3D scanning, 3D printing, engineering design and custom manufacturing.',
+  })
 }
 
-const filters = [
-  'All',
-  'Laser Cutting',
-  'CNC Machining',
-  '3D Scanning',
-  '3D Printing',
-  'Engineering & Design',
-  'Custom Solutions',
-]
-
-function ProjectCard({ project }: { project: PortfolioItem }) {
+function ProjectCard({ project }: { project: PortfolioProject }) {
   return (
     <a
       className="grid h-full min-h-[229px] grid-cols-[minmax(0,1fr)_280px] bg-novatek-soft transition-opacity hover:opacity-90 max-md:grid-cols-1"
@@ -48,7 +44,7 @@ function ProjectCard({ project }: { project: PortfolioItem }) {
   )
 }
 
-function PortfolioGrid({ projects }: { projects: PortfolioItem[] }) {
+function PortfolioGrid({ projects }: { projects: PortfolioProject[] }) {
   const rowCount = Math.ceil(projects.length / 2)
 
   return (
@@ -88,7 +84,11 @@ function PortfolioGrid({ projects }: { projects: PortfolioItem[] }) {
 export const revalidate = 60
 
 export default async function PortfolioPage() {
-  const [siteData, projects] = await Promise.all([getSiteData(), getPortfolioProjects()])
+  const [siteData, projects, categories] = await Promise.all([
+    getSiteData(),
+    getProjects(),
+    getProjectCategories(),
+  ])
 
   return (
     <div className="min-h-screen overflow-hidden bg-novatek-bg" id="top">
@@ -102,7 +102,7 @@ export default async function PortfolioPage() {
             Our <span className="text-novatek-primary">Case studies</span>
           </>
         }
-        filters={filters}
+        filters={['All', ...categories]}
         filtersHref="#portfolio-grid"
         filtersLabel="Portfolio filters"
         contentClassName="pb-[74px] pt-[42px]"
@@ -112,7 +112,7 @@ export default async function PortfolioPage() {
         brand={siteData.brand}
         footer={siteData.footer}
         nav={siteData.nav}
-        services={siteData.services.items.map((service) => service.title)}
+        services={siteData.services.items}
       />
     </div>
   )

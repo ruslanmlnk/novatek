@@ -1,15 +1,7 @@
+import { getServices } from '@/lib/queries/services'
 import type { NavItem } from '../data'
 import { ArrowButton } from './ArrowButton'
 import { BrandLogo } from './BrandLogo'
-
-const mobileServiceLinks = [
-  { label: 'Laser Cutting', href: '/services/laser-cutting' },
-  { label: 'CNC Machining', href: '/services/cnc-machining' },
-  { label: '3D Scanning', href: '/services/3d-scanning' },
-  { label: '3D Printing', href: '/services/3d-printing' },
-  { label: 'Engineering & Design', href: '/services/engineering-design' },
-  { label: 'Custom Solutions', href: '/services/custom-solutions' },
-]
 
 type SiteHeaderProps = {
   brand: {
@@ -20,7 +12,13 @@ type SiteHeaderProps = {
   activeHref?: string
 }
 
-export function SiteHeader({ activeHref, brand, nav }: SiteHeaderProps) {
+export async function SiteHeader({ activeHref, brand, nav }: SiteHeaderProps) {
+  const services = await getServices()
+  const mobileServiceLinks = services.map((service) => ({
+    label: service.title,
+    href: `/services/${service.slug}`,
+  }))
+
   return (
     <header className="relative z-50 mx-auto flex h-[120px] w-full max-w-[1292px] items-center justify-between gap-8 py-8 max-lg:-mx-6 max-lg:h-20 max-lg:w-[calc(100%+48px)] max-lg:gap-4 max-lg:px-6 max-lg:py-6">
       <BrandLogo name={brand.name} tagline={brand.tagline} />
@@ -112,7 +110,7 @@ export function SiteHeader({ activeHref, brand, nav }: SiteHeaderProps) {
         </nav>
       </details>
       <div className="max-lg:hidden">
-        <ArrowButton href="/#quote" label="Get A Quote" />
+        <ArrowButton href="/contact" label="Get A Quote" />
       </div>
     </header>
   )
