@@ -1,6 +1,5 @@
 'use client'
 
-import { useState } from 'react'
 import { dictionary, localizeHref, type Locale } from '@/lib/i18n'
 import type { ServiceCard } from '@/lib/queries/services'
 import type { siteData } from '../../data'
@@ -14,14 +13,8 @@ type ServicesSectionProps = {
   locale?: Locale
 }
 
-const MOBILE_PAGE_SIZE = 2
-
 export function ServicesSection({ heading, items, locale = 'en' }: ServicesSectionProps) {
   const dict = dictionary[locale]
-  const [page, setPage] = useState(0)
-  const pageCount = Math.ceil(items.length / MOBILE_PAGE_SIZE)
-  const pageStart = page * MOBILE_PAGE_SIZE
-  const pageEnd = pageStart + MOBILE_PAGE_SIZE
 
   return (
     <section
@@ -49,9 +42,7 @@ export function ServicesSection({ heading, items, locale = 'en' }: ServicesSecti
       <div className="mx-auto grid max-w-content gap-0">
         {items.map((service, index) => (
           <article
-            className={`group sticky grid min-h-[312px] grid-cols-[494px_minmax(0,1fr)] items-start gap-[50px] border-t border-white/20 bg-novatek-bg py-10 max-lg:static max-lg:min-h-0 max-lg:grid-cols-1 max-lg:gap-6 max-md:py-6 ${
-              index < pageStart || index >= pageEnd ? 'max-md:hidden' : ''
-            }`}
+            className="group sticky grid min-h-[312px] grid-cols-[494px_minmax(0,1fr)] items-start gap-[50px] border-t border-white/20 bg-novatek-bg py-10 max-lg:static max-lg:min-h-0 max-lg:grid-cols-1 max-lg:gap-6 max-md:py-6"
             key={service.title}
             style={{
               top: `${100 + index * 100}px`,
@@ -93,7 +84,9 @@ export function ServicesSection({ heading, items, locale = 'en' }: ServicesSecti
                 {service.title}
               </h3>
               <div className="grid w-full max-w-[345px] gap-8 max-md:max-w-none max-md:gap-6">
-                <p className="text-base font-medium leading-[23px] text-white">{dict.common.features}</p>
+                <p className="text-base font-medium leading-[23px] text-white">
+                  {dict.common.features}
+                </p>
                 <ul className="grid gap-2.5">
                   {service.features.map((feature) => (
                     <li
@@ -118,24 +111,11 @@ export function ServicesSection({ heading, items, locale = 'en' }: ServicesSecti
           </article>
         ))}
       </div>
-      <div className="mx-auto mt-2 grid max-w-content gap-6 md:hidden">
-        <div className="flex items-center justify-between">
-          <p className="text-xl font-semibold leading-[29px] text-white">
-            {page + 1} / {pageCount}
-          </p>
-          <button
-            className="inline-flex items-center gap-4 border border-white/20 bg-novatek-bg py-2 pl-4 pr-2 text-base font-medium text-white transition-colors duration-300 hover:bg-novatek-bgHover active:bg-novatek-bgActive"
-            onClick={() => setPage((current) => (current + 1) % pageCount)}
-            type="button"
-          >
-            <span>{dict.common.next}</span>
-            <span className="grid size-10 place-items-center bg-white text-novatek-bg" aria-hidden="true">
-              <ArrowGlyph className="h-3 w-4" />
-            </span>
-          </button>
+      {heading?.button && (
+        <div className="mx-auto mt-2 grid max-w-content gap-6 md:hidden">
+          <ArrowButton {...heading.button} />
         </div>
-        {heading?.button && <ArrowButton {...heading.button} />}
-      </div>
+      )}
     </section>
   )
 }
