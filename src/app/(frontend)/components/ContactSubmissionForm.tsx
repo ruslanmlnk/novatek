@@ -274,6 +274,13 @@ export function ContactSubmissionForm({
           {state.message}
         </p>
       )}
+      <p
+        className={`text-sm font-medium leading-[1.45] ${
+          light ? 'text-novatek-bg/60' : 'text-novatek-muted'
+        }`}
+      >
+        We accept orders and project requests across Europe.
+      </p>
       <button
         className="inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 text-base font-medium text-white transition-colors hover:bg-white hover:text-novatek-bg disabled:cursor-not-allowed disabled:opacity-60 max-md:w-full max-md:justify-between"
         disabled={pending}
