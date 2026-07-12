@@ -14,6 +14,7 @@ export type BlogPost = {
   category: string
   date: string
   dateLong: string
+  views: number
   title: string
   description: string
   image: string
@@ -35,6 +36,7 @@ export const getPosts = cache(async (locale: Locale = 'en'): Promise<BlogPost[]>
       category: relationTitle(doc.category),
       date: formatShortDate(doc.date, locale),
       dateLong: formatLongDate(doc.date, locale),
+      views: doc.views ?? 0,
       title: doc.title,
       description: doc.description,
       image,

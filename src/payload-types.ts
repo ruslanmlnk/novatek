@@ -318,6 +318,10 @@ export interface Post {
   slugLock?: boolean | null;
   category: number | PostCategory;
   date: string;
+  /**
+   * Public article view counter. Updated automatically when visitors open the article page.
+   */
+  views?: number | null;
   description: string;
   image?: (number | null) | Media;
   heroImage?: (number | null) | Media;
@@ -601,6 +605,7 @@ export interface PostsSelect<T extends boolean = true> {
   slugLock?: T;
   category?: T;
   date?: T;
+  views?: T;
   description?: T;
   image?: T;
   heroImage?: T;

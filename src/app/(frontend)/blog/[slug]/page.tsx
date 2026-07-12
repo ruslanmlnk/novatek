@@ -12,6 +12,7 @@ import { PageHero } from '../../components/PageHero'
 import { revealDelay } from '../../components/reveal'
 import { SiteFooter } from '../../components/sections/SiteFooter'
 import { ArticleShareLinks } from './ArticleShareLinks'
+import { ArticleViews } from './ArticleViews'
 
 type PageProps = {
   params: Promise<{ slug: string }>
@@ -85,6 +86,7 @@ export default async function ArticlePage({ params }: PageProps) {
               {post.dateLong}
             </span>
             <p className="text-lg font-medium leading-[1.45] text-white">// {post.category} //</p>
+            <ArticleViews initialViews={post.views} slug={post.slug} />
           </div>
         }
         title={post.title}

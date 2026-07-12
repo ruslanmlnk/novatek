@@ -1,0 +1,4345 @@
+{
+  "about": [
+    {
+      "id": 1,
+      "hero_eyebrow": "Who We Are",
+      "hero_title_before": "About ",
+      "hero_title_accent": "us",
+      "hero_title_after": null,
+      "hero_description": "We help businesses transform ideas into manufacturable solutions through precision engineering, advanced production technologies and a commitment to quality at every stage of the process.",
+      "hero_image_id": 25,
+      "story_heading_eyebrow": "Our Story",
+      "story_heading_title_before": "Engineering excellence built through years of ",
+      "story_heading_title_accent": "precision manufacturing",
+      "story_heading_title_after": " and technical expertise",
+      "story_image_id": 26,
+      "story_story_text": "Novatek Engineering was founded to provide reliable engineering and manufacturing solutions for businesses requiring precision, speed and technical expertise. By combining modern technologies with a practical approach, we help transform concepts, drawings and existing components into production-ready solutions. Our focus is not only on manufacturing parts, but on solving engineering challenges through quality, efficiency and dependable execution.",
+      "tech_partners_heading_eyebrow": "Technology Partners",
+      "tech_partners_heading_title_before": "Powered by industry-leading ",
+      "tech_partners_heading_title_accent": "engineering technologies",
+      "tech_partners_heading_title_after": null,
+      "updated_at": "2026-07-11T04:35:59.856Z",
+      "created_at": "2026-07-11T04:35:59.856Z",
+      "seo_title": null,
+      "seo_description": null
+    }
+  ],
+  "about_tech_partners_partners": [
+    {
+      "_order": 1,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a4930b",
+      "name": "Revopoint",
+      "image_id": 28
+    },
+    {
+      "_order": 2,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a4930c",
+      "name": "Bambu Store",
+      "image_id": 29
+    },
+    {
+      "_order": 3,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a4930d",
+      "name": "Haas Automation",
+      "image_id": 30
+    },
+    {
+      "_order": 4,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a4930e",
+      "name": "Bodor Laser",
+      "image_id": 31
+    },
+    {
+      "_order": 5,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a4930f",
+      "name": "INSIZE",
+      "image_id": 27
+    }
+  ],
+  "contact_submissions": [],
+  "contact_submissions_rels": [],
+  "home": [
+    {
+      "id": 1,
+      "hero_eyebrow": "Custom manufacturing solutions",
+      "hero_title_before": "Precision ",
+      "hero_title_accent": "engineering & manufacturing",
+      "hero_title_after": null,
+      "hero_description": "Laser cutting, CNC machining, 3D scanning, reverse engineering and custom manufacturing solutions with fast turnaround and engineering precision.",
+      "hero_background_image_id": 19,
+      "why_choose_heading_eyebrow": "Why Choose Us",
+      "why_choose_heading_title_before": "Driven by precision, built for ",
+      "why_choose_heading_title_accent": "modern manufacturing",
+      "why_choose_heading_title_after": null,
+      "why_choose_projects_card_eyebrow": "Custom solutions",
+      "why_choose_projects_card_metric": "20+",
+      "why_choose_projects_card_description": "Completed engineering and manufacturing projects across multiple industries",
+      "why_choose_turnaround_card_title": "Fast turnaround",
+      "why_choose_turnaround_card_description": "Efficient production workflows with reliable delivery timelines",
+      "why_choose_trusted_card_eyebrow": "Trusted engineering",
+      "why_choose_trusted_card_metric": "100+",
+      "why_choose_trusted_card_rating": "4.9",
+      "why_choose_trusted_card_description": "Trusted by businesses across multiple industrial sectors and manufacturing industries",
+      "services_heading_eyebrow": "What We Do",
+      "services_heading_title_before": "Advanced ",
+      "services_heading_title_accent": "engineering services",
+      "services_heading_title_after": " for industrial production",
+      "process_heading_eyebrow": "How It Works",
+      "process_heading_title_before": "A streamlined process ",
+      "process_heading_title_accent": "from idea to delivery",
+      "process_heading_title_after": null,
+      "projects_heading_eyebrow": "Selected Projects",
+      "projects_heading_title_before": "Engineering solutions ",
+      "projects_heading_title_accent": "delivered in practice",
+      "projects_heading_title_after": null,
+      "projects_featured_project_id": 1,
+      "projects_featured_image_id": 24,
+      "projects_cta_title": "Want to see more projects?",
+      "projects_cta_description": "Explore our portfolio of engineering, manufacturing and reverse engineering projects",
+      "testimonials_heading_eyebrow": "Client Testimonials",
+      "testimonials_heading_title_before": "What our clients ",
+      "testimonials_heading_title_accent": "say about us",
+      "testimonials_heading_title_after": null,
+      "testimonials_badge": "Happy clients worldwide",
+      "testimonials_quote": "Their precision engineering and attention to detail exceeded our expectations. From prototyping to delivery, the entire process was seamless and professional.",
+      "testimonials_author": "John Matthews",
+      "testimonials_role": "Procurement Manager",
+      "quote_banner_title": "Ready to start your next project?",
+      "faq_heading_eyebrow": "FAQ",
+      "faq_heading_title_before": "Frequently Asked ",
+      "faq_heading_title_accent": "Questions",
+      "faq_heading_title_after": null,
+      "updated_at": "2026-07-11T04:35:59.470Z",
+      "created_at": "2026-07-11T04:35:59.470Z",
+      "seo_title": null,
+      "seo_description": null
+    }
+  ],
+  "home_faq_items": [
+    {
+      "_order": 1,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49305",
+      "question": "What are common manufacturing processes?",
+      "answer": "The most common manufacturing processes include CNC machining, sheet metal fabrication, laser cutting, 3D printing and assembly workflows."
+    },
+    {
+      "_order": 2,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49306",
+      "question": "What file formats do you accept?",
+      "answer": "We can review CAD files, technical drawings, STEP, STL, DXF, PDF and common image references."
+    },
+    {
+      "_order": 3,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49307",
+      "question": "What is the maximum material thickness?",
+      "answer": "It depends on the material and process. Send the specification and we will confirm the best production route."
+    },
+    {
+      "_order": 4,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49308",
+      "question": "Can you manufacture custom parts?",
+      "answer": "Yes. Custom parts, prototypes and short production runs are part of our engineering workflow."
+    },
+    {
+      "_order": 5,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49309",
+      "question": "What industries use laser cutting?",
+      "answer": "Industrial production, construction, automotive, furniture, signage and product development all use laser cutting."
+    },
+    {
+      "_order": 6,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a4930a",
+      "question": "How long does production take?",
+      "answer": "Turnaround depends on complexity, material availability and quantity. Simple requests can move quickly after approval."
+    }
+  ],
+  "home_process_steps": [
+    {
+      "_order": 1,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a492f5",
+      "title": "Upload your request",
+      "mobile_title": null,
+      "description": "Send your drawings, files or project requirements through our website. We review every request individually to understand your production needs.",
+      "image_id": 22
+    },
+    {
+      "_order": 2,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a492fa",
+      "title": "Engineering review",
+      "mobile_title": "Engineering Analysis",
+      "description": "Our specialists analyze the project, materials and technical requirements to determine the most effective manufacturing solution.",
+      "image_id": 20
+    },
+    {
+      "_order": 3,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a492ff",
+      "title": "Manufacturing process",
+      "mobile_title": "Precision Production",
+      "description": "Using modern equipment and precision technologies, we manufacture parts according to your specifications and quality standards.",
+      "image_id": 21
+    },
+    {
+      "_order": 4,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49304",
+      "title": "Delivery & support",
+      "mobile_title": "Quality & Delivery",
+      "description": "Completed parts are prepared for delivery, while our team remains available to provide updates and ongoing project support.",
+      "image_id": 23
+    }
+  ],
+  "home_process_steps_features": [
+    {
+      "_order": 1,
+      "_parent_id": "6a51c82febaf2c6f24a492f5",
+      "id": "6a51c82febaf2c6f24a492f1",
+      "text": "CAD and drawing upload"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51c82febaf2c6f24a492f5",
+      "id": "6a51c82febaf2c6f24a492f2",
+      "text": "Multiple file formats supported"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51c82febaf2c6f24a492f5",
+      "id": "6a51c82febaf2c6f24a492f3",
+      "text": "Fast request processing"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51c82febaf2c6f24a492f5",
+      "id": "6a51c82febaf2c6f24a492f4",
+      "text": "Direct communication"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51c82febaf2c6f24a492fa",
+      "id": "6a51c82febaf2c6f24a492f6",
+      "text": "Technical project assessment"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51c82febaf2c6f24a492fa",
+      "id": "6a51c82febaf2c6f24a492f7",
+      "text": "Material selection support"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51c82febaf2c6f24a492fa",
+      "id": "6a51c82febaf2c6f24a492f8",
+      "text": "Production planning"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51c82febaf2c6f24a492fa",
+      "id": "6a51c82febaf2c6f24a492f9",
+      "text": "Engineering consultation"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51c82febaf2c6f24a492ff",
+      "id": "6a51c82febaf2c6f24a492fb",
+      "text": "Laser cutting technology"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51c82febaf2c6f24a492ff",
+      "id": "6a51c82febaf2c6f24a492fc",
+      "text": "CNC machining processes"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51c82febaf2c6f24a492ff",
+      "id": "6a51c82febaf2c6f24a492fd",
+      "text": "3D scanning solutions"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51c82febaf2c6f24a492ff",
+      "id": "6a51c82febaf2c6f24a492fe",
+      "text": "Quality control procedures"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51c82febaf2c6f24a49304",
+      "id": "6a51c82febaf2c6f24a49300",
+      "text": "Secure packaging"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51c82febaf2c6f24a49304",
+      "id": "6a51c82febaf2c6f24a49301",
+      "text": "Reliable delivery service"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51c82febaf2c6f24a49304",
+      "id": "6a51c82febaf2c6f24a49302",
+      "text": "Project status updates"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51c82febaf2c6f24a49304",
+      "id": "6a51c82febaf2c6f24a49303",
+      "text": "Ongoing customer support"
+    }
+  ],
+  "media": [
+    {
+      "id": 1,
+      "alt": "Laser Cutting",
+      "updated_at": "2026-07-11T04:35:57.714Z",
+      "created_at": "2026-07-11T04:35:57.713Z",
+      "url": "/api/media/file/figma-d3ba282810-740.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-d3ba282810-740.png",
+      "mime_type": "image/png",
+      "filesize": "130875",
+      "width": "370",
+      "height": "184",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 2,
+      "alt": "Laser Cutting — hero",
+      "updated_at": "2026-07-11T04:35:57.758Z",
+      "created_at": "2026-07-11T04:35:57.758Z",
+      "url": "/api/media/file/figma-91f2ab3835-2584.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-91f2ab3835-2584.png",
+      "mime_type": "image/png",
+      "filesize": "1212817",
+      "width": "1292",
+      "height": "650",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 3,
+      "alt": "CNC Machining",
+      "updated_at": "2026-07-11T04:35:57.917Z",
+      "created_at": "2026-07-11T04:35:57.916Z",
+      "url": "/api/media/file/figma-1b907ecfd6-740.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-1b907ecfd6-740.png",
+      "mime_type": "image/png",
+      "filesize": "140325",
+      "width": "370",
+      "height": "184",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 4,
+      "alt": "3D Scanning",
+      "updated_at": "2026-07-11T04:35:58.013Z",
+      "created_at": "2026-07-11T04:35:58.013Z",
+      "url": "/api/media/file/figma-56a5847ee2-740.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-56a5847ee2-740.png",
+      "mime_type": "image/png",
+      "filesize": "129322",
+      "width": "370",
+      "height": "184",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 5,
+      "alt": "3D Printing",
+      "updated_at": "2026-07-11T04:35:58.129Z",
+      "created_at": "2026-07-11T04:35:58.129Z",
+      "url": "/api/media/file/figma-5971e7f1e3-740.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-5971e7f1e3-740.png",
+      "mime_type": "image/png",
+      "filesize": "124730",
+      "width": "370",
+      "height": "184",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 6,
+      "alt": "Engineering & Design",
+      "updated_at": "2026-07-11T04:35:58.218Z",
+      "created_at": "2026-07-11T04:35:58.218Z",
+      "url": "/api/media/file/figma-1a0dffa91f-740.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-1a0dffa91f-740.png",
+      "mime_type": "image/png",
+      "filesize": "129412",
+      "width": "370",
+      "height": "184",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 7,
+      "alt": "Custom Solutions",
+      "updated_at": "2026-07-11T04:35:58.308Z",
+      "created_at": "2026-07-11T04:35:58.308Z",
+      "url": "/api/media/file/figma-b29e3ab540-740.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-b29e3ab540-740.png",
+      "mime_type": "image/png",
+      "filesize": "131584",
+      "width": "370",
+      "height": "184",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 8,
+      "alt": "Custom metal components",
+      "updated_at": "2026-07-11T04:35:58.403Z",
+      "created_at": "2026-07-11T04:35:58.403Z",
+      "url": "/api/media/file/figma-bd8c47baa0-560.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-bd8c47baa0-560.png",
+      "mime_type": "image/png",
+      "filesize": "187041",
+      "width": "280",
+      "height": "372",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 9,
+      "alt": "Custom metal components — hero",
+      "updated_at": "2026-07-11T04:35:58.441Z",
+      "created_at": "2026-07-11T04:35:58.441Z",
+      "url": "/api/media/file/figma-5107c2d1a7-2024.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-5107c2d1a7-2024.png",
+      "mime_type": "image/png",
+      "filesize": "785853",
+      "width": "1012",
+      "height": "506",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 10,
+      "alt": "Custom metal components — photo 1",
+      "updated_at": "2026-07-11T04:35:58.500Z",
+      "created_at": "2026-07-11T04:35:58.500Z",
+      "url": "/api/media/file/figma-62c65108ad-632.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-62c65108ad-632.png",
+      "mime_type": "image/png",
+      "filesize": "183476",
+      "width": "316",
+      "height": "316",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 11,
+      "alt": "Custom metal components — photo 2",
+      "updated_at": "2026-07-11T04:35:58.547Z",
+      "created_at": "2026-07-11T04:35:58.547Z",
+      "url": "/api/media/file/figma-10f924eaeb-632.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-10f924eaeb-632.png",
+      "mime_type": "image/png",
+      "filesize": "184134",
+      "width": "316",
+      "height": "316",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 12,
+      "alt": "Custom metal components — photo 3",
+      "updated_at": "2026-07-11T04:35:58.550Z",
+      "created_at": "2026-07-11T04:35:58.550Z",
+      "url": "/api/media/file/figma-02ed1d64bc-632.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-02ed1d64bc-632.png",
+      "mime_type": "image/png",
+      "filesize": "168673",
+      "width": "316",
+      "height": "316",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 13,
+      "alt": "Product development solutions",
+      "updated_at": "2026-07-11T04:35:58.653Z",
+      "created_at": "2026-07-11T04:35:58.652Z",
+      "url": "/api/media/file/figma-3c3206f498-560.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-3c3206f498-560.png",
+      "mime_type": "image/png",
+      "filesize": "191892",
+      "width": "280",
+      "height": "372",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 14,
+      "alt": "Laser cutting tips",
+      "updated_at": "2026-07-11T04:35:58.882Z",
+      "created_at": "2026-07-11T04:35:58.882Z",
+      "url": "/api/media/file/figma-a1ccef41a1-723.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-a1ccef41a1-723.png",
+      "mime_type": "image/png",
+      "filesize": "179184",
+      "width": "361",
+      "height": "240",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 15,
+      "alt": "Laser cutting tips — hero",
+      "updated_at": "2026-07-11T04:35:58.917Z",
+      "created_at": "2026-07-11T04:35:58.917Z",
+      "url": "/api/media/file/figma-b98e1714f3-2024.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-b98e1714f3-2024.png",
+      "mime_type": "image/png",
+      "filesize": "879007",
+      "width": "1012",
+      "height": "506",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 16,
+      "alt": "Reverse engineering",
+      "updated_at": "2026-07-11T04:35:59.001Z",
+      "created_at": "2026-07-11T04:35:59.001Z",
+      "url": "/api/media/file/figma-69735fffde-723.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-69735fffde-723.png",
+      "mime_type": "image/png",
+      "filesize": "162511",
+      "width": "361",
+      "height": "240",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 17,
+      "alt": "Manufacturing trends",
+      "updated_at": "2026-07-11T04:35:59.070Z",
+      "created_at": "2026-07-11T04:35:59.070Z",
+      "url": "/api/media/file/figma-3e5cadbd87-723.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-3e5cadbd87-723.png",
+      "mime_type": "image/png",
+      "filesize": "188556",
+      "width": "361",
+      "height": "240",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 18,
+      "alt": "Location map",
+      "updated_at": "2026-07-11T04:35:59.137Z",
+      "created_at": "2026-07-11T04:35:59.137Z",
+      "url": "/api/media/file/figma-c96280815e-655.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-c96280815e-655.png",
+      "mime_type": "image/png",
+      "filesize": "43745",
+      "width": "328",
+      "height": "149",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 19,
+      "alt": "Hero background",
+      "updated_at": "2026-07-11T04:35:59.231Z",
+      "created_at": "2026-07-11T04:35:59.231Z",
+      "url": "/api/media/file/figma-f56c2eedc3-2880.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-f56c2eedc3-2880.png",
+      "mime_type": "image/png",
+      "filesize": "970143",
+      "width": "1440",
+      "height": "801",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 20,
+      "alt": "Engineering review",
+      "updated_at": "2026-07-11T04:35:59.278Z",
+      "created_at": "2026-07-11T04:35:59.278Z",
+      "url": "/api/media/file/process-02.png",
+      "thumbnail_u_r_l": null,
+      "filename": "process-02.png",
+      "mime_type": "image/png",
+      "filesize": "157668",
+      "width": "347",
+      "height": "347",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 21,
+      "alt": "Manufacturing process",
+      "updated_at": "2026-07-11T04:35:59.283Z",
+      "created_at": "2026-07-11T04:35:59.283Z",
+      "url": "/api/media/file/process-03.png",
+      "thumbnail_u_r_l": null,
+      "filename": "process-03.png",
+      "mime_type": "image/png",
+      "filesize": "165597",
+      "width": "347",
+      "height": "347",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 22,
+      "alt": "Upload your request",
+      "updated_at": "2026-07-11T04:35:59.281Z",
+      "created_at": "2026-07-11T04:35:59.280Z",
+      "url": "/api/media/file/process-01.png",
+      "thumbnail_u_r_l": null,
+      "filename": "process-01.png",
+      "mime_type": "image/png",
+      "filesize": "158997",
+      "width": "347",
+      "height": "347",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 23,
+      "alt": "Delivery & support",
+      "updated_at": "2026-07-11T04:35:59.325Z",
+      "created_at": "2026-07-11T04:35:59.325Z",
+      "url": "/api/media/file/process-04.png",
+      "thumbnail_u_r_l": null,
+      "filename": "process-04.png",
+      "mime_type": "image/png",
+      "filesize": "179257",
+      "width": "347",
+      "height": "347",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 24,
+      "alt": "Featured project",
+      "updated_at": "2026-07-11T04:35:59.356Z",
+      "created_at": "2026-07-11T04:35:59.356Z",
+      "url": "/api/media/file/projects-featured-1450.png",
+      "thumbnail_u_r_l": null,
+      "filename": "projects-featured-1450.png",
+      "mime_type": "image/png",
+      "filesize": "334185",
+      "width": "646",
+      "height": "305",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 25,
+      "alt": "About hero",
+      "updated_at": "2026-07-11T04:35:59.576Z",
+      "created_at": "2026-07-11T04:35:59.576Z",
+      "url": "/api/media/file/figma-bcfa9eacaa-1398.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-bcfa9eacaa-1398.png",
+      "mime_type": "image/png",
+      "filesize": "524030",
+      "width": "699",
+      "height": "560",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 26,
+      "alt": "Our story",
+      "updated_at": "2026-07-11T04:35:59.615Z",
+      "created_at": "2026-07-11T04:35:59.615Z",
+      "url": "/api/media/file/figma-b032621cfa-588.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-b032621cfa-588.png",
+      "mime_type": "image/png",
+      "filesize": "162664",
+      "width": "294",
+      "height": "310",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 27,
+      "alt": "INSIZE",
+      "updated_at": "2026-07-11T04:35:59.718Z",
+      "created_at": "2026-07-11T04:35:59.717Z",
+      "url": "/api/media/file/insize.png",
+      "thumbnail_u_r_l": null,
+      "filename": "insize.png",
+      "mime_type": "image/png",
+      "filesize": "6777",
+      "width": "200",
+      "height": "52",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 28,
+      "alt": "Revopoint",
+      "updated_at": "2026-07-11T04:35:59.712Z",
+      "created_at": "2026-07-11T04:35:59.712Z",
+      "url": "/api/media/file/revopoint.svg",
+      "thumbnail_u_r_l": null,
+      "filename": "revopoint.svg",
+      "mime_type": "image/svg+xml",
+      "filesize": "8514",
+      "width": "200",
+      "height": "40",
+      "focal_x": null,
+      "focal_y": null
+    },
+    {
+      "id": 29,
+      "alt": "Bambu Store",
+      "updated_at": "2026-07-11T04:35:59.711Z",
+      "created_at": "2026-07-11T04:35:59.710Z",
+      "url": "/api/media/file/figma-03f3037f7f-400.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-03f3037f7f-400.png",
+      "mime_type": "image/png",
+      "filesize": "2249",
+      "width": "200",
+      "height": "60",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 30,
+      "alt": "Haas Automation",
+      "updated_at": "2026-07-11T04:35:59.714Z",
+      "created_at": "2026-07-11T04:35:59.714Z",
+      "url": "/api/media/file/figma-9c02c0c372-154.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-9c02c0c372-154.png",
+      "mime_type": "image/png",
+      "filesize": "2985",
+      "width": "77",
+      "height": "61",
+      "focal_x": "50",
+      "focal_y": "50"
+    },
+    {
+      "id": 31,
+      "alt": "Bodor Laser",
+      "updated_at": "2026-07-11T04:35:59.796Z",
+      "created_at": "2026-07-11T04:35:59.796Z",
+      "url": "/api/media/file/figma-68655a2d2a-296.png",
+      "thumbnail_u_r_l": null,
+      "filename": "figma-68655a2d2a-296.png",
+      "mime_type": "image/png",
+      "filesize": "3166",
+      "width": "148",
+      "height": "61",
+      "focal_x": "50",
+      "focal_y": "50"
+    }
+  ],
+  "payload_kv": [],
+  "payload_locked_documents": [],
+  "payload_locked_documents_rels": [],
+  "payload_migrations": [
+    {
+      "id": 1,
+      "name": "dev",
+      "batch": "-1",
+      "updated_at": "2026-07-11T09:21:08.484Z",
+      "created_at": "2026-07-11T04:35:57.015Z"
+    }
+  ],
+  "payload_preferences": [
+    {
+      "id": 1,
+      "key": "collection-services",
+      "value": {
+        "editViewType": "default"
+      },
+      "updated_at": "2026-07-11T05:51:37.589Z",
+      "created_at": "2026-07-11T05:51:37.595Z"
+    },
+    {
+      "id": 2,
+      "key": "collection-project-categories",
+      "value": {
+        "editViewType": "default"
+      },
+      "updated_at": "2026-07-11T05:51:47.346Z",
+      "created_at": "2026-07-11T05:51:43.040Z"
+    },
+    {
+      "id": 3,
+      "key": "collection-posts",
+      "value": {
+        "editViewType": "default"
+      },
+      "updated_at": "2026-07-11T05:51:53.442Z",
+      "created_at": "2026-07-11T05:51:49.413Z"
+    },
+    {
+      "id": 4,
+      "key": "collection-contact-submissions",
+      "value": {
+        "editViewType": "default"
+      },
+      "updated_at": "2026-07-11T05:52:26.315Z",
+      "created_at": "2026-07-11T05:52:21.808Z"
+    },
+    {
+      "id": 5,
+      "key": "global-privacy",
+      "value": {
+        "editViewType": "default"
+      },
+      "updated_at": "2026-07-11T05:52:36.399Z",
+      "created_at": "2026-07-11T05:52:36.403Z"
+    },
+    {
+      "id": 6,
+      "key": "global-about",
+      "value": {
+        "editViewType": "default"
+      },
+      "updated_at": "2026-07-11T05:52:44.968Z",
+      "created_at": "2026-07-11T05:52:44.973Z"
+    },
+    {
+      "id": 7,
+      "key": "global-home",
+      "value": {
+        "fields": {
+          "_index-0": {
+            "tabIndex": 5
+          }
+        },
+        "editViewType": "default"
+      },
+      "updated_at": "2026-07-11T10:00:31.757Z",
+      "created_at": "2026-07-11T05:52:52.940Z"
+    }
+  ],
+  "payload_preferences_rels": [
+    {
+      "id": 1,
+      "order": null,
+      "parent_id": 1,
+      "path": "user",
+      "users_id": 1
+    },
+    {
+      "id": 3,
+      "order": null,
+      "parent_id": 2,
+      "path": "user",
+      "users_id": 1
+    },
+    {
+      "id": 5,
+      "order": null,
+      "parent_id": 3,
+      "path": "user",
+      "users_id": 1
+    },
+    {
+      "id": 7,
+      "order": null,
+      "parent_id": 4,
+      "path": "user",
+      "users_id": 1
+    },
+    {
+      "id": 8,
+      "order": null,
+      "parent_id": 5,
+      "path": "user",
+      "users_id": 1
+    },
+    {
+      "id": 9,
+      "order": null,
+      "parent_id": 6,
+      "path": "user",
+      "users_id": 1
+    },
+    {
+      "id": 12,
+      "order": null,
+      "parent_id": 7,
+      "path": "user",
+      "users_id": 1
+    }
+  ],
+  "post_categories": [
+    {
+      "id": 1,
+      "_order": "a0",
+      "title": "Manufacturing Guides",
+      "updated_at": "2026-07-11T04:35:57.408Z",
+      "created_at": "2026-07-11T04:35:57.404Z"
+    },
+    {
+      "id": 2,
+      "_order": "a1",
+      "title": "Engineering Insights",
+      "updated_at": "2026-07-11T04:35:57.454Z",
+      "created_at": "2026-07-11T04:35:57.454Z"
+    },
+    {
+      "id": 3,
+      "_order": "a2",
+      "title": "Industry News",
+      "updated_at": "2026-07-11T04:35:57.489Z",
+      "created_at": "2026-07-11T04:35:57.489Z"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "Laser cutting tips",
+      "slug": "laser-cutting-tips",
+      "slug_lock": true,
+      "category_id": 1,
+      "date": "2025-10-17T12:00:00.000Z",
+      "description": "Practical insights for improving production efficiency and part quality",
+      "image_id": 14,
+      "hero_image_id": 15,
+      "content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Overview:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Laser cutting performance depends on proper machine setup, material selection and optimized production workflows. By applying best practices throughout the cutting process, manufacturers can achieve cleaner edges, tighter tolerances and greater production efficiency while reducing material waste.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "tag": "ul",
+              "type": "list",
+              "start": 1,
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "listitem",
+                  "value": 1,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Cutting parameter optimization",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 2,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Material selection",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 3,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Edge quality improvement",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 4,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Production efficiency",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                }
+              ],
+              "listType": "bullet",
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Consistent laser cutting results require proper machine calibration, optimized cutting parameters and suitable material selection. Following these practices helps improve part quality, reduce production errors and maintain reliable manufacturing performance.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "type": "quote",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "True efficiency in manufacturing is not measured by speed alone, but by the ability to create reliable, repeatable and scalable processes. Companies that continuously improve their workflows, embrace innovation and invest in operational excellence are better positioned to meet changing market demands and maintain a competitive advantage.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "As manufacturing technologies continue to evolve, businesses that prioritize process improvement and production efficiency can achieve higher quality standards, faster turnaround times and stronger long-term performance. Modern manufacturing success is built on the combination of skilled expertise, advanced technology and optimized workflows.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updated_at": "2026-07-11T04:35:58.948Z",
+      "created_at": "2026-07-11T04:35:58.948Z",
+      "seo_title": null,
+      "seo_description": null
+    },
+    {
+      "id": 2,
+      "title": "Reverse engineering",
+      "slug": "reverse-engineering",
+      "slug_lock": true,
+      "category_id": 2,
+      "date": "2025-10-22T12:00:00.000Z",
+      "description": "Modern techniques for recreating and optimizing existing components",
+      "image_id": 16,
+      "hero_image_id": 4,
+      "content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Overview:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Reverse engineering is useful when original drawings are missing, parts have changed over time, or a component needs to be improved before reproduction. A structured digital workflow turns an existing physical part into a reliable manufacturing model.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "tag": "ul",
+              "type": "list",
+              "start": 1,
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "listitem",
+                  "value": 1,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "3D scanning and measurement",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 2,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "CAD reconstruction",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 3,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Design review and optimization",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 4,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Manufacturing preparation",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                }
+              ],
+              "listType": "bullet",
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "A strong workflow combines measurement, 3D scanning, CAD reconstruction and engineering review so the final model is practical to manufacture and matches how the part is actually used.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "type": "quote",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The best results come from understanding what the part does, not only what it looks like. Function, fit and material choice all guide the redesign toward a component that performs better than the original.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "With a complete digital model in hand, teams can reproduce discontinued components, correct known weak points and prepare parts for modern manufacturing methods with confidence.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updated_at": "2026-07-11T04:35:59.025Z",
+      "created_at": "2026-07-11T04:35:59.025Z",
+      "seo_title": null,
+      "seo_description": null
+    },
+    {
+      "id": 3,
+      "title": "Manufacturing trends",
+      "slug": "manufacturing-trends",
+      "slug_lock": true,
+      "category_id": 3,
+      "date": "2025-10-27T12:00:00.000Z",
+      "description": "Latest developments in engineering and industrial production technologies",
+      "image_id": 17,
+      "hero_image_id": 7,
+      "content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Overview:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Modern manufacturing is moving toward faster iteration, flexible production and better digital preparation before parts reach the shop floor. Companies that adapt their processes early benefit from shorter lead times and more predictable results.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "tag": "ul",
+              "type": "list",
+              "start": 1,
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "listitem",
+                  "value": 1,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Digital process preparation",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 2,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Additive manufacturing growth",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 3,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Flexible small-batch production",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 4,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Integrated CAD-to-CNC workflows",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                }
+              ],
+              "listType": "bullet",
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "CAD, 3D scanning, additive manufacturing and CNC processes now work together more often, making it easier to validate parts before full production and to switch between prototyping and serial manufacturing.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "type": "quote",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "For small and mid-sized projects, clearer estimates, fewer reworks and a smoother path from concept to finished component are the real measures of manufacturing progress.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Manufacturers that embrace these tools gain shorter lead times, more consistent quality and a stronger position in a rapidly changing industry.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updated_at": "2026-07-11T04:35:59.094Z",
+      "created_at": "2026-07-11T04:35:59.094Z",
+      "seo_title": null,
+      "seo_description": null
+    }
+  ],
+  "privacy": [
+    {
+      "id": 1,
+      "last_updated": "Oct 30, 2025",
+      "updated_at": "2026-07-11T04:35:59.936Z",
+      "created_at": "2026-07-11T04:35:59.936Z",
+      "seo_title": null,
+      "seo_description": null
+    }
+  ],
+  "privacy_sections": [
+    {
+      "_order": 1,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49310",
+      "title": "Collecting Personal Information",
+      "body": "Novatek Engineering collects information provided through contact forms, quote requests and direct communication channels. This may include your name, company details, email address, phone number and any files or technical documentation submitted as part of a project inquiry.\nWe collect this information solely for the purpose of evaluating requests, preparing quotations and providing engineering and manufacturing services."
+    },
+    {
+      "_order": 2,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49311",
+      "title": "Use of Information",
+      "body": "Information submitted through our website is used to respond to inquiries, process project requests, provide technical consultations and improve our services.\nWe do not sell, rent or distribute personal information to third parties for marketing purposes."
+    },
+    {
+      "_order": 3,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49312",
+      "title": "Technical Files & Project Data",
+      "body": "Drawings, CAD models, technical specifications and other project-related files submitted to Novatek Engineering are treated as confidential information.\nAll project data is used exclusively for quotation, engineering review, manufacturing planning and project execution purposes."
+    },
+    {
+      "_order": 4,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49313",
+      "title": "Sharing Personal Information",
+      "body": "We may share information with trusted suppliers, manufacturing partners or service providers only when necessary to fulfill a project request or provide requested services.\nAny such sharing is limited to information required for project execution and is subject to appropriate confidentiality practices."
+    },
+    {
+      "_order": 5,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49314",
+      "title": "Cookies & Analytics",
+      "body": "Our website may use cookies and analytics tools to improve user experience, monitor website performance and understand visitor behavior.\nThis information is collected in an aggregated form and does not personally identify individual users."
+    },
+    {
+      "_order": 6,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49315",
+      "title": "Data Security",
+      "body": "Novatek Engineering implements reasonable technical and organizational measures to protect personal information, project documentation and submitted files against unauthorized access, disclosure or misuse.\nWhile we strive to maintain secure systems, no method of electronic transmission or storage can guarantee absolute security."
+    },
+    {
+      "_order": 7,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49316",
+      "title": "Third-Party Links",
+      "body": "Our website may contain links to external websites or third-party resources. Novatek Engineering is not responsible for the privacy practices, content or security policies of external websites."
+    },
+    {
+      "_order": 8,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a49317",
+      "title": "Contact Information",
+      "body": "If you have any questions regarding this Privacy Policy or the handling of your information, please contact Novatek Engineering through the contact details provided on our website."
+    }
+  ],
+  "project_categories": [
+    {
+      "id": 1,
+      "_order": "a0",
+      "title": "Laser Cutting",
+      "updated_at": "2026-07-11T04:35:57.521Z",
+      "created_at": "2026-07-11T04:35:57.521Z"
+    },
+    {
+      "id": 2,
+      "_order": "a1",
+      "title": "CNC Machining",
+      "updated_at": "2026-07-11T04:35:57.548Z",
+      "created_at": "2026-07-11T04:35:57.548Z"
+    },
+    {
+      "id": 3,
+      "_order": "a2",
+      "title": "3D Scanning",
+      "updated_at": "2026-07-11T04:35:57.572Z",
+      "created_at": "2026-07-11T04:35:57.571Z"
+    },
+    {
+      "id": 4,
+      "_order": "a3",
+      "title": "3D Printing",
+      "updated_at": "2026-07-11T04:35:57.595Z",
+      "created_at": "2026-07-11T04:35:57.594Z"
+    },
+    {
+      "id": 5,
+      "_order": "a4",
+      "title": "Engineering & Design",
+      "updated_at": "2026-07-11T04:35:57.618Z",
+      "created_at": "2026-07-11T04:35:57.617Z"
+    },
+    {
+      "id": 6,
+      "_order": "a5",
+      "title": "Custom Solutions",
+      "updated_at": "2026-07-11T04:35:57.643Z",
+      "created_at": "2026-07-11T04:35:57.643Z"
+    }
+  ],
+  "projects": [
+    {
+      "id": 1,
+      "_order": "a0",
+      "title": "Custom metal components",
+      "slug": "custom-metal-components",
+      "slug_lock": true,
+      "category_id": 1,
+      "description": "Precision-cut steel components manufactured for industrial applications",
+      "image_id": 8,
+      "hero_image_id": 9,
+      "content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Project Overview:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Our laser cutting services provide accurate and efficient manufacturing for custom and industrial applications. Using CNC-controlled equipment, we produce complex parts with clean edges, tight tolerances and consistent quality across every production run.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Approach:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The project involved producing a range of custom steel components using CNC laser cutting technology. Special attention was given to dimensional accuracy, material utilization and edge quality to ensure every part met production requirements. By optimizing cutting parameters and workflow efficiency, we achieved consistent results across all manufactured components.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "type": "block",
+              "fields": {
+                "id": "961a2ce3-14df-4dbb-afd9-a4ea07cc33e2",
+                "images": [
+                  {
+                    "id": "0d58ebbf-a4d8-4ff6-8303-f29d3a4f747b",
+                    "image": 10
+                  },
+                  {
+                    "id": "87f4dd25-4432-4a63-845f-ba6968d4719d",
+                    "image": 11
+                  },
+                  {
+                    "id": "e0a24cfe-734c-4bd2-95b3-e2e8d131d416",
+                    "image": 12
+                  }
+                ],
+                "blockType": "gallery"
+              },
+              "format": "",
+              "version": 2
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Technical Specifications:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "tag": "ul",
+              "type": "list",
+              "start": 1,
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "listitem",
+                  "value": 1,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Machine components",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 2,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Equipment parts",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 3,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Mounting brackets",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 4,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Structural metal elements",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                }
+              ],
+              "listType": "bullet",
+              "direction": "ltr"
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Results:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The completed components were delivered with high dimensional accuracy, clean edge quality and consistent repeatability across the production run. The project demonstrated the efficiency of CNC laser cutting for manufacturing durable industrial parts while maintaining fast turnaround times and reliable production standards.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updated_at": "2026-07-11T04:35:58.600Z",
+      "created_at": "2026-07-11T04:35:58.600Z",
+      "seo_title": null,
+      "seo_description": null
+    },
+    {
+      "id": 2,
+      "_order": "a1",
+      "title": "Product development solutions",
+      "slug": "product-development-solutions",
+      "slug_lock": true,
+      "category_id": 5,
+      "description": "Custom engineering design and CAD development for manufacturing projects",
+      "image_id": 13,
+      "hero_image_id": 13,
+      "content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Project Overview:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "This project combined Novatek Engineering's manufacturing review, production planning and quality-focused delivery for a practical industrial application.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Approach:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The team reviewed project files, confirmed technical requirements and selected the process path that best matched the target geometry, material and timeline.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "type": "block",
+              "fields": {
+                "id": "58f4df07-e241-4934-892e-1a44b046a15c",
+                "images": [
+                  {
+                    "id": "2dba1437-4d6f-4f1e-ab32-b693f775c36f",
+                    "image": 13
+                  },
+                  {
+                    "id": "ce87c137-63aa-4289-b72d-56365fc42462",
+                    "image": 4
+                  },
+                  {
+                    "id": "4f2b7661-53fa-4f9b-acd5-63fda37cf0dc",
+                    "image": 3
+                  }
+                ],
+                "blockType": "gallery"
+              },
+              "format": "",
+              "version": 2
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Technical Specifications:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "tag": "ul",
+              "type": "list",
+              "start": 1,
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "listitem",
+                  "value": 1,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Machine components",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 2,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Equipment parts",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 3,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Mounting brackets",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 4,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Structural metal elements",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                }
+              ],
+              "listType": "bullet",
+              "direction": "ltr"
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Results:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The completed work delivered reliable production quality, clear communication and a repeatable process that can be scaled or adapted for similar manufacturing needs.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updated_at": "2026-07-11T04:35:58.679Z",
+      "created_at": "2026-07-11T04:35:58.678Z",
+      "seo_title": null,
+      "seo_description": null
+    },
+    {
+      "id": 3,
+      "_order": "a2",
+      "title": "Reverse engineered fixtures",
+      "slug": "reverse-engineered-fixtures",
+      "slug_lock": true,
+      "category_id": 3,
+      "description": "Digital capture and redesign workflow for worn production fixtures",
+      "image_id": 4,
+      "hero_image_id": 4,
+      "content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Project Overview:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "This project combined Novatek Engineering's manufacturing review, production planning and quality-focused delivery for a practical industrial application.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Approach:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The team reviewed project files, confirmed technical requirements and selected the process path that best matched the target geometry, material and timeline.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "type": "block",
+              "fields": {
+                "id": "64388df5-72c9-44e3-b65c-3ce29368861e",
+                "images": [
+                  {
+                    "id": "56fa4f7b-13de-471a-94d8-a614f7aee45d",
+                    "image": 4
+                  },
+                  {
+                    "id": "6ce1e04b-808b-439b-8afa-20b547b43f17",
+                    "image": 3
+                  },
+                  {
+                    "id": "4278e99b-b6bd-4410-a2ab-b1a0e6f84a5a",
+                    "image": 5
+                  }
+                ],
+                "blockType": "gallery"
+              },
+              "format": "",
+              "version": 2
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Technical Specifications:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "tag": "ul",
+              "type": "list",
+              "start": 1,
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "listitem",
+                  "value": 1,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Machine components",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 2,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Equipment parts",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 3,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Mounting brackets",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 4,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Structural metal elements",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                }
+              ],
+              "listType": "bullet",
+              "direction": "ltr"
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Results:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The completed work delivered reliable production quality, clear communication and a repeatable process that can be scaled or adapted for similar manufacturing needs.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updated_at": "2026-07-11T04:35:58.720Z",
+      "created_at": "2026-07-11T04:35:58.720Z",
+      "seo_title": null,
+      "seo_description": null
+    },
+    {
+      "id": 4,
+      "_order": "a3",
+      "title": "CNC machine parts",
+      "slug": "cnc-machine-parts",
+      "slug_lock": true,
+      "category_id": 2,
+      "description": "Precision-machined components prepared for industrial equipment maintenance",
+      "image_id": 3,
+      "hero_image_id": 3,
+      "content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Project Overview:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "This project combined Novatek Engineering's manufacturing review, production planning and quality-focused delivery for a practical industrial application.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Approach:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The team reviewed project files, confirmed technical requirements and selected the process path that best matched the target geometry, material and timeline.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "type": "block",
+              "fields": {
+                "id": "756b5ed3-bdd9-4592-838f-22b0b52924e6",
+                "images": [
+                  {
+                    "id": "fc15ce36-6874-4921-9699-0f9975f8e23a",
+                    "image": 3
+                  },
+                  {
+                    "id": "e1d8f648-567b-471e-9744-7a7df177db9a",
+                    "image": 5
+                  },
+                  {
+                    "id": "2aaaa255-d47d-4da9-afc6-e95fee5a46a7",
+                    "image": 7
+                  }
+                ],
+                "blockType": "gallery"
+              },
+              "format": "",
+              "version": 2
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Technical Specifications:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "tag": "ul",
+              "type": "list",
+              "start": 1,
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "listitem",
+                  "value": 1,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Machine components",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 2,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Equipment parts",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 3,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Mounting brackets",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 4,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Structural metal elements",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                }
+              ],
+              "listType": "bullet",
+              "direction": "ltr"
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Results:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The completed work delivered reliable production quality, clear communication and a repeatable process that can be scaled or adapted for similar manufacturing needs.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updated_at": "2026-07-11T04:35:58.764Z",
+      "created_at": "2026-07-11T04:35:58.764Z",
+      "seo_title": null,
+      "seo_description": null
+    },
+    {
+      "id": 5,
+      "_order": "a4",
+      "title": "Rapid prototype housings",
+      "slug": "rapid-prototype-housings",
+      "slug_lock": true,
+      "category_id": 4,
+      "description": "Functional printed housings used to validate product fit and assembly",
+      "image_id": 5,
+      "hero_image_id": 5,
+      "content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Project Overview:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "This project combined Novatek Engineering's manufacturing review, production planning and quality-focused delivery for a practical industrial application.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Approach:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The team reviewed project files, confirmed technical requirements and selected the process path that best matched the target geometry, material and timeline.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "type": "block",
+              "fields": {
+                "id": "85ed6ff9-780b-4b9a-82f8-fa1951988075",
+                "images": [
+                  {
+                    "id": "078238d4-d5c5-4a82-9f71-8ef411bab3d1",
+                    "image": 5
+                  },
+                  {
+                    "id": "cd79f9f9-db2d-4769-b772-6e30a717f5df",
+                    "image": 7
+                  },
+                  {
+                    "id": "9eb7b732-8c07-44bc-9a0a-acaa2f38eae0",
+                    "image": 8
+                  }
+                ],
+                "blockType": "gallery"
+              },
+              "format": "",
+              "version": 2
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Technical Specifications:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "tag": "ul",
+              "type": "list",
+              "start": 1,
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "listitem",
+                  "value": 1,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Machine components",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 2,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Equipment parts",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 3,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Mounting brackets",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 4,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Structural metal elements",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                }
+              ],
+              "listType": "bullet",
+              "direction": "ltr"
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Results:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The completed work delivered reliable production quality, clear communication and a repeatable process that can be scaled or adapted for similar manufacturing needs.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updated_at": "2026-07-11T04:35:58.800Z",
+      "created_at": "2026-07-11T04:35:58.800Z",
+      "seo_title": null,
+      "seo_description": null
+    },
+    {
+      "id": 6,
+      "_order": "a5",
+      "title": "Custom production support",
+      "slug": "custom-production-support",
+      "slug_lock": true,
+      "category_id": 6,
+      "description": "A tailored manufacturing plan combining design review, prototyping and delivery",
+      "image_id": 7,
+      "hero_image_id": 7,
+      "content": {
+        "root": {
+          "type": "root",
+          "format": "",
+          "indent": 0,
+          "version": 1,
+          "children": [
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Project Overview:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "This project combined Novatek Engineering's manufacturing review, production planning and quality-focused delivery for a practical industrial application.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Approach:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The team reviewed project files, confirmed technical requirements and selected the process path that best matched the target geometry, material and timeline.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            },
+            {
+              "type": "block",
+              "fields": {
+                "id": "8fb7ed82-9004-4ced-acd9-d083c1a94005",
+                "images": [
+                  {
+                    "id": "2575a763-a426-4457-a761-bdb9923166d9",
+                    "image": 7
+                  },
+                  {
+                    "id": "3b6ac1c9-68c1-4b7c-ad3e-bccb60b0c392",
+                    "image": 8
+                  },
+                  {
+                    "id": "e8c16aef-7ca7-4fed-be40-707c52b1f197",
+                    "image": 13
+                  }
+                ],
+                "blockType": "gallery"
+              },
+              "format": "",
+              "version": 2
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Technical Specifications:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "tag": "ul",
+              "type": "list",
+              "start": 1,
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "type": "listitem",
+                  "value": 1,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Machine components",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 2,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Equipment parts",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 3,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Mounting brackets",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                },
+                {
+                  "type": "listitem",
+                  "value": 4,
+                  "format": "",
+                  "indent": 0,
+                  "version": 1,
+                  "children": [
+                    {
+                      "mode": "normal",
+                      "text": "Structural metal elements",
+                      "type": "text",
+                      "style": "",
+                      "detail": 0,
+                      "format": 0,
+                      "version": 1
+                    }
+                  ],
+                  "direction": "ltr"
+                }
+              ],
+              "listType": "bullet",
+              "direction": "ltr"
+            },
+            {
+              "tag": "h2",
+              "type": "heading",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "Results:",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr"
+            },
+            {
+              "type": "paragraph",
+              "format": "",
+              "indent": 0,
+              "version": 1,
+              "children": [
+                {
+                  "mode": "normal",
+                  "text": "The completed work delivered reliable production quality, clear communication and a repeatable process that can be scaled or adapted for similar manufacturing needs.",
+                  "type": "text",
+                  "style": "",
+                  "detail": 0,
+                  "format": 0,
+                  "version": 1
+                }
+              ],
+              "direction": "ltr",
+              "textStyle": "",
+              "textFormat": 0
+            }
+          ],
+          "direction": "ltr"
+        }
+      },
+      "updated_at": "2026-07-11T04:35:58.838Z",
+      "created_at": "2026-07-11T04:35:58.838Z",
+      "seo_title": null,
+      "seo_description": null
+    }
+  ],
+  "services": [
+    {
+      "id": 1,
+      "_order": "a0",
+      "title": "Laser Cutting",
+      "slug": "laser-cutting",
+      "slug_lock": true,
+      "image_id": 1,
+      "hero_title_before": "Precision ",
+      "hero_title_accent": "laser cutting",
+      "hero_title_after": " for industrial and custom projects",
+      "hero_image_id": 2,
+      "overview_heading": "Precision laser cutting",
+      "overview": "Our laser cutting services provide accurate and efficient manufacturing for custom and industrial applications. Using CNC-controlled equipment, we produce complex parts with clean edges, tight tolerances and consistent quality across every production run.\nFrom prototypes and one-off components to large-scale production batches, we help businesses reduce lead times while maintaining precision and reliability.\nOur solutions are suitable for a wide range of industries and technical requirements. Whether for prototypes, custom parts or production batches, every project is delivered with a focus on precision, quality and manufacturing efficiency.",
+      "updated_at": "2026-07-11T04:35:57.801Z",
+      "created_at": "2026-07-11T04:35:57.798Z",
+      "seo_title": null,
+      "seo_description": null
+    },
+    {
+      "id": 2,
+      "_order": "a1",
+      "title": "CNC Machining",
+      "slug": "cnc-machining",
+      "slug_lock": true,
+      "image_id": 3,
+      "hero_title_before": "Precision ",
+      "hero_title_accent": "CNC machining",
+      "hero_title_after": " for complex industrial components",
+      "hero_image_id": null,
+      "overview_heading": "Precision CNC machining",
+      "overview": "Our CNC machining services deliver high-precision manufacturing for custom and industrial components. Using advanced CNC milling equipment, we produce complex parts with exceptional accuracy, tight tolerances and reliable repeatability across every production run. From one-off prototypes to full-scale production batches, we manufacture components that meet demanding technical specifications. Our machining solutions are suitable for a wide range of industries and engineering applications. Whether for precision parts, custom assemblies or production components, every project is completed with a focus on accuracy, consistency and manufacturing excellence.",
+      "updated_at": "2026-07-11T05:28:45.065Z",
+      "created_at": "2026-07-11T04:35:57.948Z",
+      "seo_title": "CNC Machining - Novatek Engineering",
+      "seo_description": "Our CNC machining services deliver high-precision manufacturing for custom and industrial components."
+    },
+    {
+      "id": 3,
+      "_order": "a2",
+      "title": "3D Scanning",
+      "slug": "3d-scanning",
+      "slug_lock": true,
+      "image_id": 4,
+      "hero_title_before": "High-precision ",
+      "hero_title_accent": "3D scanning",
+      "hero_title_after": " for engineering and manufacturing",
+      "hero_image_id": null,
+      "overview_heading": "High-precision 3D scanning",
+      "overview": "Our 3D scanning services provide accurate digital capture of existing components for engineering, inspection and reverse engineering applications. Using advanced optical scanning technology, we create detailed CAD-ready models with exceptional precision and reliability. From individual parts to complex mechanical assemblies, we help accelerate product development, quality inspection and manufacturing workflows. Our scanning solutions are suitable for a wide range of industrial and technical applications. Whether for reverse engineering, quality control or product development, every project is completed with a focus on accuracy, efficiency and dependable digital results.",
+      "updated_at": "2026-07-11T05:28:45.184Z",
+      "created_at": "2026-07-11T04:35:58.044Z",
+      "seo_title": "3D Scanning - Novatek Engineering",
+      "seo_description": "Our 3D scanning services provide accurate digital capture of existing components for engineering, inspection and reverse engineering applications."
+    },
+    {
+      "id": 4,
+      "_order": "a3",
+      "title": "3D Printing",
+      "slug": "3d-printing",
+      "slug_lock": true,
+      "image_id": 5,
+      "hero_title_before": "Industrial ",
+      "hero_title_accent": "3D printing",
+      "hero_title_after": " for prototypes and functional parts",
+      "hero_image_id": null,
+      "overview_heading": "Industrial 3D printing",
+      "overview": "Our 3D printing services provide fast and cost-effective production of prototypes, functional components and custom parts. Using modern additive manufacturing technologies, we produce accurate models with complex geometries and consistent quality. From concept validation to low-volume production, we help accelerate product development while reducing manufacturing time and material waste. Our 3D printing solutions support a wide range of engineering and industrial applications. Whether for prototyping, product development or custom manufacturing, every project is completed with a focus on precision, efficiency, repeatability and reliable production.",
+      "updated_at": "2026-07-11T05:28:45.269Z",
+      "created_at": "2026-07-11T04:35:58.157Z",
+      "seo_title": "3D Printing - Novatek Engineering",
+      "seo_description": "Our 3D printing services provide fast and cost-effective production of prototypes, functional components and custom parts."
+    },
+    {
+      "id": 6,
+      "_order": "a5",
+      "title": "Custom Solutions",
+      "slug": "custom-solutions",
+      "slug_lock": true,
+      "image_id": 7,
+      "hero_title_before": "Custom engineering ",
+      "hero_title_accent": "solutions",
+      "hero_title_after": " for unique manufacturing challenges",
+      "hero_image_id": null,
+      "overview_heading": "Custom engineering solutions",
+      "overview": "Our custom solutions are designed for projects that require a unique engineering approach beyond standard manufacturing processes. We work closely with clients to develop tailored solutions that meet specific technical, functional and production requirements. From custom components and prototype development to specialized manufacturing support, we combine engineering expertise with modern technologies to deliver reliable and efficient results. Every solution is developed with practicality, precision and long-term performance in mind. Whether for one-off projects, complex assemblies or specialized production requirements, every project is completed with a focus on flexibility, innovation, efficiency and dependable execution.",
+      "updated_at": "2026-07-11T05:28:45.447Z",
+      "created_at": "2026-07-11T04:35:58.337Z",
+      "seo_title": "Custom Solutions - Novatek Engineering",
+      "seo_description": "Our custom solutions are designed for projects that require a unique engineering approach beyond standard manufacturing processes."
+    },
+    {
+      "id": 5,
+      "_order": "a4",
+      "title": "Engineering & Design",
+      "slug": "engineering-design",
+      "slug_lock": true,
+      "image_id": 6,
+      "hero_title_before": "",
+      "hero_title_accent": "Engineering & design",
+      "hero_title_after": " for custom manufacturing solutions",
+      "hero_image_id": null,
+      "overview_heading": "Engineering & design",
+      "overview": "Our engineering and design services help transform concepts, sketches and existing components into production-ready solutions. Using advanced CAD software and practical engineering expertise, we develop accurate technical documentation optimized for manufacturing. From concept development to production-ready designs, we support every stage of the engineering process with a focus on functionality, manufacturability and long-term performance. Our solutions are tailored to meet the technical requirements of a wide range of industries. Whether for product development, reverse engineering or design optimization, every project is completed with a focus on precision, efficiency, innovation and reliable engineering solutions.",
+      "updated_at": "2026-07-11T05:29:35.853Z",
+      "created_at": "2026-07-11T04:35:58.247Z",
+      "seo_title": "Engineering & Design - Novatek Engineering",
+      "seo_description": "Our engineering and design services help transform concepts, sketches and existing components into production-ready solutions."
+    }
+  ],
+  "services_cards": [
+    {
+      "_order": 1,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a49268",
+      "title": "High-precision cutting",
+      "description": "Accurate CNC laser cutting with clean edges and minimal tolerances"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a49269",
+      "title": "Complex geometries",
+      "description": "Manufacture intricate shapes and detailed components with precision"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a4926a",
+      "title": "Multiple materials",
+      "description": "Suitable for steel, stainless steel, aluminum and other metals"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a4926b",
+      "title": "Fast turnaround",
+      "description": "Efficient production workflows with reliable delivery timelines"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c81294d",
+      "title": "Precision machining",
+      "description": "High-accuracy CNC milling for complex parts with tight tolerances"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c81294e",
+      "title": "Complex geometries",
+      "description": "Manufacture intricate components with exceptional precision"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c81294f",
+      "title": "Custom materials",
+      "description": "Suitable for aluminum, steel, brass and engineering plastics"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c812950",
+      "title": "Reliable production",
+      "description": "Consistent machining quality with dependable delivery timelines"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c812964",
+      "title": "High-precision scanning",
+      "description": "Capture complex geometries with exceptional accuracy"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c812965",
+      "title": "CAD-ready models",
+      "description": "Generate detailed digital models for engineering workflows"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c812966",
+      "title": "Reverse engineering",
+      "description": "Recreate existing components for design and manufacturing"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c812967",
+      "title": "Reliable inspection",
+      "description": "Support quality control with accurate digital measurements"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c81297b",
+      "title": "Rapid prototyping",
+      "description": "Produce functional prototypes quickly for testing and product validation"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c81297c",
+      "title": "Complex geometries",
+      "description": "Create intricate designs that are difficult to manufacture traditionally"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c81297d",
+      "title": "Custom components",
+      "description": "Manufacture tailored parts for engineering and industrial applications"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c81297e",
+      "title": "Fast production",
+      "description": "Reduce development time with efficient additive manufacturing"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129a9",
+      "title": "Tailored solutions",
+      "description": "Engineering services designed around your specific project requirements"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129aa",
+      "title": "Prototype development",
+      "description": "Develop custom prototypes for testing, validation and production"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129ab",
+      "title": "Technical consulting",
+      "description": "Receive expert guidance for complex engineering and manufacturing projects"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129ac",
+      "title": "Flexible production",
+      "description": "Support for one-off, low-volume and specialized manufacturing requests"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c812992",
+      "title": "CAD modeling",
+      "description": "Develop accurate 3D models and technical drawings for manufacturing"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c812993",
+      "title": "Product development",
+      "description": "Transform concepts into functional and production-ready designs"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c812994",
+      "title": "Design optimization",
+      "description": "Improve existing products for better performance and manufacturability"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c812995",
+      "title": "Technical documentation",
+      "description": "Prepare complete engineering documentation for production processes"
+    }
+  ],
+  "services_features": [
+    {
+      "_order": 1,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a49264",
+      "text": "High-precision CNC laser cutting"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a49265",
+      "text": "Clean and accurate edge finishing"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a49266",
+      "text": "Complex shape manufacturing"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a49267",
+      "text": "Steel, aluminum & stainless steel"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c812949",
+      "text": "Precision machining"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c81294a",
+      "text": "Complex geometries"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c81294b",
+      "text": "Custom materials"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c81294c",
+      "text": "Reliable production"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c812960",
+      "text": "High-precision scanning"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c812961",
+      "text": "CAD-ready models"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c812962",
+      "text": "Reverse engineering"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c812963",
+      "text": "Reliable inspection"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c812977",
+      "text": "Rapid prototyping"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c812978",
+      "text": "Complex geometries"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c812979",
+      "text": "Custom components"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c81297a",
+      "text": "Fast production"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129a5",
+      "text": "Tailored solutions"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129a6",
+      "text": "Prototype development"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129a7",
+      "text": "Technical consulting"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129a8",
+      "text": "Flexible production"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c81298e",
+      "text": "CAD modeling"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c81298f",
+      "text": "Product development"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c812990",
+      "text": "Design optimization"
+    },
+    {
+      "_order": 4,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c812991",
+      "text": "Technical documentation"
+    }
+  ],
+  "services_industries": [
+    {
+      "_order": 1,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a49270",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a49275",
+      "industry": "Engineering & Prototyping"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 1,
+      "id": "6a51c82debaf2c6f24a4927a",
+      "industry": "Construction & Architecture"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c812955",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c81295a",
+      "industry": "Engineering & Prototyping"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 2,
+      "id": "6a51d48d6469d1607c81295f",
+      "industry": "Automation & Robotics"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c81296c",
+      "industry": "Industrial Manufacturing"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c812971",
+      "industry": "Engineering & Product Development"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 3,
+      "id": "6a51d48d6469d1607c812976",
+      "industry": "Maintenance & Repair"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c812983",
+      "industry": "Product Development"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c812988",
+      "industry": "Manufacturing Support"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 4,
+      "id": "6a51d48d6469d1607c81298d",
+      "industry": "Engineering & Innovation"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129b1",
+      "industry": "Specialized Manufacturing"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129b6",
+      "industry": "Engineering Projects"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 6,
+      "id": "6a51d48d6469d1607c8129bb",
+      "industry": "Industrial Support"
+    },
+    {
+      "_order": 1,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c81299a",
+      "industry": "Product Development"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c81299f",
+      "industry": "Reverse Engineering"
+    },
+    {
+      "_order": 3,
+      "_parent_id": 5,
+      "id": "6a51d48d6469d1607c8129a4",
+      "industry": "Manufacturing Support"
+    }
+  ],
+  "services_industries_applications": [
+    {
+      "_order": 1,
+      "_parent_id": "6a51c82debaf2c6f24a49270",
+      "id": "6a51c82debaf2c6f24a4926c",
+      "text": "Machine components"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51c82debaf2c6f24a49270",
+      "id": "6a51c82debaf2c6f24a4926d",
+      "text": "Equipment parts"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51c82debaf2c6f24a49270",
+      "id": "6a51c82debaf2c6f24a4926e",
+      "text": "Mounting brackets"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51c82debaf2c6f24a49270",
+      "id": "6a51c82debaf2c6f24a4926f",
+      "text": "Structural metal elements"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51c82debaf2c6f24a49275",
+      "id": "6a51c82debaf2c6f24a49271",
+      "text": "Prototype development"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51c82debaf2c6f24a49275",
+      "id": "6a51c82debaf2c6f24a49272",
+      "text": "Custom technical parts"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51c82debaf2c6f24a49275",
+      "id": "6a51c82debaf2c6f24a49273",
+      "text": "Small production batches"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51c82debaf2c6f24a49275",
+      "id": "6a51c82debaf2c6f24a49274",
+      "text": "Product testing components"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51c82debaf2c6f24a4927a",
+      "id": "6a51c82debaf2c6f24a49276",
+      "text": "Decorative metal panels"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51c82debaf2c6f24a4927a",
+      "id": "6a51c82debaf2c6f24a49277",
+      "text": "Facade components"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51c82debaf2c6f24a4927a",
+      "id": "6a51c82debaf2c6f24a49278",
+      "text": "Custom metal structures"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51c82debaf2c6f24a4927a",
+      "id": "6a51c82debaf2c6f24a49279",
+      "text": "Precision-cut architectural elements"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c812955",
+      "id": "6a51d48d6469d1607c812951",
+      "text": "Precision machine parts"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c812955",
+      "id": "6a51d48d6469d1607c812952",
+      "text": "Industrial equipment"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c812955",
+      "id": "6a51d48d6469d1607c812953",
+      "text": "Tooling components"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c812955",
+      "id": "6a51d48d6469d1607c812954",
+      "text": "Mechanical assemblies"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c81295a",
+      "id": "6a51d48d6469d1607c812956",
+      "text": "Prototype machining"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c81295a",
+      "id": "6a51d48d6469d1607c812957",
+      "text": "Custom mechanical parts"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c81295a",
+      "id": "6a51d48d6469d1607c812958",
+      "text": "Functional prototypes"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c81295a",
+      "id": "6a51d48d6469d1607c812959",
+      "text": "Precision testing components"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c81295f",
+      "id": "6a51d48d6469d1607c81295b",
+      "text": "Robotic components"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c81295f",
+      "id": "6a51d48d6469d1607c81295c",
+      "text": "Automation fixtures"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c81295f",
+      "id": "6a51d48d6469d1607c81295d",
+      "text": "Precision mounting systems"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c81295f",
+      "id": "6a51d48d6469d1607c81295e",
+      "text": "Motion control parts"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c81296c",
+      "id": "6a51d48d6469d1607c812968",
+      "text": "Machine components"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c81296c",
+      "id": "6a51d48d6469d1607c812969",
+      "text": "Production tooling"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c81296c",
+      "id": "6a51d48d6469d1607c81296a",
+      "text": "Equipment inspection"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c81296c",
+      "id": "6a51d48d6469d1607c81296b",
+      "text": "Quality verification"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c812971",
+      "id": "6a51d48d6469d1607c81296d",
+      "text": "Reverse engineering"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c812971",
+      "id": "6a51d48d6469d1607c81296e",
+      "text": "CAD model creation"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c812971",
+      "id": "6a51d48d6469d1607c81296f",
+      "text": "Product redesign"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c812971",
+      "id": "6a51d48d6469d1607c812970",
+      "text": "Prototype development"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c812976",
+      "id": "6a51d48d6469d1607c812972",
+      "text": "Replacement parts"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c812976",
+      "id": "6a51d48d6469d1607c812973",
+      "text": "Equipment documentation"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c812976",
+      "id": "6a51d48d6469d1607c812974",
+      "text": "Wear analysis"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c812976",
+      "id": "6a51d48d6469d1607c812975",
+      "text": "Legacy component digitization"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c812983",
+      "id": "6a51d48d6469d1607c81297f",
+      "text": "Rapid prototyping"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c812983",
+      "id": "6a51d48d6469d1607c812980",
+      "text": "Concept validation"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c812983",
+      "id": "6a51d48d6469d1607c812981",
+      "text": "Functional testing"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c812983",
+      "id": "6a51d48d6469d1607c812982",
+      "text": "Design iterations"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c812988",
+      "id": "6a51d48d6469d1607c812984",
+      "text": "Custom fixtures"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c812988",
+      "id": "6a51d48d6469d1607c812985",
+      "text": "Production tooling"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c812988",
+      "id": "6a51d48d6469d1607c812986",
+      "text": "Replacement parts"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c812988",
+      "id": "6a51d48d6469d1607c812987",
+      "text": "Low-volume production"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c81298d",
+      "id": "6a51d48d6469d1607c812989",
+      "text": "Replacement parts"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c81298d",
+      "id": "6a51d48d6469d1607c81298a",
+      "text": "Equipment documentation"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c81298d",
+      "id": "6a51d48d6469d1607c81298b",
+      "text": "Wear analysis"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c81298d",
+      "id": "6a51d48d6469d1607c81298c",
+      "text": "Legacy component digitization"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c8129b1",
+      "id": "6a51d48d6469d1607c8129ad",
+      "text": "Custom components"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c8129b1",
+      "id": "6a51d48d6469d1607c8129ae",
+      "text": "Complex assemblies"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c8129b1",
+      "id": "6a51d48d6469d1607c8129af",
+      "text": "Low-volume production"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c8129b1",
+      "id": "6a51d48d6469d1607c8129b0",
+      "text": "Specialized fabrication"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c8129b6",
+      "id": "6a51d48d6469d1607c8129b2",
+      "text": "Technical consulting"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c8129b6",
+      "id": "6a51d48d6469d1607c8129b3",
+      "text": "Prototype development"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c8129b6",
+      "id": "6a51d48d6469d1607c8129b4",
+      "text": "Design optimization"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c8129b6",
+      "id": "6a51d48d6469d1607c8129b5",
+      "text": "Custom engineering"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c8129bb",
+      "id": "6a51d48d6469d1607c8129b7",
+      "text": "Production assistance"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c8129bb",
+      "id": "6a51d48d6469d1607c8129b8",
+      "text": "Manufacturing optimization"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c8129bb",
+      "id": "6a51d48d6469d1607c8129b9",
+      "text": "Project planning"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c8129bb",
+      "id": "6a51d48d6469d1607c8129ba",
+      "text": "Tailored solutions"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c81299a",
+      "id": "6a51d48d6469d1607c812996",
+      "text": "Concept design"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c81299a",
+      "id": "6a51d48d6469d1607c812997",
+      "text": "3D CAD modeling"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c81299a",
+      "id": "6a51d48d6469d1607c812998",
+      "text": "Prototype development"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c81299a",
+      "id": "6a51d48d6469d1607c812999",
+      "text": "Production-ready designs"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c81299f",
+      "id": "6a51d48d6469d1607c81299b",
+      "text": "Existing part analysis"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c81299f",
+      "id": "6a51d48d6469d1607c81299c",
+      "text": "CAD model recreation"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c81299f",
+      "id": "6a51d48d6469d1607c81299d",
+      "text": "Technical documentation"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c81299f",
+      "id": "6a51d48d6469d1607c81299e",
+      "text": "Design improvements"
+    },
+    {
+      "_order": 1,
+      "_parent_id": "6a51d48d6469d1607c8129a4",
+      "id": "6a51d48d6469d1607c8129a0",
+      "text": "Design optimization"
+    },
+    {
+      "_order": 2,
+      "_parent_id": "6a51d48d6469d1607c8129a4",
+      "id": "6a51d48d6469d1607c8129a1",
+      "text": "Assembly development"
+    },
+    {
+      "_order": 3,
+      "_parent_id": "6a51d48d6469d1607c8129a4",
+      "id": "6a51d48d6469d1607c8129a2",
+      "text": "Production documentation"
+    },
+    {
+      "_order": 4,
+      "_parent_id": "6a51d48d6469d1607c8129a4",
+      "id": "6a51d48d6469d1607c8129a3",
+      "text": "Custom engineering solutions"
+    }
+  ],
+  "site": [
+    {
+      "id": 1,
+      "brand_name": "Novatek",
+      "brand_tagline": "Engineering",
+      "contacts_phone": "+359 878 668 410",
+      "contacts_email": "office@novatek-engineering.com",
+      "contacts_address": "42 Vasil Levski Blvd, Plovdiv 4003, Bulgaria",
+      "footer_tagline": "Engineering solutions built on precision. Manufacturing delivered with confidence.",
+      "footer_copyright": "Novatek Engineering LTD © 2026",
+      "footer_map_image_id": 18,
+      "updated_at": "2026-07-11T04:35:59.186Z",
+      "created_at": "2026-07-11T04:35:59.186Z",
+      "pages_seo_services_title": null,
+      "pages_seo_services_description": null,
+      "pages_seo_portfolio_title": null,
+      "pages_seo_portfolio_description": null,
+      "pages_seo_blog_title": null,
+      "pages_seo_blog_description": null,
+      "pages_seo_contact_title": null,
+      "pages_seo_contact_description": null
+    }
+  ],
+  "site_socials": [
+    {
+      "_order": 1,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a492ef",
+      "label": "Instagram",
+      "url": "#"
+    },
+    {
+      "_order": 2,
+      "_parent_id": 1,
+      "id": "6a51c82febaf2c6f24a492f0",
+      "label": "TikTok",
+      "url": "#"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "updated_at": "2026-07-10T11:14:25.829Z",
+      "created_at": "2026-07-10T11:14:25.828Z",
+      "email": "adinfopresent@gmail.com",
+      "reset_password_token": null,
+      "reset_password_expiration": null,
+      "salt": "6e472a79bfbc1360762eeee78bcbe13c62c9fbbb8461c78abb750ce8297a15fb",
+      "hash": "200d5a548596ad9a6d8cd6ccdc58e09fcf43470f18ce8987d7e2568599eff8eda9ef0ccaff4185bf09ad6bd4556878afe02d0ed6a7d972144a39fa467a38b159272dbe451554613cc823fabfb0c94adc7406d9f36b074f2296225b54ed32fee261a781c6998738c7f900a290addcb20df97b16e318b345a07302a95b5acb916734b56ebbc5aea59ae3740e1f9cb398a8fc96584515dbdf3f01b2093d05dd35e3bf874d1724d921ed892276c1b283c25a147f0dd8a63fc8bffe994b621d04db7157888ee97200f050c1cff1e33e2948bc6bcd054b92ec2154c5ecf080c84f9f7ac572b3bd13a52c4aafbf801bbe78e866d22ecdf0b66100714803781eb102d061ff9191cf90718cab0d9202f94918ae33ab68228cc931e3729e5431117ac25b82d5dfd752032d63399e813f2beb6d43a23e9e1f73ff915649f6173b50da5c7006aa3cf8dacd81854fbdb51823b120387ad8df6c007ab6a8431926fe3ee86ed5a5e4241ea8e4e62688e1a918e32acb464439d4ca601d7a4d4e1184078a9ebaa0efa1973405ffdd7472aca5d712adf279f99c413f8f6f6a9cd49f752fdd41cebca97c4c2b7a78f7e3f7b803669c6a3d6b25dddebf957cf2cf83db39018bb0665b26f9c7e79233e88b7e73b4e433f0a96f439522b804556937b08184ca7e97aafea194c09ad300dee0e65515fdbb32a66d55013db59269b0b3cb5b51bb7562c624a1",
+      "login_attempts": "0",
+      "lock_until": null
+    }
+  ],
+  "users_sessions": [
+    {
+      "_order": 1,
+      "_parent_id": 1,
+      "id": "5f942cc1-4481-4c75-872a-d516c8ab0864",
+      "created_at": "2026-07-11T10:00:22.081Z",
+      "expires_at": "2026-07-11T12:00:22.081Z"
+    }
+  ]
+}

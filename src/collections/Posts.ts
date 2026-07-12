@@ -26,6 +26,16 @@ export const Posts: CollectionConfig = {
       required: true,
     },
     { name: 'date', type: 'date', required: true },
+    {
+      name: 'views',
+      type: 'number',
+      defaultValue: 0,
+      min: 0,
+      admin: {
+        description: 'Public article view counter. Updated automatically when visitors open the article page.',
+        position: 'sidebar',
+      },
+    },
     { name: 'description', type: 'textarea', required: true, localized: true, label: { en: 'Card description', bg: 'Описание на картата' } },
     imageField('image', { en: 'Card image', bg: 'Изображение на картата' }),
     imageField('heroImage', { en: 'Large article image', bg: 'Голямо изображение на статията' }),
