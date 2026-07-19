@@ -87,7 +87,7 @@ export default async function ServicePage({ params }: PageProps) {
       <ServiceFaq faq={siteData.faq} />
       <ContactFormSection
         address={siteData.footer.contact[2]}
-        backgroundImage={siteData.hero.backgroundImage}
+        backgroundImage={siteData.footer.contactFormBackgroundImage}
         email={siteData.footer.contact[1]}
         locale={locale}
         phone={siteData.footer.contact[0]}

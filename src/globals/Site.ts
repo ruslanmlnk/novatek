@@ -74,6 +74,10 @@ export const Site: GlobalConfig = {
           defaultValue: 'Novatek Engineering LTD © 2026',
         },
         imageField('mapImage', { en: 'Map image', bg: 'Карта (изображение)' }),
+        imageField('contactFormBackgroundImage', {
+          en: 'Contact form background image',
+          bg: 'Фоново изображение на контактната форма',
+        }),
       ],
     },
     {

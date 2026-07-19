@@ -9,7 +9,8 @@ import type { SeoData } from '../seo'
 import { db } from '../payload'
 import { getServices, type ServiceCard } from './services'
 
-export type SiteData = Omit<typeof siteData, 'services'> & {
+export type SiteData = Omit<typeof siteData, 'footer' | 'services'> & {
+  footer: (typeof siteData)['footer'] & { contactFormBackgroundImage: string }
   services: (typeof siteData)['services'] & { items: ServiceCard[] }
   locale: Locale
   seo: {
@@ -205,6 +206,10 @@ export const getSiteData = cache(async (locale: Locale = 'en'): Promise<SiteData
     footer: {
       tagline: pick(site.footer?.tagline, s.footer.tagline),
       mapImage: mediaUrl(site.footer?.mapImage, s.footer.mapImage),
+      contactFormBackgroundImage: mediaUrl(
+        site.footer?.contactFormBackgroundImage,
+        mediaUrl(home.hero?.backgroundImage, s.hero.backgroundImage),
+      ),
       contact: [
         pick(site.contacts?.phone, s.footer.contact[0]),
         pick(site.contacts?.email, s.footer.contact[1]),

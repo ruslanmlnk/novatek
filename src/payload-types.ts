@@ -730,6 +730,7 @@ export interface Site {
     tagline: string;
     copyright: string;
     mapImage?: (number | null) | Media;
+    contactFormBackgroundImage?: (number | null) | Media;
   };
   /**
    * Meta tags of the listing pages that have no own content page
@@ -1090,6 +1091,7 @@ export interface SiteSelect<T extends boolean = true> {
         tagline?: T;
         copyright?: T;
         mapImage?: T;
+        contactFormBackgroundImage?: T;
       };
   pagesSeo?:
     | T
