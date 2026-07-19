@@ -21,6 +21,7 @@ export function ContactFormSection({
   phone: string
 }) {
   const dict = t(locale)
+  const cssBackgroundImage = backgroundImage.replace(/["\\\n\r\f]/g, '\\$&')
 
   return (
     <section
@@ -28,7 +29,7 @@ export function ContactFormSection({
       id="contact-form"
       style={
         {
-          backgroundImage: `linear-gradient(0deg, rgba(21, 21, 21, 0.8), rgba(21, 21, 21, 0.8)), url(${backgroundImage})`,
+          backgroundImage: `linear-gradient(0deg, rgba(21, 21, 21, 0.8), rgba(21, 21, 21, 0.8)), url("${cssBackgroundImage}")`,
         } as CSSProperties
       }
     >
@@ -38,7 +39,7 @@ export function ContactFormSection({
             <Eyebrow>{dict.common.contactUs}</Eyebrow>
             <h2 className="max-w-[456px] text-[56px] font-semibold leading-[1.25] text-white max-md:text-[32px]">
               {dict.pages.contact.headingBefore}
-              {dict.pages.contact.headingAccent}
+              <span className="text-novatek-primary">{dict.pages.contact.headingAccent}</span>
             </h2>
           </div>
           <div className="flex gap-12 max-sm:flex-col max-sm:gap-8">
