@@ -1,0 +1,14 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 512 512"
+  role="img"
+  aria-label="Novatek Engineering"
+>
+  <circle cx="256" cy="256" r="256" fill="#151515" />
+  <svg x="126" y="126" width="260" height="260" viewBox="0 0 42 42">
+    <path
+      d="M42 4.97534V36.9043L36.9018 41.9948L30.7934 42L6.54811 16.6033V27.6285L10.097 31.4253V42H4.97782L0 37.0247V5.09043L5.09821 0H11.2066L35.4519 25.3915V13.843L31.903 10.225V0H37.0222L42 4.97534Z"
+      fill="#fff"
+    />
+  </svg>
+</svg>
