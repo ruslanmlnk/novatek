@@ -66,7 +66,7 @@ export const getSiteData = cache(async (locale: Locale = 'en'): Promise<SiteData
       { label: locale === 'bg' ? 'Контакти' : 'Contacts', href: '/contact' },
     ].map((item) => ({ ...item, href: localizeHref(item.href, locale) })),
     hero: {
-      backgroundImage: mediaUrl(home.hero?.backgroundImage, s.hero.backgroundImage),
+      backgroundImage: mediaUrl(home.hero?.backgroundImage),
       eyebrow: pick(home.hero?.eyebrow, s.hero.eyebrow),
       title: title(home.hero?.title, s.hero.title),
       description: pick(home.hero?.description, s.hero.description),

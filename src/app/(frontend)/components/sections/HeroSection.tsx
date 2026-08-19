@@ -28,11 +28,13 @@ export function HeroSection({ brand, hero, locale, nav }: HeroSectionProps) {
     <section
       className="relative flex min-h-[801px] flex-col items-center gap-8 overflow-hidden bg-novatek-bg px-[clamp(20px,5.1vw,74px)] pb-[74px] max-md:min-h-[659px] max-md:px-6 max-md:pb-0"
       style={
-        {
-          backgroundImage: `linear-gradient(0deg, rgba(21, 21, 21, 0.72), rgba(21, 21, 21, 0.72)), url(${hero.backgroundImage})`,
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-        } as CSSProperties
+        hero.backgroundImage
+          ? ({
+              backgroundImage: `linear-gradient(0deg, rgba(21, 21, 21, 0.72), rgba(21, 21, 21, 0.72)), url(${hero.backgroundImage})`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+            } as CSSProperties)
+          : undefined
       }
     >
       <GridLines height={801} />

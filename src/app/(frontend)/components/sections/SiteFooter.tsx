@@ -178,7 +178,7 @@ export function SiteFooter({
 
           <div className="grid w-full max-w-[730px] grid-cols-[168px_174px_348px] items-start gap-x-5 gap-y-8 max-md:max-w-none max-md:grid-cols-1 max-md:gap-6">
             <div className="flex w-[168px] flex-col items-start gap-6 max-md:w-full">
-              <h3 className="text-[26px] font-semibold leading-[1.45] text-white">
+              <h3 className="whitespace-nowrap text-[26px] font-semibold leading-[1.45] text-white">
                 {dict.footer.mainLinks}
               </h3>
               <div className="flex flex-col items-start gap-4 self-stretch">
