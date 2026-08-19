@@ -20,10 +20,10 @@ type SubmitState = {
   status: 'error' | 'idle' | 'success'
 }
 
-const supportedFormats = 'STEP, DWG, DXF, PDF, PNG, JPEG, SLDPRT, ZIP, RAR, STL, IGES, OBJ'
+const supportedFormats = 'STEP, DWG, PDF, PNG, JPEG, SLDPRT, ZIP, RAR, STL, OBJ'
 
 const acceptedFileTypes =
-  '.step,.stp,.dwg,.dxf,.pdf,.png,.jpg,.jpeg,.sldprt,.zip,.rar,.stl,.iges,.igs,.obj'
+  '.step,.stp,.dwg,.pdf,.png,.jpg,.jpeg,.sldprt,.zip,.rar,.stl,.obj'
 
 function FieldLabel({
   label,

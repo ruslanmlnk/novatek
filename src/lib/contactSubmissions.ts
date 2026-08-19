@@ -10,7 +10,6 @@ const allowedExtensions = new Set([
   'step',
   'stp',
   'dwg',
-  'dxf',
   'pdf',
   'png',
   'jpg',
@@ -19,8 +18,6 @@ const allowedExtensions = new Set([
   'zip',
   'rar',
   'stl',
-  'iges',
-  'igs',
   'obj',
 ])
 
