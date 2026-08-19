@@ -180,8 +180,10 @@ export function SiteFooter({
           </div>
 
           <div
-            className={`grid w-full grid-cols-[168px_174px_348px] items-start gap-y-8 max-md:max-w-none max-md:grid-cols-1 max-md:gap-6 ${
-              locale === 'bg' ? 'max-w-[754px] gap-x-8' : 'max-w-[730px] gap-x-5'
+            className={`grid w-full max-w-[730px] items-start gap-y-8 max-md:max-w-none max-md:grid-cols-1 max-md:gap-6 ${
+              locale === 'bg'
+                ? 'grid-cols-[168px_174px_324px] gap-x-8'
+                : 'grid-cols-[168px_174px_348px] gap-x-5'
             }`}
           >
             <div className="flex w-[168px] flex-col items-start gap-6 max-md:w-full">
