@@ -148,6 +148,9 @@ export function SiteFooter({
   const mainLinks = nav.some((item) => item.label === 'Home')
     ? nav
     : [{ label: dict.common.home, href: localizeHref('/', locale) }, ...nav]
+  const headingClass = `whitespace-nowrap font-semibold leading-[1.45] text-white ${
+    locale === 'bg' ? 'text-[22px]' : 'text-[26px]'
+  }`
 
   return (
     <footer
@@ -178,9 +181,7 @@ export function SiteFooter({
 
           <div className="grid w-full max-w-[730px] grid-cols-[168px_174px_348px] items-start gap-x-5 gap-y-8 max-md:max-w-none max-md:grid-cols-1 max-md:gap-6">
             <div className="flex w-[168px] flex-col items-start gap-6 max-md:w-full">
-              <h3 className="whitespace-nowrap text-[26px] font-semibold leading-[1.45] text-white">
-                {dict.footer.mainLinks}
-              </h3>
+              <h3 className={headingClass}>{dict.footer.mainLinks}</h3>
               <div className="flex flex-col items-start gap-4 self-stretch">
                 {mainLinks.map((item) => {
                   const isActive =
@@ -202,9 +203,7 @@ export function SiteFooter({
             </div>
 
             <div className="flex flex-col items-start gap-6">
-              <h3 className="text-[26px] font-semibold leading-[1.45] text-white">
-                {dict.footer.services}
-              </h3>
+              <h3 className={headingClass}>{dict.footer.services}</h3>
               <div className="flex flex-col items-start gap-4">
                 {services.map((service) => (
                   <a
@@ -219,9 +218,7 @@ export function SiteFooter({
             </div>
 
             <div className="flex flex-col items-start gap-6">
-              <h3 className="text-[26px] font-semibold leading-[1.45] text-white">
-                {dict.footer.contactInfo}
-              </h3>
+              <h3 className={headingClass}>{dict.footer.contactInfo}</h3>
               <div className="flex flex-col items-start gap-4 self-stretch">
                 {[footer.contact[2], footer.contact[0], footer.contact[1]].map((line) => (
                   <span
