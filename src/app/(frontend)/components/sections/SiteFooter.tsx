@@ -179,7 +179,11 @@ export function SiteFooter({
             />
           </div>
 
-          <div className="grid w-full max-w-[730px] grid-cols-[168px_174px_348px] items-start gap-x-5 gap-y-8 max-md:max-w-none max-md:grid-cols-1 max-md:gap-6">
+          <div
+            className={`grid w-full grid-cols-[168px_174px_348px] items-start gap-y-8 max-md:max-w-none max-md:grid-cols-1 max-md:gap-6 ${
+              locale === 'bg' ? 'max-w-[754px] gap-x-8' : 'max-w-[730px] gap-x-5'
+            }`}
+          >
             <div className="flex w-[168px] flex-col items-start gap-6 max-md:w-full">
               <h3 className={headingClass}>{dict.footer.mainLinks}</h3>
               <div className="flex flex-col items-start gap-4 self-stretch">
