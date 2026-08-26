@@ -51,7 +51,11 @@ export function ServicesSection({ heading, items, locale = 'en' }: ServicesSecti
           >
             <div className="flex items-center justify-between gap-4 md:hidden">
               <div className="flex items-center gap-4">
-                <ServiceGlyph index={index} />
+                {service.icon ? (
+                  <img className="size-9 shrink-0 object-contain" src={service.icon} alt="" />
+                ) : (
+                  <ServiceGlyph index={index} />
+                )}
                 <h3 className="text-[26px] font-semibold leading-[38px] text-white">
                   {service.title}
                 </h3>
@@ -66,7 +70,15 @@ export function ServicesSection({ heading, items, locale = 'en' }: ServicesSecti
               </a>
             </div>
             <div className="grid min-h-[231px] grid-cols-[58px_minmax(0,404px)] items-stretch gap-8 max-md:min-h-0 max-md:grid-cols-1">
-              <ServiceGlyph className="max-md:hidden" index={index} />
+              {service.icon ? (
+                <img
+                  className="size-9 shrink-0 object-contain max-md:hidden"
+                  src={service.icon}
+                  alt=""
+                />
+              ) : (
+                <ServiceGlyph className="max-md:hidden" index={index} />
+              )}
               <a
                 className="block h-full min-h-[231px] w-full overflow-hidden max-md:h-[200px] max-md:min-h-0"
                 href={localizeHref(`/services/${service.slug}`, locale)}

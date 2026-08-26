@@ -14,11 +14,15 @@ export const Services: CollectionConfig = {
   admin: {
     useAsTitle: 'title',
     defaultColumns: ['title', 'slug'],
-    description: { en: 'Service cards on the home / services pages and the service detail pages', bg: 'Карти на услугите на началната страница / страницата с услуги и детайлните страници' },
+    description: {
+      en: 'Service cards on the home / services pages and the service detail pages',
+      bg: 'Карти на услугите на началната страница / страницата с услуги и детайлните страници',
+    },
   },
   fields: [
     { name: 'title', type: 'text', required: true, localized: true },
     ...slugField('title', { description: 'URL of the detail page: /services/<slug>' }),
+    imageField('icon', { en: 'Card icon', bg: 'Икона на картата' }),
     imageField('image', { en: 'Card image', bg: 'Изображение на картата' }),
     textItems('features', { en: 'Card feature list', bg: 'Списък с характеристики' }),
     {
@@ -33,7 +37,13 @@ export const Services: CollectionConfig = {
       type: 'collapsible',
       label: { en: 'Detail page — overview', bg: 'Детайлна страница — общ преглед' },
       fields: [
-        { name: 'overviewHeading', type: 'text', required: true, localized: true, label: { en: 'Overview heading', bg: 'Заглавие на прегледа' } },
+        {
+          name: 'overviewHeading',
+          type: 'text',
+          required: true,
+          localized: true,
+          label: { en: 'Overview heading', bg: 'Заглавие на прегледа' },
+        },
         {
           name: 'overview',
           type: 'textarea',
@@ -66,7 +76,10 @@ export const Services: CollectionConfig = {
           name: 'industries',
           type: 'array',
           label: { en: 'Industries table', bg: 'Таблица с индустрии' },
-          labels: { singular: { en: 'Industry', bg: 'Индустрия' }, plural: { en: 'Industries', bg: 'Индустрии' } },
+          labels: {
+            singular: { en: 'Industry', bg: 'Индустрия' },
+            plural: { en: 'Industries', bg: 'Индустрии' },
+          },
           fields: [
             { name: 'industry', type: 'text', required: true, localized: true },
             textItems('applications', { en: 'Applications', bg: 'Приложения' }),

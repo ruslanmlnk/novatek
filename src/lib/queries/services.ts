@@ -8,6 +8,7 @@ import { db } from '../payload'
 export type ServiceCard = {
   title: string
   slug: string
+  icon?: string
   image: string
   features: string[]
 }
@@ -38,6 +39,7 @@ export const getServices = cache(async (locale: Locale = 'en'): Promise<ServiceD
     return {
       title: doc.title,
       slug: doc.slug,
+      icon: mediaUrl(doc.icon) || undefined,
       image,
       updatedAt: doc.updatedAt,
       seo: doc.seo ?? null,

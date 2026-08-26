@@ -195,6 +195,7 @@ export interface Service {
    */
   slug: string;
   slugLock?: boolean | null;
+  icon?: (number | null) | Media;
   image?: (number | null) | Media;
   features?:
     | {
@@ -517,6 +518,7 @@ export interface ServicesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   slugLock?: T;
+  icon?: T;
   image?: T;
   features?:
     | T
