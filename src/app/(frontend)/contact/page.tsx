@@ -78,6 +78,7 @@ export default async function ContactPage() {
           </div>
           <ContactSubmissionForm
             className="grid content-start gap-6 bg-white p-8 max-md:p-6"
+            fileNamingInstructions={siteData.contactForm.fileNamingInstructions}
             locale={locale}
             source="Contact page"
             style={revealDelay(1, 150)}

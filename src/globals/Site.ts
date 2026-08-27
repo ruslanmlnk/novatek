@@ -81,6 +81,22 @@ export const Site: GlobalConfig = {
       ],
     },
     {
+      name: 'contactForm',
+      type: 'group',
+      label: { en: 'Contact form', bg: 'Форма за контакт' },
+      fields: [
+        {
+          name: 'fileNamingInstructions',
+          type: 'textarea',
+          localized: true,
+          required: true,
+          label: { en: 'File naming instructions', bg: 'Инструкции за именуване на файлове' },
+          defaultValue:
+            'For laser cutting files, use this naming format: Material_Thickness_File name - Quantity.',
+        },
+      ],
+    },
+    {
       name: 'pagesSeo',
       type: 'group',
       label: { en: 'Pages SEO', bg: 'SEO на страниците' },

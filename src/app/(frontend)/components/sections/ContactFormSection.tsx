@@ -11,12 +11,14 @@ export function ContactFormSection({
   address,
   backgroundImage,
   email,
+  fileNamingInstructions,
   locale = 'en',
   phone,
 }: {
   address: string
   backgroundImage: string
   email: string
+  fileNamingInstructions?: string
   locale?: Locale
   phone: string
 }) {
@@ -68,6 +70,7 @@ export function ContactFormSection({
         </div>
         <ContactSubmissionForm
           className="flex flex-1 flex-col gap-6 bg-novatek-bg p-8 max-md:p-6"
+          fileNamingInstructions={fileNamingInstructions}
           locale={locale}
           source="Footer contact form"
           style={revealDelay(1, 150)}

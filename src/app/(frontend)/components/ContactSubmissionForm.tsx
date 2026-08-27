@@ -9,6 +9,7 @@ import { ArrowGlyph } from './IconSet'
 
 type ContactSubmissionFormProps = {
   className?: string
+  fileNamingInstructions?: string
   source: string
   style?: CSSProperties
   variant: 'dark' | 'light'
@@ -114,6 +115,7 @@ function UploadFileGlyph() {
 
 export function ContactSubmissionForm({
   className,
+  fileNamingInstructions,
   source,
   style,
   variant,
@@ -289,7 +291,7 @@ export function ContactSubmissionForm({
         }`}
       >
         <p>{dict.europe}</p>
-        <p>{dict.fileNaming}</p>
+        <p>{fileNamingInstructions || dict.fileNaming}</p>
       </div>
       <button
         className="group inline-flex min-h-14 w-fit items-center gap-4 whitespace-nowrap bg-novatek-primary py-2 pl-4 pr-2 text-base font-medium text-white transition-colors duration-300 hover:bg-novatek-primaryHover active:bg-novatek-primaryActive disabled:cursor-not-allowed disabled:opacity-60 max-md:w-full max-md:justify-between"

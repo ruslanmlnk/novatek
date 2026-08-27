@@ -734,6 +734,9 @@ export interface Site {
     mapImage?: (number | null) | Media;
     contactFormBackgroundImage?: (number | null) | Media;
   };
+  contactForm: {
+    fileNamingInstructions: string;
+  };
   /**
    * Meta tags of the listing pages that have no own content page
    */
@@ -1094,6 +1097,11 @@ export interface SiteSelect<T extends boolean = true> {
         copyright?: T;
         mapImage?: T;
         contactFormBackgroundImage?: T;
+      };
+  contactForm?:
+    | T
+    | {
+        fileNamingInstructions?: T;
       };
   pagesSeo?:
     | T

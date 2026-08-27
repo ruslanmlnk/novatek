@@ -11,6 +11,7 @@ import { getServices, type ServiceCard } from './services'
 
 export type SiteData = Omit<typeof siteData, 'footer' | 'services'> & {
   footer: (typeof siteData)['footer'] & { contactFormBackgroundImage: string }
+  contactForm: { fileNamingInstructions: string }
   services: (typeof siteData)['services'] & { items: ServiceCard[] }
   locale: Locale
   seo: {
@@ -202,6 +203,9 @@ export const getSiteData = cache(async (locale: Locale = 'en'): Promise<SiteData
       portfolio: site.pagesSeo?.portfolio ?? null,
       blog: site.pagesSeo?.blog ?? null,
       contact: site.pagesSeo?.contact ?? null,
+    },
+    contactForm: {
+      fileNamingInstructions: pick(site.contactForm?.fileNamingInstructions, dict.form.fileNaming),
     },
     footer: {
       tagline: pick(site.footer?.tagline, s.footer.tagline),

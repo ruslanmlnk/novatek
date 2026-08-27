@@ -46,6 +46,7 @@ export default async function ServicesPage() {
         address={siteData.footer.contact[2]}
         backgroundImage={siteData.footer.contactFormBackgroundImage}
         email={siteData.footer.contact[1]}
+        fileNamingInstructions={siteData.contactForm.fileNamingInstructions}
         locale={locale}
         phone={siteData.footer.contact[0]}
       />
