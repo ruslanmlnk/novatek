@@ -82,6 +82,7 @@ export default async function ContactPage() {
             locale={locale}
             source="Contact page"
             style={revealDelay(1, 150)}
+            supportedFileFormats={siteData.contactForm.supportedFileFormats}
             variant="light"
           />
         </div>

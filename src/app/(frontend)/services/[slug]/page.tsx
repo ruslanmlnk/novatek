@@ -92,6 +92,7 @@ export default async function ServicePage({ params }: PageProps) {
         fileNamingInstructions={siteData.contactForm.fileNamingInstructions}
         locale={locale}
         phone={siteData.footer.contact[0]}
+        supportedFileFormats={siteData.contactForm.supportedFileFormats}
       />
       <SiteFooter
         activeHref="/services"

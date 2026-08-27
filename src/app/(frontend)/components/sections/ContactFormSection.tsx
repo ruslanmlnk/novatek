@@ -14,6 +14,7 @@ export function ContactFormSection({
   fileNamingInstructions,
   locale = 'en',
   phone,
+  supportedFileFormats,
 }: {
   address: string
   backgroundImage: string
@@ -21,6 +22,7 @@ export function ContactFormSection({
   fileNamingInstructions?: string
   locale?: Locale
   phone: string
+  supportedFileFormats?: string
 }) {
   const dict = t(locale)
   const cssBackgroundImage = backgroundImage.replace(/["\\\n\r\f]/g, '\\$&')
@@ -74,6 +76,7 @@ export function ContactFormSection({
           locale={locale}
           source="Footer contact form"
           style={revealDelay(1, 150)}
+          supportedFileFormats={supportedFileFormats}
           variant="dark"
         />
       </div>

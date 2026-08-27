@@ -735,6 +735,7 @@ export interface Site {
     contactFormBackgroundImage?: (number | null) | Media;
   };
   contactForm?: {
+    supportedFileFormats?: string | null;
     fileNamingInstructions?: string | null;
   };
   /**
@@ -1101,6 +1102,7 @@ export interface SiteSelect<T extends boolean = true> {
   contactForm?:
     | T
     | {
+        supportedFileFormats?: T;
         fileNamingInstructions?: T;
       };
   pagesSeo?:

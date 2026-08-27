@@ -4,22 +4,8 @@ import type { File as PayloadFile } from 'payload'
 
 import { dictionary, isLocale, type Locale } from './i18n'
 import { sendContactSubmissionEmail } from './email'
+import { extensionsFromFormats } from './fileFormats'
 import { db } from './payload'
-
-const allowedExtensions = new Set([
-  'step',
-  'stp',
-  'dwg',
-  'pdf',
-  'png',
-  'jpg',
-  'jpeg',
-  'sldprt',
-  'zip',
-  'rar',
-  'stl',
-  'obj',
-])
 
 const maxFiles = 8
 const maxFileSize = 25 * 1024 * 1024
@@ -102,6 +88,12 @@ export async function createContactSubmission(
     return { ok: false, message: messages.totalTooLarge }
   }
 
+  const payload = await db()
+  const site = await payload.findGlobal({ slug: 'site', locale, overrideAccess: true })
+  const allowedExtensions = new Set(
+    extensionsFromFormats(site.contactForm?.supportedFileFormats ?? ''),
+  )
+
   for (const file of files) {
     if (file.size > maxFileSize) {
       return { ok: false, message: `${file.name} ${messages.fileTooLarge}` }
@@ -113,7 +105,6 @@ export async function createContactSubmission(
     }
   }
 
-  const payload = await db()
   const attachmentIds: number[] = []
   const emailAttachments: EmailAttachment[] = []
 

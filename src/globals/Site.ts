@@ -86,6 +86,12 @@ export const Site: GlobalConfig = {
       label: { en: 'Contact form', bg: 'Форма за контакт' },
       fields: [
         {
+          name: 'supportedFileFormats',
+          type: 'text',
+          label: { en: 'Supported file formats', bg: 'Поддържани файлови формати' },
+          defaultValue: 'STEP, DWG, PDF, PNG, JPEG, SLDPRT, ZIP, RAR, STL, OBJ',
+        },
+        {
           name: 'fileNamingInstructions',
           type: 'textarea',
           localized: true,

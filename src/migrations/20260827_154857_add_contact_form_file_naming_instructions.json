@@ -3490,6 +3490,13 @@
           "primaryKey": false,
           "notNull": false
         },
+        "contact_form_supported_file_formats": {
+          "name": "contact_form_supported_file_formats",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false,
+          "default": "'STEP, DWG, PDF, PNG, JPEG, SLDPRT, ZIP, RAR, STL, OBJ'"
+        },
         "updated_at": {
           "name": "updated_at",
           "type": "timestamp(3) with time zone",

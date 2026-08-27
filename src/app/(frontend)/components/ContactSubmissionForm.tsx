@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useRef, useState } from 'react'
 
 import { dictionary, type Locale } from '@/lib/i18n'
+import { acceptFromFormats } from '@/lib/fileFormats'
 import { ArrowGlyph } from './IconSet'
 
 type ContactSubmissionFormProps = {
@@ -14,17 +15,13 @@ type ContactSubmissionFormProps = {
   style?: CSSProperties
   variant: 'dark' | 'light'
   locale?: Locale
+  supportedFileFormats?: string
 }
 
 type SubmitState = {
   message: string
   status: 'error' | 'idle' | 'success'
 }
-
-const supportedFormats = 'STEP, DWG, PDF, PNG, JPEG, SLDPRT, ZIP, RAR, STL, OBJ'
-
-const acceptedFileTypes =
-  '.step,.stp,.dwg,.pdf,.png,.jpg,.jpeg,.sldprt,.zip,.rar,.stl,.obj'
 
 function FieldLabel({
   label,
@@ -120,6 +117,7 @@ export function ContactSubmissionForm({
   style,
   variant,
   locale = 'en',
+  supportedFileFormats,
 }: ContactSubmissionFormProps) {
   const dict = dictionary[locale].form
   const submissionText = dictionary[locale].submissions
@@ -129,6 +127,7 @@ export function ContactSubmissionForm({
   const [pending, setPending] = useState(false)
   const [state, setState] = useState<SubmitState>({ message: '', status: 'idle' })
   const light = variant === 'light'
+  const acceptedFileTypes = acceptFromFormats(supportedFileFormats ?? '')
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -251,15 +250,18 @@ export function ContactSubmissionForm({
             }
           >
             {light ? <UploadFileGlyph /> : <UploadArrowGlyph />}
-            <span className="max-w-[518px] text-center text-sm font-semibold leading-[1.25] text-novatek-primary">
-              {dict.supportedFormats}: {supportedFormats}
-            </span>
+            {supportedFileFormats && (
+              <span className="max-w-[518px] text-center text-sm font-semibold leading-[1.25] text-novatek-primary">
+                {dict.supportedFormats}: {supportedFileFormats}
+              </span>
+            )}
             <span className="text-center text-sm font-medium leading-[1.25] text-novatek-muted">
               {fileLabel}
             </span>
             <input
               accept={acceptedFileTypes}
               className="hidden"
+              disabled={!acceptedFileTypes}
               multiple
               name="files"
               onChange={(event) => {
