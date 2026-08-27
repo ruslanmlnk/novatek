@@ -222,7 +222,7 @@ export function SiteFooter({
               <div className="flex flex-col items-start gap-4 self-stretch">
                 {[footer.contact[2], footer.contact[0], footer.contact[1]].map((line) => (
                   <span
-                    className="text-lg font-medium leading-[1.45] text-novatek-muted"
+                    className="whitespace-nowrap text-lg font-medium leading-[1.45] text-novatek-muted"
                     key={line}
                   >
                     {line}
