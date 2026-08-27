@@ -6,6 +6,11 @@ import { HighlightedTitle } from '../SectionHeading'
 type FaqSectionProps = typeof siteData.faq
 
 export function FaqSection({ eyebrow, items, title }: FaqSectionProps) {
+  const columns = [
+    items.filter((_, index) => index % 2 === 0),
+    items.filter((_, index) => index % 2 === 1),
+  ]
+
   return (
     <section className="bg-novatek-bg px-[clamp(20px,5.1vw,74px)] py-[clamp(72px,10vw,140px)] max-md:px-6">
       <div className="mx-auto mb-12 max-w-content text-center" data-reveal>
@@ -14,7 +19,26 @@ export function FaqSection({ eyebrow, items, title }: FaqSectionProps) {
           <HighlightedTitle {...title} />
         </h2>
       </div>
-      <div className="mx-auto grid max-w-content grid-cols-2 grid-rows-3 grid-flow-col gap-x-8 max-md:grid-cols-1 max-md:grid-rows-none max-md:grid-flow-row">
+      <div className="mx-auto grid max-w-content grid-cols-2 items-start gap-x-8 max-md:hidden">
+        {columns.map((columnItems, columnIndex) => (
+          <div key={columnIndex}>
+            {columnItems.map((item, itemIndex) => {
+              const originalIndex = itemIndex * 2 + columnIndex
+
+              return (
+                <FaqItem
+                  question={item.question}
+                  answer={item.answer}
+                  defaultOpen={originalIndex === 0}
+                  style={revealDelay(originalIndex, 80)}
+                  key={item.question}
+                />
+              )
+            })}
+          </div>
+        ))}
+      </div>
+      <div className="mx-auto hidden max-w-content max-md:block">
         {items.map((item, index) => (
           <FaqItem
             question={item.question}
