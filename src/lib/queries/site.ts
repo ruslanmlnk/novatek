@@ -205,7 +205,7 @@ export const getSiteData = cache(async (locale: Locale = 'en'): Promise<SiteData
       contact: site.pagesSeo?.contact ?? null,
     },
     contactForm: {
-      fileNamingInstructions: pick(site.contactForm?.fileNamingInstructions, dict.form.fileNaming),
+      fileNamingInstructions: site.contactForm?.fileNamingInstructions ?? '',
     },
     footer: {
       tagline: pick(site.footer?.tagline, s.footer.tagline),

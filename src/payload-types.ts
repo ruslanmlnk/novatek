@@ -734,8 +734,8 @@ export interface Site {
     mapImage?: (number | null) | Media;
     contactFormBackgroundImage?: (number | null) | Media;
   };
-  contactForm: {
-    fileNamingInstructions: string;
+  contactForm?: {
+    fileNamingInstructions?: string | null;
   };
   /**
    * Meta tags of the listing pages that have no own content page

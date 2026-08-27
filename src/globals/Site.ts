@@ -89,7 +89,6 @@ export const Site: GlobalConfig = {
           name: 'fileNamingInstructions',
           type: 'textarea',
           localized: true,
-          required: true,
           label: { en: 'File naming instructions', bg: 'Инструкции за именуване на файлове' },
           defaultValue:
             'For laser cutting files, use this naming format: Material_Thickness_File name - Quantity.',

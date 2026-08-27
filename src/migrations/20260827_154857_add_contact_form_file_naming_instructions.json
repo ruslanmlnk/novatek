@@ -3605,7 +3605,7 @@
           "name": "contact_form_file_naming_instructions",
           "type": "varchar",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "default": "'For laser cutting files, use this naming format: Material_Thickness_File name - Quantity.'"
         },
         "pages_seo_services_title": {
